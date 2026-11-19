@@ -1,0 +1,18 @@
+DELIVERY NOTE (Jarvis, 2026-11-18): filed in-repo by Jarvis; operator-approved fix order. This docs commit changes no code.
+
+WORK ORDER SCAN-005-FIX — Scanline: repair the coverage definition's correlated-hole blind spot and re-select the window. (Tower, Kilo session — Beam. Repo ~/scanline, on top of main @ 931b91459b74c3ad883f1659e3d5659f9f2f9295. The survey's facts stand; this order changes no survey fact — it repairs the definition they exposed, re-runs the matrix, and re-prepares the spot-check.)
+
+THE FINDING (graded from origin, Jarvis, 2026-11-18). The survey's own series table shows the corpus's D1 series for GOLD, GER40, and USOIL end 2026-10-21, while their H1/H4 series run to 2026-10-31 (EURUSD/USDCAD D1 runs to 2026-10-30). The selected window 2026-10-02 → 2026-10-31 therefore contains 10 days on which three of five symbols traded intraday but have no D1 bar — their levels would sit frozen at Oct 21 values for the last third of the scan. The freeze record's definition missed it twice over: a "trading day" is defined by D1 presence, so H1 coverage on D1-absent days was never evaluated; and the suspected-hole guard needs ≥4 other symbols trading, which a correlated three-symbol truncation defeats by construction. The definition is repaired below — a strengthening, recorded as a new entry exactly as the freeze record's own rule requires. The param file is NOT touched; no frozen value changes.
+
+STEP 1 — THE ADDENDUM. Add docs/freezes/level_proximity-1.0.0-addendum-1.md recording:
+- the finding (the three D1 series ending 2026-10-21 against H1/H4 running to 2026-10-31; the two mechanisms by which the original definition missed it);
+- the repaired clause, which joins the coverage definition from this addendum forward: a window is disqualified for a symbol if it contains ANY day on which that symbol has emission-timeframe (H1 or H4) bars but no D1 bar — a day present in one timeframe and absent in the other is a corpus hole by construction, regardless of what other symbols do that day;
+- that the original window (2026-10-02 → 2026-10-31) is superseded by the re-selection in Step 2, and that the param file and every frozen value are unchanged.
+
+STEP 2 — RE-RUN THE MATRIX, RE-SELECT. Re-apply the coverage definition (original clauses plus the Step 1 clause) over the same candidate span, and commit the new survey as records/surveys/survey-2026-11-18-rev2.json with the same structure as the original, its definition_source naming both the freeze record and addendum 1, the full matrix, and the new chosen window (the most recent qualifying 30-day window, applied mechanically). Report the new survey file's sha256. The original survey file stays untouched — it is the record of the first application.
+
+STEP 3 — REGENERATE THE SPOT-CHECK WEEK. Replace records/surveys/spotcheck-gold-week.json with GOLD bars for days 1–7 of the NEW window (D1, H1, H4, same format and convention note). The old window was never scanned; nothing depends on the old file.
+
+STEP 4 — COMMIT AND PUSH. Commit on main with message "SCAN-005-FIX: coverage-definition addendum and window re-selection", staging by explicit path only, and push. Report PUSH PROOF (both lines verbatim), the new window, the rev2 survey's sha256, a results block (fix=coverage_addendum, window_start=<date>, window_end=<date>, spotcheck=regenerated_pending_laptop, pushed=yes, head=<sha>), and the free -h line quoted verbatim.
+
+RULES (standing, restated): ~/corpus-store and ~/hiai remain read-only; no code changes; no changes to the frozen param file or the original freeze record (the addendum is a NEW file); no cleanup deletions.
