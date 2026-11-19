@@ -416,14 +416,12 @@ class TestLevels:
         for i in range(20):
             day = 2 + i
             c = 108.0
-            bars.append(make_bar("GOLD", "D1", f"2026-01-{day:02d}T00:00:00Z", c, c + 0.5, c - 0.5, c))
-        # first bar after hole stays outside
-        bars.append(make_bar("GOLD", "D1", "2026-01-25T00:00:00Z", 108.0, 108.5, 107.5, 108.0))
-        # subsequent bars inside
-        for day in (26, 27, 28, 29):
-            bars.append(make_bar("GOLD", "D1", f"2026-01-{day:02d}T00:00:00Z", 100.5, 101.0, 100.0, 100.5))
+            bars.append(make_bar("GOLD", "D1", f"2026-01-{day:02d}T00:00:00Z", c, c + 2.0, c - 2.0, c))
+        # first bar after the hole: close 101.0, crossing fires here
+        bars.append(make_bar("GOLD", "D1", "2026-01-25T00:00:00Z", 101.0, 101.5, 100.5, 101.0))
+        # one further bar dwelling inside: no second event
+        bars.append(make_bar("GOLD", "D1", "2026-01-26T00:00:00Z", 101.0, 101.5, 100.5, 101.0))
         res = compute_events([d1], bars, params)
-        # entry fires on first inside bar (Jan26) with prev (Jan25) outside
         expected = evt("GOLD", "D1", "d1_prior_high", 100.0, "2026-01-02T00:00:00Z",
-                       0.5, "2026-01-27T00:00:00Z")
+                       0.25, "2026-01-26T00:00:00Z")
         assert res == [expected]
