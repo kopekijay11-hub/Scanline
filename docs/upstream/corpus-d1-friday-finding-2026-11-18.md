@@ -22,3 +22,14 @@ Any consumer of "the most recent completed D1 bar" on this corpus runs on Thursd
 ## What Scanline is doing about it in its own lane
 
 Holding its first scan until the pattern is fully measured (weekday histograms, all five symbols, full span), then deciding — with the operator — between accepting Mon–Thu D1 as a documented convention for its research feed, or sourcing D1 differently. The frozen parameters are unaffected under every route. If the corpus D1 is ever repaired, Scanline's convention and first scan are versioned records, not silently invalidated.
+
+## Supplement — 2026-11-19 (SCAN-005-FIX2, full-span measurement)
+
+The pattern is now measured over the full spans of all five Scanline symbols (records/surveys/d1-pattern-2026-11-18.json in this repo, sha256 afc9d7d1f4a7e9182c8b7f82366f9b16f0486c56566871e624121870225d15ed):
+
+- **D1 weekday histograms.** GOLD Mon 109 / Tue 118 / Wed 116 / Thu 110 / Fri 0 (span 2024-07-02 → 2026-10-21); GER40 and USOIL the same shape (Fri 0). EURUSD Mon 1067 / Tue 1070 / Wed 1064 / Thu 1066 / Fri **2**; USDCAD the same shape (Fri **2**). The only two Friday D1 bars in either long series are **2026-10-23 and 2026-10-30** — the last two Fridays of those files, after the other three symbols' D1 end (2026-10-21). Whatever produces these files behaved differently in that final week, at least for the two long-history FX series.
+- **In-window uniformity.** In 2026-09-22 → 2026-10-21, every symbol is missing exactly the same days: 4 full Fridays (21 H1 bars each; 20 for GER40) and 4 Sunday stubs — and no Mon–Thu day at all.
+- **Isolated Mon–Thu holes exist at holiday frequency.** Over the 120 days before the window, each symbol shows a few H1-days with no D1 bar on Mon–Thu (no weekday more than 2 in ~17 weeks) — a second, much rarer absence class alongside the systematic Friday one.
+- **Containment.** 3 of the 20 in-window Fridays are range-contained in an adjacent D1 bar (USOIL 2026-09-25 and 2026-10-09, in both neighbors; EURUSD 2026-10-02, in the previous bar). Range containment alone cannot distinguish a dropped Friday from one folded into Thursday's bar; a decisive combined-aggregate test for those three days is ordered in Scanline's lane (SCAN-005-FIX3 Step 0b) and its verdicts will be added here when graded. The original spot-check already proves GOLD does not fold (its Thursday bar is exactly Thursday).
+
+Scanline's disposition (operator, Route B): the Mon–Thu pattern is accepted as a documented convention for its research feed under freeze-record addendum 2, with the weekly-cycle semantics stated there. This supplement changes nothing about the finding itself: the D1 production loses Fridays, and adjudication remains the owning lane's.
