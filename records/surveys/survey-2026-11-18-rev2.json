@@ -1,0 +1,3548 @@
+{
+  "work_order": "SCAN-005-FIX",
+  "corpus_identity": {
+    "path": "~/corpus-store",
+    "layout": "flat directory; one CSV per symbol/timeframe named {SYMBOL}_{TF}.csv; columns time,open,high,low,close,volume; time is Unix seconds (UTC).",
+    "size_bytes": 1387772022,
+    "size_human": "1.3G",
+    "file_count": 427,
+    "version_build_marker": "market_data_manifest.json (generated_at 2026-11-02T02:02:00Z, generated_by scripts.market_data_manifest); no README or git repository in corpus-store.",
+    "manifest_generated_at": "2026-11-02T02:02:00Z"
+  },
+  "extraction_method": "Read-only: Python csv.DictReader over ~/corpus-store/{SYMBOL}_{TF}.csv; timestamps parsed as int Unix seconds and converted to UTC with datetime.fromtimestamp(..., timezone.utc). No writes to corpus.",
+  "series": [
+    {
+      "symbol": "GOLD",
+      "timeframe": "D1",
+      "file": "GOLD_D1.csv",
+      "bar_count": 453,
+      "first_ts_raw": 1719878400,
+      "first_ts": "2024-07-02T00:00:00Z",
+      "last_ts_raw": 1792540800,
+      "last_ts": "2026-10-21T00:00:00Z",
+      "monotonic_strictly_increasing": true,
+      "duplicate_timestamp_count": 0,
+      "close_min": 2330.22,
+      "close_max": 5519.6,
+      "manifest_rows": 453,
+      "manifest_sha256": "577cd7121c6c0bf862e97568c34b38282fa924ab41423047178c024a410e78cc",
+      "manifest_first_ts": 1719878400,
+      "manifest_last_ts": 1792540800
+    },
+    {
+      "symbol": "GOLD",
+      "timeframe": "H1",
+      "file": "GOLD_H1.csv",
+      "bar_count": 14514,
+      "first_ts_raw": 1624222800,
+      "first_ts": "2021-06-20T21:00:00Z",
+      "last_ts_raw": 1793404800,
+      "last_ts": "2026-10-31T00:00:00Z",
+      "monotonic_strictly_increasing": true,
+      "duplicate_timestamp_count": 0,
+      "close_min": 1621.11,
+      "close_max": 5562.5,
+      "manifest_rows": 14514,
+      "manifest_sha256": "b5de12cb59c0213283984d88b8a3ed66e631622a34271fc02bc0551c04b6e48d",
+      "manifest_first_ts": 1624222800,
+      "manifest_last_ts": 1793404800
+    },
+    {
+      "symbol": "GOLD",
+      "timeframe": "H4",
+      "file": "GOLD_H4.csv",
+      "bar_count": 4496,
+      "first_ts_raw": 1624219200,
+      "first_ts": "2021-06-20T20:00:00Z",
+      "last_ts_raw": 1793394000,
+      "last_ts": "2026-10-30T21:00:00Z",
+      "monotonic_strictly_increasing": true,
+      "duplicate_timestamp_count": 0,
+      "close_min": 1621.11,
+      "close_max": 5558.22,
+      "manifest_rows": 4496,
+      "manifest_sha256": "0855974cee20e2775b0318b1d3faa786144d0867a97d2a1b6a0915a2c09abd96",
+      "manifest_first_ts": 1624219200,
+      "manifest_last_ts": 1793394000
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "D1",
+      "file": "EURUSD_D1.csv",
+      "bar_count": 4269,
+      "first_ts_raw": 1136160000,
+      "first_ts": "2006-01-02T00:00:00Z",
+      "last_ts_raw": 1793318400,
+      "last_ts": "2026-10-30T00:00:00Z",
+      "monotonic_strictly_increasing": true,
+      "duplicate_timestamp_count": 0,
+      "close_min": 0.95953,
+      "close_max": 1.5976,
+      "manifest_rows": 4269,
+      "manifest_sha256": "88f45d2a1aea8257cd66ad6b71a417381d419e3c572a336e9d6deda08158ba42",
+      "manifest_first_ts": 1136160000,
+      "manifest_last_ts": 1793318400
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "H1",
+      "file": "EURUSD_H1.csv",
+      "bar_count": 128899,
+      "first_ts_raw": 1136149200,
+      "first_ts": "2006-01-01T21:00:00Z",
+      "last_ts_raw": 1793404800,
+      "last_ts": "2026-10-31T00:00:00Z",
+      "monotonic_strictly_increasing": true,
+      "duplicate_timestamp_count": 0,
+      "close_min": 0.95391,
+      "close_max": 1.6016,
+      "manifest_rows": 128899,
+      "manifest_sha256": "7da09beab34d699e9e934a78a3777dbb0f614ea54324be5adbcaad27ad57d03b",
+      "manifest_first_ts": 1136149200,
+      "manifest_last_ts": 1793404800
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "H4",
+      "file": "EURUSD_H4.csv",
+      "bar_count": 33080,
+      "first_ts_raw": 1136145600,
+      "first_ts": "2006-01-01T20:00:00Z",
+      "last_ts_raw": 1793394000,
+      "last_ts": "2026-10-30T21:00:00Z",
+      "monotonic_strictly_increasing": true,
+      "duplicate_timestamp_count": 0,
+      "close_min": 0.95578,
+      "close_max": 1.5992,
+      "manifest_rows": 33080,
+      "manifest_sha256": "7a8e8fc158bd525e3ed719572fb5f0829ed2d69ce75f86ace56aec8368e45cb1",
+      "manifest_first_ts": 1136145600,
+      "manifest_last_ts": 1793394000
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "D1",
+      "file": "USDCAD_D1.csv",
+      "bar_count": 3344,
+      "first_ts_raw": 1136160000,
+      "first_ts": "2006-01-02T00:00:00Z",
+      "last_ts_raw": 1793318400,
+      "last_ts": "2026-10-30T00:00:00Z",
+      "monotonic_strictly_increasing": true,
+      "duplicate_timestamp_count": 0,
+      "close_min": 0.9164,
+      "close_max": 1.4577,
+      "manifest_rows": 3344,
+      "manifest_sha256": "400834ac0c8defc650f4caa7436b5d0325de9db3a1978766791849caa6a7d003",
+      "manifest_first_ts": 1136160000,
+      "manifest_last_ts": 1793318400
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "H1",
+      "file": "USDCAD_H1.csv",
+      "bar_count": 101094,
+      "first_ts_raw": 1136152800,
+      "first_ts": "2006-01-01T22:00:00Z",
+      "last_ts_raw": 1793404800,
+      "last_ts": "2026-10-31T00:00:00Z",
+      "monotonic_strictly_increasing": true,
+      "duplicate_timestamp_count": 0,
+      "close_min": 0.9075,
+      "close_max": 1.47806,
+      "manifest_rows": 101094,
+      "manifest_sha256": "201630e8a9ef0c65de4c8fb6307464f951484f66287aef0decdf8231478980e6",
+      "manifest_first_ts": 1136152800,
+      "manifest_last_ts": 1793404800
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "H4",
+      "file": "USDCAD_H4.csv",
+      "bar_count": 25949,
+      "first_ts_raw": 1136145600,
+      "first_ts": "2006-01-01T20:00:00Z",
+      "last_ts_raw": 1793394000,
+      "last_ts": "2026-10-30T21:00:00Z",
+      "monotonic_strictly_increasing": true,
+      "duplicate_timestamp_count": 0,
+      "close_min": 0.9075,
+      "close_max": 1.4746000000000001,
+      "manifest_rows": 25949,
+      "manifest_sha256": "97663e13720a1f37e62a9493e92c1ae5734e62793e6aa663f55dfed7837f81ac",
+      "manifest_first_ts": 1136145600,
+      "manifest_last_ts": 1793394000
+    },
+    {
+      "symbol": "GER40",
+      "timeframe": "D1",
+      "file": "GER40_D1.csv",
+      "bar_count": 442,
+      "first_ts_raw": 1719878400,
+      "first_ts": "2024-07-02T00:00:00Z",
+      "last_ts_raw": 1792540800,
+      "last_ts": "2026-10-21T00:00:00Z",
+      "monotonic_strictly_increasing": true,
+      "duplicate_timestamp_count": 0,
+      "close_min": 17283.9,
+      "close_max": 26406.62,
+      "manifest_rows": 442,
+      "manifest_sha256": "cac59689be2375d7b973fa460b05c35d8ec41102b789c4170ee5c4d8ee48681a",
+      "manifest_first_ts": 1719878400,
+      "manifest_last_ts": 1792540800
+    },
+    {
+      "symbol": "GER40",
+      "timeframe": "H1",
+      "file": "GER40_H1.csv",
+      "bar_count": 14186,
+      "first_ts_raw": 1623099600,
+      "first_ts": "2021-06-07T21:00:00Z",
+      "last_ts_raw": 1793408400,
+      "last_ts": "2026-10-31T01:00:00Z",
+      "monotonic_strictly_increasing": true,
+      "duplicate_timestamp_count": 0,
+      "close_min": 11972.04,
+      "close_max": 26600.99,
+      "manifest_rows": 14186,
+      "manifest_sha256": "0a58b723b5e63caff801617e3b6c5014948e06c6805e4c6ab5168209fdcafb96",
+      "manifest_first_ts": 1623099600,
+      "manifest_last_ts": 1793408400
+    },
+    {
+      "symbol": "GER40",
+      "timeframe": "H4",
+      "file": "GER40_H4.csv",
+      "bar_count": 4326,
+      "first_ts_raw": 1623096000,
+      "first_ts": "2021-06-07T20:00:00Z",
+      "last_ts_raw": 1793397600,
+      "last_ts": "2026-10-30T22:00:00Z",
+      "monotonic_strictly_increasing": true,
+      "duplicate_timestamp_count": 0,
+      "close_min": 11972.04,
+      "close_max": 26554.5,
+      "manifest_rows": 4326,
+      "manifest_sha256": "a929caa78b5cffb425cd2c037beb3776b3891ae54fe3456676209d4174a9684a",
+      "manifest_first_ts": 1623096000,
+      "manifest_last_ts": 1793397600
+    },
+    {
+      "symbol": "USOIL",
+      "timeframe": "D1",
+      "file": "USOIL_D1.csv",
+      "bar_count": 453,
+      "first_ts_raw": 1719878400,
+      "first_ts": "2024-07-02T00:00:00Z",
+      "last_ts_raw": 1792540800,
+      "last_ts": "2026-10-21T00:00:00Z",
+      "monotonic_strictly_increasing": true,
+      "duplicate_timestamp_count": 0,
+      "close_min": 55.777,
+      "close_max": 114.676,
+      "manifest_rows": 453,
+      "manifest_sha256": "c69d7bee7c377e483507486a0f75dacdfe56f5113f9afc7a621f1a66791b047f",
+      "manifest_first_ts": 1719878400,
+      "manifest_last_ts": 1792540800
+    },
+    {
+      "symbol": "USOIL",
+      "timeframe": "H1",
+      "file": "USOIL_H1.csv",
+      "bar_count": 14505,
+      "first_ts_raw": 1624222800,
+      "first_ts": "2021-06-20T21:00:00Z",
+      "last_ts_raw": 1793404800,
+      "last_ts": "2026-10-31T00:00:00Z",
+      "monotonic_strictly_increasing": true,
+      "duplicate_timestamp_count": 0,
+      "close_min": 55.241,
+      "close_max": 125.915,
+      "manifest_rows": 14505,
+      "manifest_sha256": "4abf78bc97b2ecf1d2ef53f8bf4a71c3b8d50dfbc410244af82ed680d6b35d2b",
+      "manifest_first_ts": 1624222800,
+      "manifest_last_ts": 1793404800
+    },
+    {
+      "symbol": "USOIL",
+      "timeframe": "H4",
+      "file": "USOIL_H4.csv",
+      "bar_count": 4494,
+      "first_ts_raw": 1624219200,
+      "first_ts": "2021-06-20T20:00:00Z",
+      "last_ts_raw": 1793394000,
+      "last_ts": "2026-10-30T21:00:00Z",
+      "monotonic_strictly_increasing": true,
+      "duplicate_timestamp_count": 0,
+      "close_min": 55.253,
+      "close_max": 125.915,
+      "manifest_rows": 4494,
+      "manifest_sha256": "24f0113ab40c4dc0e130259784ce194de8e2bafcc12f44e4bb586bdbf35a5aea",
+      "manifest_first_ts": 1624219200,
+      "manifest_last_ts": 1793394000
+    }
+  ],
+  "timestamp_convention": {
+    "value": "bar OPEN times (UTC)",
+    "evidence": "D1 bar open price equals the H1 bar open price at 00:00 UTC on the same date (e.g. GOLD 2024-07-02 D1 open 2332.13 == GOLD H1 2024-07-02T00:00 open 2332.13); D1 bars open at 00:00:00Z and increment by 1 day; H1/H4 opens align to wall-clock market-open hours rather than midnight close boundaries."
+  },
+  "d1_boundary": {
+    "close_instant_utc": "00:00:00Z on the following calendar day (D1 open 00:00:00Z + 1 day)",
+    "lands_on_h1_boundary": true,
+    "birth_coincidence_case": "daily case (D1 close coincides with an H1 bar open at 00:00Z every day)"
+  },
+  "dst_transitions_in_candidate_span": {
+    "transition": "EU DST ended 2026-10-25 (clocks back one hour)",
+    "representation": "Corpus represents DST by shifted bar-open hours: H1 2026-10-22 had 24 bars (extra hour), 2026-10-23 missing hour 01, 2026-10-26 missing hours 00-01; H4 slots shifted from 00/04/... to 01/05/... after the transition. No D1 impact; counts handled per trading day."
+  },
+  "coverage": {
+    "definition_source": "docs/freezes/level_proximity-1.0.0.md (Coverage definition); docs/freezes/level_proximity-1.0.0-addendum-1.md (Addendum 1)",
+    "candidate_window_count": 120,
+    "windows": [
+      {
+        "window_start": "2026-10-02",
+        "window_end": "2026-10-31",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USDCAD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-10-01",
+        "window_end": "2026-10-30",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USDCAD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-30",
+        "window_end": "2026-10-29",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USDCAD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-29",
+        "window_end": "2026-10-28",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USDCAD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-28",
+        "window_end": "2026-10-27",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USDCAD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-27",
+        "window_end": "2026-10-26",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USDCAD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-26",
+        "window_end": "2026-10-25",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-25",
+        "window_end": "2026-10-24",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-24",
+        "window_end": "2026-10-23",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-23",
+        "window_end": "2026-10-22",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-22",
+        "window_end": "2026-10-21",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-21",
+        "window_end": "2026-10-20",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-20",
+        "window_end": "2026-10-19",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-19",
+        "window_end": "2026-10-18",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-18",
+        "window_end": "2026-10-17",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-17",
+        "window_end": "2026-10-16",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-16",
+        "window_end": "2026-10-15",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-15",
+        "window_end": "2026-10-14",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-14",
+        "window_end": "2026-10-13",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-13",
+        "window_end": "2026-10-12",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-12",
+        "window_end": "2026-10-11",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-11",
+        "window_end": "2026-10-10",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-10",
+        "window_end": "2026-10-09",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-09",
+        "window_end": "2026-10-08",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-08",
+        "window_end": "2026-10-07",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-07",
+        "window_end": "2026-10-06",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-06",
+        "window_end": "2026-10-05",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-05",
+        "window_end": "2026-10-04",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-04",
+        "window_end": "2026-10-03",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-03",
+        "window_end": "2026-10-02",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-02",
+        "window_end": "2026-10-01",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-09-01",
+        "window_end": "2026-09-30",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-31",
+        "window_end": "2026-09-29",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-30",
+        "window_end": "2026-09-28",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-29",
+        "window_end": "2026-09-27",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-28",
+        "window_end": "2026-09-26",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-27",
+        "window_end": "2026-09-25",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-26",
+        "window_end": "2026-09-24",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-25",
+        "window_end": "2026-09-23",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-24",
+        "window_end": "2026-09-22",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-23",
+        "window_end": "2026-09-21",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-22",
+        "window_end": "2026-09-20",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-21",
+        "window_end": "2026-09-19",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-20",
+        "window_end": "2026-09-18",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-19",
+        "window_end": "2026-09-17",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-18",
+        "window_end": "2026-09-16",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-17",
+        "window_end": "2026-09-15",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-16",
+        "window_end": "2026-09-14",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-15",
+        "window_end": "2026-09-13",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-14",
+        "window_end": "2026-09-12",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-13",
+        "window_end": "2026-09-11",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-12",
+        "window_end": "2026-09-10",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-11",
+        "window_end": "2026-09-09",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-10",
+        "window_end": "2026-09-08",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-09",
+        "window_end": "2026-09-07",
+        "all_qualify": false,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          },
+          "USOIL": {
+            "qualifies": false,
+            "reason": "d1 hole (emission present, d1 absent)"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-08",
+        "window_end": "2026-09-06",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-07",
+        "window_end": "2026-09-05",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-06",
+        "window_end": "2026-09-04",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-05",
+        "window_end": "2026-09-03",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-04",
+        "window_end": "2026-09-02",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-03",
+        "window_end": "2026-09-01",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-02",
+        "window_end": "2026-08-31",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-08-01",
+        "window_end": "2026-08-30",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-31",
+        "window_end": "2026-08-29",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-30",
+        "window_end": "2026-08-28",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-29",
+        "window_end": "2026-08-27",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-28",
+        "window_end": "2026-08-26",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-27",
+        "window_end": "2026-08-25",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-26",
+        "window_end": "2026-08-24",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-25",
+        "window_end": "2026-08-23",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-24",
+        "window_end": "2026-08-22",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-23",
+        "window_end": "2026-08-21",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-22",
+        "window_end": "2026-08-20",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-21",
+        "window_end": "2026-08-19",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-20",
+        "window_end": "2026-08-18",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-19",
+        "window_end": "2026-08-17",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-18",
+        "window_end": "2026-08-16",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-17",
+        "window_end": "2026-08-15",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-16",
+        "window_end": "2026-08-14",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-15",
+        "window_end": "2026-08-13",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-14",
+        "window_end": "2026-08-12",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-13",
+        "window_end": "2026-08-11",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-12",
+        "window_end": "2026-08-10",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-11",
+        "window_end": "2026-08-09",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-10",
+        "window_end": "2026-08-08",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-09",
+        "window_end": "2026-08-07",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-08",
+        "window_end": "2026-08-06",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-07",
+        "window_end": "2026-08-05",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-06",
+        "window_end": "2026-08-04",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-05",
+        "window_end": "2026-08-03",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-04",
+        "window_end": "2026-08-02",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-03",
+        "window_end": "2026-08-01",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-02",
+        "window_end": "2026-07-31",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-07-01",
+        "window_end": "2026-07-30",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-30",
+        "window_end": "2026-07-29",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-29",
+        "window_end": "2026-07-28",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-28",
+        "window_end": "2026-07-27",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-27",
+        "window_end": "2026-07-26",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-26",
+        "window_end": "2026-07-25",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-25",
+        "window_end": "2026-07-24",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-24",
+        "window_end": "2026-07-23",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-23",
+        "window_end": "2026-07-22",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-22",
+        "window_end": "2026-07-21",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-21",
+        "window_end": "2026-07-20",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-20",
+        "window_end": "2026-07-19",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-19",
+        "window_end": "2026-07-18",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-18",
+        "window_end": "2026-07-17",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-17",
+        "window_end": "2026-07-16",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-16",
+        "window_end": "2026-07-15",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-15",
+        "window_end": "2026-07-14",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-14",
+        "window_end": "2026-07-13",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-13",
+        "window_end": "2026-07-12",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-12",
+        "window_end": "2026-07-11",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-11",
+        "window_end": "2026-07-10",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-10",
+        "window_end": "2026-07-09",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-09",
+        "window_end": "2026-07-08",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-08",
+        "window_end": "2026-07-07",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-07",
+        "window_end": "2026-07-06",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-06",
+        "window_end": "2026-07-05",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      },
+      {
+        "window_start": "2026-06-05",
+        "window_end": "2026-07-04",
+        "all_qualify": true,
+        "per_symbol": {
+          "GOLD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "EURUSD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USDCAD": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "GER40": {
+            "qualifies": true,
+            "reason": "ok"
+          },
+          "USOIL": {
+            "qualifies": true,
+            "reason": "ok"
+          }
+        }
+      }
+    ],
+    "chosen_window": {
+      "start": "2026-09-22",
+      "end": "2026-10-21"
+    }
+  }
+}
