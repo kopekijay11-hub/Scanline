@@ -51,6 +51,16 @@ def _validate_params(params: Dict[str, Any]) -> Tuple[float, int, str, str, Dict
         raise ValueError("proximity_bands_atr value must be numeric")
     if params.get("atr_excludes_emission_bar") is not True:
         raise ValueError("atr_excludes_emission_bar must be true")
+    if params.get("crossing_semantics") != "close_distance_band_entry":
+        raise ValueError("crossing_semantics must be 'close_distance_band_entry'")
+    if params.get("band_edge") != "inclusive":
+        raise ValueError("band_edge must be 'inclusive'")
+    if params.get("gap_through") != "fires_if_landing_inside":
+        raise ValueError("gap_through must be 'fires_if_landing_inside'")
+    if params.get("state_key") != "level_type+level_price+defined_at":
+        raise ValueError("state_key must be 'level_type+level_price+defined_at'")
+    if params.get("gap_semantics") != "array_previous":
+        raise ValueError("gap_semantics must be 'array_previous'")
     atr_window = params["atr_window"]
     if isinstance(atr_window, bool) or not isinstance(atr_window, int) or atr_window <= 0:
         raise ValueError("atr_window must be a positive integer")
@@ -215,15 +225,3 @@ def compute_events(d1_bars: List[Dict[str, Any]], emission_bars: List[Dict[str, 
 
     events.sort(key=lambda e: (e["event_ts"], e["level_type"], e["level_price"], e["defined_at"]))
     return events
-
-
-# Aliases for convenience
-generate_events = compute_events
-run_predicate = compute_events
-predicate = compute_events
-scan = compute_events
-get_events = compute_events
-predict = compute_events
-evaluate = compute_events
-run = compute_events
-levels = compute_events

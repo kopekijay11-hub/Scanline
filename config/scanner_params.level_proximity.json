@@ -8,5 +8,11 @@
   "level_types": ["d1_prior_high", "d1_prior_low", "d1_session_structure", "grid_round"],
   "atr_window": 14,
   "atr_basis": "closed_bars_only",
-  "proximity_bands_atr": null
+  "proximity_bands_atr": null,
+  "crossing_semantics": "close_distance_band_entry",
+  "band_edge": "inclusive",
+  "gap_through": "fires_if_landing_inside",
+  "state_key": "level_type+level_price+defined_at",
+  "gap_semantics": "array_previous",
+  "atr_excludes_emission_bar": true
 }

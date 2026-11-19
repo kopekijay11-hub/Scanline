@@ -26,6 +26,11 @@
     0.5
   ],
   "atr_excludes_emission_bar": true,
+  "crossing_semantics": "close_distance_band_entry",
+  "band_edge": "inclusive",
+  "gap_through": "fires_if_landing_inside",
+  "state_key": "level_type+level_price+defined_at",
+  "gap_semantics": "array_previous",
   "grid_steps": {
     "GOLD": 7,
     "EURUSD": 10,
