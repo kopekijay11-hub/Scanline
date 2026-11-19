@@ -345,3 +345,58 @@ class TestViolationOrdering:
         assert "R2" in violation_rules
         # R1 comes before R2
         assert violation_rules.index("R1") < violation_rules.index("R2")
+
+
+class TestContractV2Clauses:
+    """Pin the three contract-v2 clauses not yet covered by the suite."""
+
+    def test_grid_membership_fail_R1(self, frozen_params_bytes):
+        """GRID-MEMBERSHIP FAIL: off-grid grid_round level_price fails R1."""
+        events, header = load_batch("clean_batch.json")
+        events = [dict(e) for e in events]
+        header = dict(header)
+        grid_idx = next(i for i, e in enumerate(events) if e["level_type"] == "grid_round")
+        events[grid_idx]["level_price"] = 1.351  # not a multiple of USDCAD step 0.005
+        header["scan_mode"] = "retrospective"
+        result = validate_batch(events, header, frozen_params_bytes)
+
+        assert result["valid"] is False
+        assert result["rule_results"]["R1"] == "fail"
+        assert result["rule_results"]["R2"] == "pass"
+        assert result["rule_results"]["R3"] == "pass"
+        assert result["rule_results"]["R4"] == "pass"
+        assert result["rule_results"]["R5"] == "pass"
+        r1 = [v for v in result["violations"] if v["rule"] == "R1"]
+        assert len(r1) == 1
+        assert r1[0]["event_index"] == grid_idx
+
+    def test_retrospective_pass(self, frozen_params_bytes):
+        """RETROSPECTIVE PASS: header frozen_at postdates events, scan_mode retrospective."""
+        events, header = load_batch("clean_batch.json")
+        events = [dict(e) for e in events]
+        header = dict(header)
+        header["scan_mode"] = "retrospective"
+        header["frozen_at"] = "2026-12-31T00:00:00Z"  # postdates every event_ts
+        result = validate_batch(events, header, frozen_params_bytes)
+
+        assert result["valid"] is True
+        assert all(r == "pass" for r in result["rule_results"].values())
+        assert len(result["violations"]) == 0
+
+    def test_scan_mode_required_R5(self, frozen_params_bytes):
+        """SCAN_MODE REQUIRED: header omitting scan_mode fails R5."""
+        events, header = load_batch("clean_batch.json")
+        events = [dict(e) for e in events]
+        header = dict(header)
+        del header["scan_mode"]
+        result = validate_batch(events, header, frozen_params_bytes)
+
+        assert result["valid"] is False
+        assert result["rule_results"]["R5"] == "fail"
+        assert result["rule_results"]["R1"] == "pass"
+        assert result["rule_results"]["R2"] == "pass"
+        assert result["rule_results"]["R3"] == "pass"
+        assert result["rule_results"]["R4"] == "pass"
+        r5 = [v for v in result["violations"] if v["rule"] == "R5"]
+        assert len(r5) == 1
+        assert r5[0]["event_index"] is None
