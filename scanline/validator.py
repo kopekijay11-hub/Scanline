@@ -96,6 +96,7 @@ def validate_batch(
     rule_results["R1"] = "pass" if not r1_violations else "fail"
     
     # R2: D1-definition check - every level_type is in LEVEL_TYPES
+    #     and every timeframe is in EMISSION_TIMEFRAMES
     r2_violations = []
     for idx, event in enumerate(events):
         level_type = event.get("level_type")
@@ -104,6 +105,13 @@ def validate_batch(
                 "rule": "R2",
                 "event_index": idx,
                 "detail": f"level_type '{level_type}' not in LEVEL_TYPES"
+            })
+        timeframe = event.get("timeframe")
+        if timeframe not in EMISSION_TIMEFRAMES:
+            r2_violations.append({
+                "rule": "R2",
+                "event_index": idx,
+                "detail": f"timeframe '{timeframe}' not in EMISSION_TIMEFRAMES"
             })
     
     r2_violations.sort(key=lambda x: x["event_index"])
@@ -200,19 +208,10 @@ def validate_batch(
                     "detail": f"frozen_at ({frozen_at_str}) not strictly before first event_ts ({first_event_dt.isoformat()})"
                 })
     
-    # Deduplicate R4 violations by detail (keep first occurrence of each unique detail)
-    seen_details = set()
-    unique_r4_violations = []
-    for v in r4_violations:
-        detail_key = v["detail"]
-        if detail_key not in seen_details:
-            seen_details.add(detail_key)
-            unique_r4_violations.append(v)
-    
     # Sort R4 violations: None event_index first, then by event_index
-    unique_r4_violations.sort(key=lambda x: (x["event_index"] is None, x["event_index"] if x["event_index"] is not None else -1))
-    violations.extend(unique_r4_violations)
-    rule_results["R4"] = "pass" if not unique_r4_violations else "fail"
+    r4_violations.sort(key=lambda x: (x["event_index"] is None, x["event_index"] if x["event_index"] is not None else -1))
+    violations.extend(r4_violations)
+    rule_results["R4"] = "pass" if not r4_violations else "fail"
     
     # R5: no-forward-field check
     r5_violations = []
@@ -235,6 +234,28 @@ def validate_batch(
                 "event_index": idx,
                 "detail": f"missing fields: {sorted(missing_fields)}"
             })
+        
+        # Numeric / structural checks (schema conformance)
+        if "level_price" in event and not _check_numeric(event.get("level_price")):
+            r5_violations.append({
+                "rule": "R5",
+                "event_index": idx,
+                "detail": "level_price is not numeric"
+            })
+        if "distance_atr" in event and not _check_numeric(event.get("distance_atr")):
+            r5_violations.append({
+                "rule": "R5",
+                "event_index": idx,
+                "detail": "distance_atr is not numeric"
+            })
+        if "atr_window" in event:
+            aw = event.get("atr_window")
+            if not (isinstance(aw, int) and not isinstance(aw, bool) and aw > 0):
+                r5_violations.append({
+                    "rule": "R5",
+                    "event_index": idx,
+                    "detail": "atr_window is not a positive integer"
+                })
     
     # Check header has exactly BATCH_HEADER_FIELDS
     header_fields = set(header.keys())
@@ -264,25 +285,15 @@ def validate_batch(
     rule_results["R5"] = "pass" if not r5_violations else "fail"
     
     # Sort all violations by rule name, then by event_index
-    # For violations with event_index=None, treat them as -1 for sorting
     violations.sort(key=lambda x: (
         x["rule"],
         x["event_index"] if x["event_index"] is not None else -1
     ))
-    
-    # Remove duplicate violations (same rule, event_index, detail)
-    seen = set()
-    unique_violations = []
-    for v in violations:
-        key = (v["rule"], v["event_index"], v["detail"])
-        if key not in seen:
-            seen.add(key)
-            unique_violations.append(v)
-    
+
     is_valid = all(r == "pass" for r in rule_results.values())
     
     return {
         "valid": is_valid,
         "rule_results": rule_results,
-        "violations": unique_violations,
+        "violations": violations,
     }

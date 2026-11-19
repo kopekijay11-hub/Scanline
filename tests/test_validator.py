@@ -42,13 +42,6 @@ def frozen_params_late_bytes():
 
 
 @pytest.fixture
-def frozen_params_v2_bytes():
-    """Load frozen params v2."""
-    with open(FIXTURES_DIR / "frozen_params_v2.json", "rb") as f:
-        return f.read()
-
-
-@pytest.fixture
 def production_params_bytes():
     """Load production params file (unfrozen)."""
     with open(Path(__file__).parent.parent / "config" / "scanner_params.level_proximity.json", "rb") as f:
@@ -151,10 +144,10 @@ class TestPoisonedBatches:
         assert len(result["violations"]) == 1
         assert result["violations"][0]["rule"] == "R4"
 
-    def test_poisoned_R4c_fails_only_R4(self, frozen_params_v2_bytes):
+    def test_poisoned_R4c_fails_only_R4(self, frozen_params_bytes):
         """R4c poison: event param_version mismatch."""
         events, header = load_batch("poisoned_R4c.json")
-        result = validate_batch(events, header, frozen_params_v2_bytes)
+        result = validate_batch(events, header, frozen_params_bytes)
         
         assert result["valid"] is False
         assert result["rule_results"]["R1"] == "pass"
@@ -181,6 +174,52 @@ class TestPoisonedBatches:
         assert len(result["violations"]) == 1
         assert result["violations"][0]["rule"] == "R5"
         assert result["violations"][0]["event_index"] == 0
+
+    def test_poisoned_R2b_fails_only_R2(self, frozen_params_bytes):
+        """R2b poison: invalid timeframe."""
+        events, header = load_batch("poisoned_R2b.json")
+        result = validate_batch(events, header, frozen_params_bytes)
+        
+        assert result["valid"] is False
+        assert result["rule_results"]["R1"] == "pass"
+        assert result["rule_results"]["R2"] == "fail"
+        assert result["rule_results"]["R3"] == "pass"
+        assert result["rule_results"]["R4"] == "pass"
+        assert result["rule_results"]["R5"] == "pass"
+        assert len(result["violations"]) == 1
+        assert result["violations"][0]["rule"] == "R2"
+        assert result["violations"][0]["event_index"] == 1
+
+    def test_poisoned_R5b_fails_only_R5(self, frozen_params_bytes):
+        """R5b poison: atr_window 0."""
+        events, header = load_batch("poisoned_R5b.json")
+        result = validate_batch(events, header, frozen_params_bytes)
+        
+        assert result["valid"] is False
+        assert result["rule_results"]["R1"] == "pass"
+        assert result["rule_results"]["R2"] == "pass"
+        assert result["rule_results"]["R3"] == "pass"
+        assert result["rule_results"]["R4"] == "pass"
+        assert result["rule_results"]["R5"] == "fail"
+        assert len(result["violations"]) == 1
+        assert result["violations"][0]["rule"] == "R5"
+        assert result["violations"][0]["event_index"] == 0
+
+
+class TestViolationCounts:
+    """Regression tests for honest violation counts."""
+
+    def test_r4_duplicate_wrong_versions_not_deduped(self, clean_batch, frozen_params_bytes):
+        """Two events with same wrong param_version yield two R4 violations."""
+        events, header = clean_batch
+        events = [dict(e) for e in events]
+        events[0]["param_version"] = "2.0.0"
+        events[3]["param_version"] = "2.0.0"
+        result = validate_batch(events, header, frozen_params_bytes)
+
+        r4 = [v for v in result["violations"] if v["rule"] == "R4"]
+        assert len(r4) == 2
+        assert sorted(v["event_index"] for v in r4) == [0, 3]
 
 
 class TestByteHashVariant:
