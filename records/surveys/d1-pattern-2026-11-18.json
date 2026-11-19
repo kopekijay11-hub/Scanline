@@ -1,0 +1,842 @@
+{
+  "work_order": "SCAN-005-FIX2",
+  "measurement": "corpus D1 weekday pattern",
+  "symbols": [
+    "GOLD",
+    "EURUSD",
+    "USDCAD",
+    "GER40",
+    "USOIL"
+  ],
+  "chosen_window": {
+    "start": "2026-09-22",
+    "end": "2026-10-21"
+  },
+  "per_symbol": {
+    "GOLD": {
+      "d1_span": {
+        "first": "2024-07-02",
+        "last": "2026-10-21",
+        "bar_count": 453,
+        "total_calendar_days": 842
+      },
+      "d1_weekday_histogram": {
+        "Mon": 109,
+        "Tue": 118,
+        "Wed": 116,
+        "Thu": 110,
+        "Fri": 0,
+        "Sat": 0,
+        "Sun": 0
+      },
+      "expected_weekday_counts_span": {
+        "Mon": 120,
+        "Tue": 121,
+        "Wed": 121,
+        "Thu": 120,
+        "Fri": 120,
+        "Sat": 120,
+        "Sun": 120
+      },
+      "h1_span": {
+        "first": "2021-06-20",
+        "last": "2026-10-31",
+        "bar_count": 14514
+      },
+      "window_missing_days": [
+        {
+          "date": "2026-09-25",
+          "weekday": "Fri",
+          "h1_bar_count": 21,
+          "h1_open": 4264.98,
+          "h1_high": 4315.71,
+          "h1_low": 4254.44,
+          "h1_close": 4284.7,
+          "adjacent_prev_d1": "2026-09-24",
+          "adjacent_next_d1": "2026-09-28",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-09-27",
+          "weekday": "Sun",
+          "h1_bar_count": 2,
+          "h1_open": 4277.2,
+          "h1_high": 4280.14,
+          "h1_low": 4257.44,
+          "h1_close": 4260.29,
+          "adjacent_prev_d1": "2026-09-24",
+          "adjacent_next_d1": "2026-09-28",
+          "contained_in_prev": true,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-10-02",
+          "weekday": "Fri",
+          "h1_bar_count": 21,
+          "h1_open": 4181.88,
+          "h1_high": 4229.23,
+          "h1_low": 4125.14,
+          "h1_close": 4143.52,
+          "adjacent_prev_d1": "2026-10-01",
+          "adjacent_next_d1": "2026-10-05",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-10-04",
+          "weekday": "Sun",
+          "h1_bar_count": 2,
+          "h1_open": 4139.33,
+          "h1_high": 4148.24,
+          "h1_low": 4130.02,
+          "h1_close": 4142.56,
+          "adjacent_prev_d1": "2026-10-01",
+          "adjacent_next_d1": "2026-10-05",
+          "contained_in_prev": false,
+          "contained_in_next": true,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-10-09",
+          "weekday": "Fri",
+          "h1_bar_count": 21,
+          "h1_open": 4144.64,
+          "h1_high": 4207.54,
+          "h1_low": 4141.56,
+          "h1_close": 4194.38,
+          "adjacent_prev_d1": "2026-10-08",
+          "adjacent_next_d1": "2026-10-12",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-10-11",
+          "weekday": "Sun",
+          "h1_bar_count": 2,
+          "h1_open": 4194.36,
+          "h1_high": 4199.39,
+          "h1_low": 4184.72,
+          "h1_close": 4190.47,
+          "adjacent_prev_d1": "2026-10-08",
+          "adjacent_next_d1": "2026-10-12",
+          "contained_in_prev": false,
+          "contained_in_next": true,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-10-16",
+          "weekday": "Fri",
+          "h1_bar_count": 21,
+          "h1_open": 4155.94,
+          "h1_high": 4199.05,
+          "h1_low": 4147.09,
+          "h1_close": 4165.35,
+          "adjacent_prev_d1": "2026-10-15",
+          "adjacent_next_d1": "2026-10-19",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-10-18",
+          "weekday": "Sun",
+          "h1_bar_count": 2,
+          "h1_open": 4156.58,
+          "h1_high": 4185.91,
+          "h1_low": 4156.43,
+          "h1_close": 4184.87,
+          "adjacent_prev_d1": "2026-10-15",
+          "adjacent_next_d1": "2026-10-19",
+          "contained_in_prev": false,
+          "contained_in_next": true,
+          "contained_in_any_adjacent": true
+        }
+      ],
+      "window_missing_count": 8,
+      "recent_120d": {
+        "range_start": "2026-07-04",
+        "range_end": "2026-10-31",
+        "missing_count_by_weekday": {
+          "Mon": 2,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 2,
+          "Fri": 17,
+          "Sat": 2,
+          "Sun": 16
+        },
+        "missing_total": 41
+      },
+      "containment_summary": {
+        "checked": 8,
+        "contained_in_any": 4,
+        "not_contained": 4
+      }
+    },
+    "EURUSD": {
+      "d1_span": {
+        "first": "2006-01-02",
+        "last": "2026-10-30",
+        "bar_count": 4269,
+        "total_calendar_days": 7607
+      },
+      "d1_weekday_histogram": {
+        "Mon": 1067,
+        "Tue": 1070,
+        "Wed": 1064,
+        "Thu": 1066,
+        "Fri": 2,
+        "Sat": 0,
+        "Sun": 0
+      },
+      "expected_weekday_counts_span": {
+        "Mon": 1087,
+        "Tue": 1087,
+        "Wed": 1087,
+        "Thu": 1087,
+        "Fri": 1087,
+        "Sat": 1086,
+        "Sun": 1086
+      },
+      "h1_span": {
+        "first": "2006-01-01",
+        "last": "2026-10-31",
+        "bar_count": 128899
+      },
+      "window_missing_days": [
+        {
+          "date": "2026-09-25",
+          "weekday": "Fri",
+          "h1_bar_count": 21,
+          "h1_open": 1.13735,
+          "h1_high": 1.14108,
+          "h1_low": 1.13682,
+          "h1_close": 1.13868,
+          "adjacent_prev_d1": "2026-09-24",
+          "adjacent_next_d1": "2026-09-28",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-09-27",
+          "weekday": "Sun",
+          "h1_bar_count": 3,
+          "h1_open": 1.13777,
+          "h1_high": 1.1385399999999999,
+          "h1_low": 1.13734,
+          "h1_close": 1.13779,
+          "adjacent_prev_d1": "2026-09-24",
+          "adjacent_next_d1": "2026-09-28",
+          "contained_in_prev": true,
+          "contained_in_next": true,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-10-02",
+          "weekday": "Fri",
+          "h1_bar_count": 21,
+          "h1_open": 1.12479,
+          "h1_high": 1.12852,
+          "h1_low": 1.12207,
+          "h1_close": 1.12489,
+          "adjacent_prev_d1": "2026-10-01",
+          "adjacent_next_d1": "2026-10-05",
+          "contained_in_prev": true,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-10-04",
+          "weekday": "Sun",
+          "h1_bar_count": 3,
+          "h1_open": 1.12599,
+          "h1_high": 1.1261,
+          "h1_low": 1.12494,
+          "h1_close": 1.12541,
+          "adjacent_prev_d1": "2026-10-01",
+          "adjacent_next_d1": "2026-10-05",
+          "contained_in_prev": true,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-10-09",
+          "weekday": "Fri",
+          "h1_bar_count": 21,
+          "h1_open": 1.12126,
+          "h1_high": 1.12427,
+          "h1_low": 1.11874,
+          "h1_close": 1.11969,
+          "adjacent_prev_d1": "2026-10-08",
+          "adjacent_next_d1": "2026-10-12",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-10-11",
+          "weekday": "Sun",
+          "h1_bar_count": 3,
+          "h1_open": 1.11849,
+          "h1_high": 1.12053,
+          "h1_low": 1.11844,
+          "h1_close": 1.12041,
+          "adjacent_prev_d1": "2026-10-08",
+          "adjacent_next_d1": "2026-10-12",
+          "contained_in_prev": true,
+          "contained_in_next": true,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-10-16",
+          "weekday": "Fri",
+          "h1_bar_count": 21,
+          "h1_open": 1.12125,
+          "h1_high": 1.12693,
+          "h1_low": 1.1207799999999999,
+          "h1_close": 1.12359,
+          "adjacent_prev_d1": "2026-10-15",
+          "adjacent_next_d1": "2026-10-19",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-10-18",
+          "weekday": "Sun",
+          "h1_bar_count": 3,
+          "h1_open": 1.1198,
+          "h1_high": 1.12304,
+          "h1_low": 1.11801,
+          "h1_close": 1.12262,
+          "adjacent_prev_d1": "2026-10-15",
+          "adjacent_next_d1": "2026-10-19",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        }
+      ],
+      "window_missing_count": 8,
+      "recent_120d": {
+        "range_start": "2026-07-04",
+        "range_end": "2026-10-31",
+        "missing_count_by_weekday": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 15,
+          "Sat": 2,
+          "Sun": 16
+        },
+        "missing_total": 34
+      },
+      "containment_summary": {
+        "checked": 8,
+        "contained_in_any": 4,
+        "not_contained": 4
+      }
+    },
+    "USDCAD": {
+      "d1_span": {
+        "first": "2006-01-02",
+        "last": "2026-10-30",
+        "bar_count": 3344,
+        "total_calendar_days": 7607
+      },
+      "d1_weekday_histogram": {
+        "Mon": 837,
+        "Tue": 839,
+        "Wed": 832,
+        "Thu": 834,
+        "Fri": 2,
+        "Sat": 0,
+        "Sun": 0
+      },
+      "expected_weekday_counts_span": {
+        "Mon": 1087,
+        "Tue": 1087,
+        "Wed": 1087,
+        "Thu": 1087,
+        "Fri": 1087,
+        "Sat": 1086,
+        "Sun": 1086
+      },
+      "h1_span": {
+        "first": "2006-01-01",
+        "last": "2026-10-31",
+        "bar_count": 101094
+      },
+      "window_missing_days": [
+        {
+          "date": "2026-09-25",
+          "weekday": "Fri",
+          "h1_bar_count": 21,
+          "h1_open": 1.41467,
+          "h1_high": 1.41539,
+          "h1_low": 1.4132799999999999,
+          "h1_close": 1.41368,
+          "adjacent_prev_d1": "2026-09-24",
+          "adjacent_next_d1": "2026-09-28",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-09-27",
+          "weekday": "Sun",
+          "h1_bar_count": 3,
+          "h1_open": 1.41313,
+          "h1_high": 1.41561,
+          "h1_low": 1.41313,
+          "h1_close": 1.41541,
+          "adjacent_prev_d1": "2026-09-24",
+          "adjacent_next_d1": "2026-09-28",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-10-02",
+          "weekday": "Fri",
+          "h1_bar_count": 21,
+          "h1_open": 1.42202,
+          "h1_high": 1.42611,
+          "h1_low": 1.42016,
+          "h1_close": 1.42438,
+          "adjacent_prev_d1": "2026-10-01",
+          "adjacent_next_d1": "2026-10-05",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-10-04",
+          "weekday": "Sun",
+          "h1_bar_count": 3,
+          "h1_open": 1.42475,
+          "h1_high": 1.4255,
+          "h1_low": 1.42474,
+          "h1_close": 1.42539,
+          "adjacent_prev_d1": "2026-10-01",
+          "adjacent_next_d1": "2026-10-05",
+          "contained_in_prev": true,
+          "contained_in_next": true,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-10-09",
+          "weekday": "Fri",
+          "h1_bar_count": 21,
+          "h1_open": 1.42233,
+          "h1_high": 1.4298,
+          "h1_low": 1.42061,
+          "h1_close": 1.42553,
+          "adjacent_prev_d1": "2026-10-08",
+          "adjacent_next_d1": "2026-10-12",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-10-11",
+          "weekday": "Sun",
+          "h1_bar_count": 3,
+          "h1_open": 1.42726,
+          "h1_high": 1.42755,
+          "h1_low": 1.42564,
+          "h1_close": 1.4258600000000001,
+          "adjacent_prev_d1": "2026-10-08",
+          "adjacent_next_d1": "2026-10-12",
+          "contained_in_prev": true,
+          "contained_in_next": true,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-10-16",
+          "weekday": "Fri",
+          "h1_bar_count": 21,
+          "h1_open": 1.41937,
+          "h1_high": 1.41983,
+          "h1_low": 1.41338,
+          "h1_close": 1.41351,
+          "adjacent_prev_d1": "2026-10-15",
+          "adjacent_next_d1": "2026-10-19",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-10-18",
+          "weekday": "Sun",
+          "h1_bar_count": 3,
+          "h1_open": 1.41096,
+          "h1_high": 1.4133200000000001,
+          "h1_low": 1.41074,
+          "h1_close": 1.41183,
+          "adjacent_prev_d1": "2026-10-15",
+          "adjacent_next_d1": "2026-10-19",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        }
+      ],
+      "window_missing_count": 8,
+      "recent_120d": {
+        "range_start": "2026-07-04",
+        "range_end": "2026-10-31",
+        "missing_count_by_weekday": {
+          "Mon": 1,
+          "Tue": 0,
+          "Wed": 0,
+          "Thu": 0,
+          "Fri": 15,
+          "Sat": 2,
+          "Sun": 16
+        },
+        "missing_total": 34
+      },
+      "containment_summary": {
+        "checked": 8,
+        "contained_in_any": 2,
+        "not_contained": 6
+      }
+    },
+    "GER40": {
+      "d1_span": {
+        "first": "2024-07-02",
+        "last": "2026-10-21",
+        "bar_count": 442,
+        "total_calendar_days": 842
+      },
+      "d1_weekday_histogram": {
+        "Mon": 106,
+        "Tue": 116,
+        "Wed": 115,
+        "Thu": 105,
+        "Fri": 0,
+        "Sat": 0,
+        "Sun": 0
+      },
+      "expected_weekday_counts_span": {
+        "Mon": 120,
+        "Tue": 121,
+        "Wed": 121,
+        "Thu": 120,
+        "Fri": 120,
+        "Sat": 120,
+        "Sun": 120
+      },
+      "h1_span": {
+        "first": "2021-06-07",
+        "last": "2026-10-31",
+        "bar_count": 14186
+      },
+      "window_missing_days": [
+        {
+          "date": "2026-09-25",
+          "weekday": "Fri",
+          "h1_bar_count": 20,
+          "h1_open": 25350.37,
+          "h1_high": 25571.16,
+          "h1_low": 25342.51,
+          "h1_close": 25548.15,
+          "adjacent_prev_d1": "2026-09-24",
+          "adjacent_next_d1": "2026-09-28",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-09-27",
+          "weekday": "Sun",
+          "h1_bar_count": 2,
+          "h1_open": 25508.04,
+          "h1_high": 25510.5,
+          "h1_low": 25462.66,
+          "h1_close": 25472.2,
+          "adjacent_prev_d1": "2026-09-24",
+          "adjacent_next_d1": "2026-09-28",
+          "contained_in_prev": false,
+          "contained_in_next": true,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-10-02",
+          "weekday": "Fri",
+          "h1_bar_count": 20,
+          "h1_open": 24984.96,
+          "h1_high": 25304.34,
+          "h1_low": 24932.89,
+          "h1_close": 25273.21,
+          "adjacent_prev_d1": "2026-10-01",
+          "adjacent_next_d1": "2026-10-05",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-10-04",
+          "weekday": "Sun",
+          "h1_bar_count": 2,
+          "h1_open": 25302.02,
+          "h1_high": 25311.1,
+          "h1_low": 25295.65,
+          "h1_close": 25304.52,
+          "adjacent_prev_d1": "2026-10-01",
+          "adjacent_next_d1": "2026-10-05",
+          "contained_in_prev": false,
+          "contained_in_next": true,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-10-09",
+          "weekday": "Fri",
+          "h1_bar_count": 20,
+          "h1_open": 24994.56,
+          "h1_high": 25188.44,
+          "h1_low": 24952.39,
+          "h1_close": 25171.13,
+          "adjacent_prev_d1": "2026-10-08",
+          "adjacent_next_d1": "2026-10-12",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-10-11",
+          "weekday": "Sun",
+          "h1_bar_count": 2,
+          "h1_open": 25191.01,
+          "h1_high": 25223.62,
+          "h1_low": 25189.56,
+          "h1_close": 25215.17,
+          "adjacent_prev_d1": "2026-10-08",
+          "adjacent_next_d1": "2026-10-12",
+          "contained_in_prev": false,
+          "contained_in_next": true,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-10-16",
+          "weekday": "Fri",
+          "h1_bar_count": 20,
+          "h1_open": 25470.71,
+          "h1_high": 25696.28,
+          "h1_low": 25405.88,
+          "h1_close": 25467.14,
+          "adjacent_prev_d1": "2026-10-15",
+          "adjacent_next_d1": "2026-10-19",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-10-18",
+          "weekday": "Sun",
+          "h1_bar_count": 2,
+          "h1_open": 25499.72,
+          "h1_high": 25574.95,
+          "h1_low": 25499.43,
+          "h1_close": 25572.7,
+          "adjacent_prev_d1": "2026-10-15",
+          "adjacent_next_d1": "2026-10-19",
+          "contained_in_prev": false,
+          "contained_in_next": true,
+          "contained_in_any_adjacent": true
+        }
+      ],
+      "window_missing_count": 8,
+      "recent_120d": {
+        "range_start": "2026-07-04",
+        "range_end": "2026-10-31",
+        "missing_count_by_weekday": {
+          "Mon": 2,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 2,
+          "Fri": 17,
+          "Sat": 2,
+          "Sun": 16
+        },
+        "missing_total": 41
+      },
+      "containment_summary": {
+        "checked": 8,
+        "contained_in_any": 4,
+        "not_contained": 4
+      }
+    },
+    "USOIL": {
+      "d1_span": {
+        "first": "2024-07-02",
+        "last": "2026-10-21",
+        "bar_count": 453,
+        "total_calendar_days": 842
+      },
+      "d1_weekday_histogram": {
+        "Mon": 109,
+        "Tue": 118,
+        "Wed": 116,
+        "Thu": 110,
+        "Fri": 0,
+        "Sat": 0,
+        "Sun": 0
+      },
+      "expected_weekday_counts_span": {
+        "Mon": 120,
+        "Tue": 121,
+        "Wed": 121,
+        "Thu": 120,
+        "Fri": 120,
+        "Sat": 120,
+        "Sun": 120
+      },
+      "h1_span": {
+        "first": "2021-06-20",
+        "last": "2026-10-31",
+        "bar_count": 14505
+      },
+      "window_missing_days": [
+        {
+          "date": "2026-09-25",
+          "weekday": "Fri",
+          "h1_bar_count": 21,
+          "h1_open": 97.522,
+          "h1_high": 97.792,
+          "h1_low": 94.969,
+          "h1_close": 95.917,
+          "adjacent_prev_d1": "2026-09-24",
+          "adjacent_next_d1": "2026-09-28",
+          "contained_in_prev": true,
+          "contained_in_next": true,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-09-27",
+          "weekday": "Sun",
+          "h1_bar_count": 2,
+          "h1_open": 96.994,
+          "h1_high": 97.185,
+          "h1_low": 96.172,
+          "h1_close": 96.41,
+          "adjacent_prev_d1": "2026-09-24",
+          "adjacent_next_d1": "2026-09-28",
+          "contained_in_prev": true,
+          "contained_in_next": true,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-10-02",
+          "weekday": "Fri",
+          "h1_bar_count": 21,
+          "h1_open": 95.544,
+          "h1_high": 95.795,
+          "h1_low": 90.485,
+          "h1_close": 93.748,
+          "adjacent_prev_d1": "2026-10-01",
+          "adjacent_next_d1": "2026-10-05",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-10-04",
+          "weekday": "Sun",
+          "h1_bar_count": 2,
+          "h1_open": 94.134,
+          "h1_high": 94.155,
+          "h1_low": 92.882,
+          "h1_close": 92.928,
+          "adjacent_prev_d1": "2026-10-01",
+          "adjacent_next_d1": "2026-10-05",
+          "contained_in_prev": true,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-10-09",
+          "weekday": "Fri",
+          "h1_bar_count": 21,
+          "h1_open": 92.705,
+          "h1_high": 93.742,
+          "h1_low": 91.586,
+          "h1_close": 93.221,
+          "adjacent_prev_d1": "2026-10-08",
+          "adjacent_next_d1": "2026-10-12",
+          "contained_in_prev": true,
+          "contained_in_next": true,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-10-11",
+          "weekday": "Sun",
+          "h1_bar_count": 2,
+          "h1_open": 93.262,
+          "h1_high": 93.805,
+          "h1_low": 91.936,
+          "h1_close": 91.997,
+          "adjacent_prev_d1": "2026-10-08",
+          "adjacent_next_d1": "2026-10-12",
+          "contained_in_prev": true,
+          "contained_in_next": true,
+          "contained_in_any_adjacent": true
+        },
+        {
+          "date": "2026-10-16",
+          "weekday": "Fri",
+          "h1_bar_count": 21,
+          "h1_open": 98.071,
+          "h1_high": 101.335,
+          "h1_low": 97.204,
+          "h1_close": 101.012,
+          "adjacent_prev_d1": "2026-10-15",
+          "adjacent_next_d1": "2026-10-19",
+          "contained_in_prev": false,
+          "contained_in_next": false,
+          "contained_in_any_adjacent": false
+        },
+        {
+          "date": "2026-10-18",
+          "weekday": "Sun",
+          "h1_bar_count": 2,
+          "h1_open": 100.981,
+          "h1_high": 101.034,
+          "h1_low": 99.466,
+          "h1_close": 99.481,
+          "adjacent_prev_d1": "2026-10-15",
+          "adjacent_next_d1": "2026-10-19",
+          "contained_in_prev": false,
+          "contained_in_next": true,
+          "contained_in_any_adjacent": true
+        }
+      ],
+      "window_missing_count": 8,
+      "recent_120d": {
+        "range_start": "2026-07-04",
+        "range_end": "2026-10-31",
+        "missing_count_by_weekday": {
+          "Mon": 2,
+          "Tue": 1,
+          "Wed": 1,
+          "Thu": 2,
+          "Fri": 17,
+          "Sat": 2,
+          "Sun": 16
+        },
+        "missing_total": 41
+      },
+      "containment_summary": {
+        "checked": 8,
+        "contained_in_any": 6,
+        "not_contained": 2
+      }
+    }
+  }
+}
