@@ -43,12 +43,21 @@ def _close_time(bar: Dict[str, Any]) -> datetime:
 
 
 def _validate_params(params: Dict[str, Any]) -> Tuple[float, int, str, str, Dict[str, Any], str]:
-    bands = params.get("proximity_bands_atr")
-    if not (isinstance(bands, list) and len(bands) == 1):
-        raise ValueError("proximity_bands_atr must hold exactly one band value")
-    band = bands[0]
-    if isinstance(band, bool) or not isinstance(band, (int, float)):
-        raise ValueError("proximity_bands_atr value must be numeric")
+    bands_raw = params.get("proximity_bands_atr")
+    if isinstance(bands_raw, dict):
+        structural_band = bands_raw.get("structural")
+        grid_band = bands_raw.get("grid")
+        if structural_band is None or grid_band is None:
+            raise ValueError("proximity_bands_atr must provide structural and grid bands")
+    elif isinstance(bands_raw, list) and len(bands_raw) == 1:
+        structural_band = bands_raw[0]
+        grid_band = bands_raw[0]
+    else:
+        raise ValueError("proximity_bands_atr must hold one band value or a per-kind slot")
+    for _b in (structural_band, grid_band):
+        if isinstance(_b, bool) or not isinstance(_b, (int, float)):
+            raise ValueError("proximity_bands_atr value must be numeric")
+    bands = {"structural": float(structural_band), "grid": float(grid_band)}
     if params.get("atr_excludes_emission_bar") is not True:
         raise ValueError("atr_excludes_emission_bar must be true")
     if params.get("crossing_semantics") != "close_distance_band_entry":
@@ -68,7 +77,7 @@ def _validate_params(params: Dict[str, Any]) -> Tuple[float, int, str, str, Dict
     frozen_at = params["frozen_at"]
     param_version = params["param_version"]
     grid_steps = params.get("grid_steps", {}) or {}
-    return float(band), int(atr_window), str(atr_basis), str(frozen_at), grid_steps, str(param_version)
+    return bands, int(atr_window), str(atr_basis), str(frozen_at), grid_steps, str(param_version)
 
 
 class _Level:
@@ -149,7 +158,7 @@ def _grid_levels(symbol: str, grid_steps: Dict[str, Any], all_prices: List[float
 
 
 def compute_events(d1_bars: List[Dict[str, Any]], emission_bars: List[Dict[str, Any]], params: Dict[str, Any]) -> List[Dict[str, Any]]:
-    band, atr_window, atr_basis, frozen_at, grid_steps, param_version = _validate_params(params)
+    bands, atr_window, atr_basis, frozen_at, grid_steps, param_version = _validate_params(params)
 
     d1_sorted = sorted(list(d1_bars), key=lambda b: _parse_ts(b["open_ts"]))
     em_sorted = sorted(list(emission_bars), key=lambda b: _parse_ts(b["open_ts"]))
@@ -204,6 +213,7 @@ def compute_events(d1_bars: List[Dict[str, Any]], emission_bars: List[Dict[str, 
         close_price = bar["close"]
         for level in active_levels:
             d = abs(close_price - level.price) / atr
+            band = bands["grid"] if level.level_type == "grid_round" else bands["structural"]
             prev = state.get(level.identity)
             if prev is not None and prev > band and d <= band:
                 events.append({

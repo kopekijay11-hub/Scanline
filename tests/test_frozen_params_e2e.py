@@ -64,6 +64,7 @@ def test_frozen_params_e2e():
     event_ts_list = [e["event_ts"] for e in events]
     header = {
         "module": params["module"],
+        "scan_mode": "forward",
         "param_file": "scanner_params.level_proximity.json",
         "param_sha256": hashlib.sha256(params_bytes).hexdigest(),
         "param_version": params["param_version"],

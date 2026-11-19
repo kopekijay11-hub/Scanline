@@ -173,6 +173,7 @@ class TestLevels:
         param_bytes = PARAMS_PATH.read_bytes()
         header = {
             "module": "module_1",
+            "scan_mode": "forward",
             "param_file": "predicate_params.json",
             "param_sha256": hashlib.sha256(param_bytes).hexdigest(),
             "param_version": "1.0.0",

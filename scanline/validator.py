@@ -10,6 +10,7 @@ Implements 5 rules:
 
 import hashlib
 import json
+from decimal import Decimal, InvalidOperation
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Set, Tuple
 
@@ -71,9 +72,47 @@ def validate_batch(
     violations: List[Dict[str, Any]] = []
     rule_results: Dict[str, str] = {}
     
-    # R1: as-of check - every event satisfies defined_at <= event_ts (non-strict)
+    # R1: as-of check.
+    # D1-defined levels: defined_at <= event_ts (non-strict).
+    # grid_round: grid-membership rule - level_price must be a member of the
+    # symbol's grid enumeration derived from frozen steps (set membership).
     r1_violations = []
+    # load grid_steps from param file once
+    try:
+        _param_data = json.loads(param_file_bytes)
+    except (json.JSONDecodeError, TypeError):
+        _param_data = {}
+    _grid_steps = (_param_data.get("grid_steps") or {}) if isinstance(_param_data, dict) else {}
+
+    def _grid_member(symbol, price):
+        step = _grid_steps.get(symbol) if isinstance(_grid_steps, dict) else None
+        if step is None:
+            return False
+        try:
+            dprice = Decimal(str(price))
+            dstep = Decimal(str(step))
+        except (InvalidOperation, ValueError, TypeError):
+            return False
+        if dstep <= 0:
+            return False
+        try:
+            return (dprice % dstep) == 0
+        except Exception:
+            return False
+
     for idx, event in enumerate(events):
+        level_type = event.get("level_type")
+        if level_type == "grid_round":
+            symbol = event.get("symbol")
+            level_price = event.get("level_price")
+            if not _grid_member(symbol, level_price):
+                r1_violations.append({
+                    "rule": "R1",
+                    "event_index": idx,
+                    "detail": f"grid_round level_price {level_price} not a member of {symbol} grid"
+                })
+            continue
+        # D1-defined levels
         defined_at = event.get("defined_at")
         event_ts = event.get("event_ts")
         if defined_at is None or event_ts is None:
@@ -178,35 +217,48 @@ def validate_batch(
                 "detail": f"event param_version '{event_version}' != header '{header_version}'"
             })
     
-    # 4c: param file's frozen_at is non-null AND strictly before batch's first event_ts
+    # scan_mode from header
+    scan_mode = header.get("scan_mode")
+    if scan_mode is not None and scan_mode not in ("forward", "retrospective"):
+        r4_violations.append({
+            "rule": "R4",
+            "event_index": None,
+            "detail": f"invalid scan_mode '{scan_mode}'"
+        })
+
+    # 4c: frozen_at handling depends on mode.
+    # forward: frozen_at strictly before batch's first event_ts.
+    # retrospective: skip in-batch frozen_at check (proof lives outside).
     try:
         param_file_data = json.loads(param_file_bytes)
         frozen_at_str = param_file_data.get("frozen_at")
     except (json.JSONDecodeError, TypeError):
         frozen_at_str = None
-    
-    if frozen_at_str is None:
-        r4_violations.append({
-            "rule": "R4",
-            "event_index": None,
-            "detail": "param file frozen_at is null"
-        })
-    else:
-        if not _validate_timestamp(frozen_at_str):
+
+    if scan_mode == "forward":
+        if frozen_at_str is None:
             r4_violations.append({
                 "rule": "R4",
                 "event_index": None,
-                "detail": f"param file frozen_at invalid: {frozen_at_str}"
+                "detail": "param file frozen_at is null"
             })
         else:
-            frozen_dt = _parse_ts(frozen_at_str)
-            first_event_dt = _get_first_event_ts(events)
-            if frozen_dt >= first_event_dt:
+            if not _validate_timestamp(frozen_at_str):
                 r4_violations.append({
                     "rule": "R4",
                     "event_index": None,
-                    "detail": f"frozen_at ({frozen_at_str}) not strictly before first event_ts ({first_event_dt.isoformat()})"
+                    "detail": f"param file frozen_at invalid: {frozen_at_str}"
                 })
+            else:
+                frozen_dt = _parse_ts(frozen_at_str)
+                if events:
+                    first_event_dt = _get_first_event_ts(events)
+                    if frozen_dt >= first_event_dt:
+                        r4_violations.append({
+                            "rule": "R4",
+                            "event_index": None,
+                            "detail": f"frozen_at ({frozen_at_str}) not strictly before first event_ts ({first_event_dt.isoformat()})"
+                        })
     
     # Sort R4 violations: None event_index first, then by event_index
     r4_violations.sort(key=lambda x: (x["event_index"] is None, x["event_index"] if x["event_index"] is not None else -1))

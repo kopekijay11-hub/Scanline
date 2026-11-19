@@ -1,0 +1,120 @@
+{
+  "work_order": "SCAN-007",
+  "step": "0(b)",
+  "definition_source": [
+    "docs/freezes/level_proximity-1.0.0.md (Coverage definition)",
+    "docs/freezes/level_proximity-1.0.0-addendum-1.md",
+    "docs/freezes/level_proximity-1.0.0-addendum-2.md"
+  ],
+  "chosen_window": {
+    "start": "2026-08-08",
+    "end": "2026-09-06"
+  },
+  "convention_days": [
+    "2026-08-14",
+    "2026-08-21",
+    "2026-08-28",
+    "2026-09-04"
+  ],
+  "non_substantial_days": [
+    "2026-08-09",
+    "2026-08-16",
+    "2026-08-23",
+    "2026-08-30",
+    "2026-09-06"
+  ],
+  "per_symbol": {
+    "GOLD": {
+      "qualifies": true,
+      "reason": "ok",
+      "disqualifying_days": [],
+      "convention_days": [
+        "2026-08-14",
+        "2026-08-21",
+        "2026-08-28",
+        "2026-09-04"
+      ],
+      "non_substantial_days": [
+        "2026-08-09",
+        "2026-08-16",
+        "2026-08-23",
+        "2026-08-30",
+        "2026-09-06"
+      ]
+    },
+    "EURUSD": {
+      "qualifies": true,
+      "reason": "ok",
+      "disqualifying_days": [],
+      "convention_days": [
+        "2026-08-14",
+        "2026-08-21",
+        "2026-08-28",
+        "2026-09-04"
+      ],
+      "non_substantial_days": [
+        "2026-08-09",
+        "2026-08-16",
+        "2026-08-23",
+        "2026-08-30",
+        "2026-09-06"
+      ]
+    },
+    "USDCAD": {
+      "qualifies": true,
+      "reason": "ok",
+      "disqualifying_days": [],
+      "convention_days": [
+        "2026-08-14",
+        "2026-08-21",
+        "2026-08-28",
+        "2026-09-04"
+      ],
+      "non_substantial_days": [
+        "2026-08-09",
+        "2026-08-16",
+        "2026-08-23",
+        "2026-08-30",
+        "2026-09-06"
+      ]
+    },
+    "GER40": {
+      "qualifies": true,
+      "reason": "ok",
+      "disqualifying_days": [],
+      "convention_days": [
+        "2026-08-14",
+        "2026-08-21",
+        "2026-08-28",
+        "2026-09-04"
+      ],
+      "non_substantial_days": [
+        "2026-08-09",
+        "2026-08-16",
+        "2026-08-23",
+        "2026-08-30",
+        "2026-09-06"
+      ]
+    },
+    "USOIL": {
+      "qualifies": true,
+      "reason": "ok",
+      "disqualifying_days": [],
+      "convention_days": [
+        "2026-08-14",
+        "2026-08-21",
+        "2026-08-28",
+        "2026-09-04"
+      ],
+      "non_substantial_days": [
+        "2026-08-09",
+        "2026-08-16",
+        "2026-08-23",
+        "2026-08-30",
+        "2026-09-06"
+      ]
+    }
+  },
+  "selection_rule": "30-day windows lying entirely before the calibration window (window end <= 2026-09-21); most recent qualifying window wins; all five symbols.",
+  "candidate_window_count": 120
+}

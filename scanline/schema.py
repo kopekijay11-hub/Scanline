@@ -30,6 +30,7 @@ EMISSION_TIMEFRAMES: Set[str] = {"H1", "H4"}
 # Batch header fields - closed set
 BATCH_HEADER_FIELDS: Set[str] = {
     "module",
+    "scan_mode",
     "param_file",
     "param_sha256",
     "param_version",

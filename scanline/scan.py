@@ -22,6 +22,7 @@ CONVENTION_DOCS = [
     "docs/freezes/level_proximity-1.0.0.md",
     "docs/freezes/level_proximity-1.0.0-addendum-1.md",
     "docs/freezes/level_proximity-1.0.0-addendum-2.md",
+    "docs/freezes/level_proximity-1.1.0.md",
 ]
 
 
@@ -96,7 +97,10 @@ def _driver_sha256() -> str:
     return _sha256_file(Path(__file__).resolve())
 
 
-def run_scan(corpus_path: Path, output_dir: Path, param_path=None) -> None:
+def run_scan(corpus_path: Path, output_dir: Path, param_path=None, scan_mode: str = "forward",
+              batch_start_ts: str = None, batch_end_ts: str = None,
+              extraction_start_ts: str = None, extraction_end_ts: str = None) -> None:
+    global EXTRACTION_START_TS, EXTRACTION_END_TS
     corpus_path = Path(corpus_path)
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -108,11 +112,28 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None) -> None:
     params_bytes = param_path.read_bytes()
     params = json.loads(params_bytes)
 
-    batch_start_dt = _parse_ts(BATCH_START_TS)
-    batch_end_dt = _parse_ts(BATCH_END_TS)
+    if scan_mode not in ("forward", "retrospective"):
+        raise ValueError(f"invalid scan_mode {scan_mode}")
+    if batch_start_ts is None:
+        batch_start_ts = BATCH_START_TS
+    if batch_end_ts is None:
+        batch_end_ts = BATCH_END_TS
+    if extraction_start_ts is None:
+        extraction_start_ts = EXTRACTION_START_TS
+    if extraction_end_ts is None:
+        extraction_end_ts = EXTRACTION_END_TS
+
+    batch_start_dt = _parse_ts(batch_start_ts)
+    batch_end_dt = _parse_ts(batch_end_ts)
 
     universe = params["universe"]
     emission_timeframes = params["emission_timeframes"]
+
+    # allow extraction window override
+    _prev_ext_start = EXTRACTION_START_TS
+    _prev_ext_end = EXTRACTION_END_TS
+    EXTRACTION_START_TS = extraction_start_ts
+    EXTRACTION_END_TS = extraction_end_ts
 
     # Extract all needed series and build manifest.
     series_manifest: List[Dict[str, Any]] = []
@@ -162,6 +183,7 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None) -> None:
 
     header = {
         "module": params["module"],
+        "scan_mode": scan_mode,
         "param_file": param_path.name,
         "param_sha256": hashlib.sha256(params_bytes).hexdigest(),
         "param_version": params["param_version"],
@@ -169,8 +191,8 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None) -> None:
         "universe": list(params["universe"]),
         "emission_timeframes": list(params["emission_timeframes"]),
         "definition_timeframe": params["definition_timeframe"],
-        "batch_start_ts": BATCH_START_TS,
-        "batch_end_ts": BATCH_END_TS,
+        "batch_start_ts": batch_start_ts,
+        "batch_end_ts": batch_end_ts,
     }
 
     batch = {"events": all_events, "header": header}
@@ -191,15 +213,17 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None) -> None:
     code_state: Dict[str, Any] = {"driver_sha256": _driver_sha256()}
     if head:
         code_state["commit"] = head
+    execution_start = _fmt_ts(datetime.now(timezone.utc))
     manifest = {
+        "execution_start": execution_start,
         "extraction_span": {
             "start": EXTRACTION_START_TS,
             "end": EXTRACTION_END_TS,
             "end_exclusive": True,
         },
         "batch_window": {
-            "batch_start_ts": BATCH_START_TS,
-            "batch_end_ts": BATCH_END_TS,
+            "batch_start_ts": batch_start_ts,
+            "batch_end_ts": batch_end_ts,
             "inclusive": True,
         },
         "series": series_manifest,
@@ -218,8 +242,23 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description="Scanline scan driver")
     parser.add_argument("corpus_path", help="path to corpus directory")
     parser.add_argument("output_dir", help="output directory")
+    parser.add_argument("--scan-mode", choices=["forward", "retrospective"], default="forward")
+    parser.add_argument("--batch-start", default=None)
+    parser.add_argument("--batch-end", default=None)
+    parser.add_argument("--extraction-start", default=None)
+    parser.add_argument("--extraction-end", default=None)
+    parser.add_argument("--param-file", default=None)
     args = parser.parse_args(argv)
-    run_scan(Path(args.corpus_path), Path(args.output_dir))
+    run_scan(
+        Path(args.corpus_path),
+        Path(args.output_dir),
+        param_path=Path(args.param_file) if args.param_file else None,
+        scan_mode=args.scan_mode,
+        batch_start_ts=args.batch_start,
+        batch_end_ts=args.batch_end,
+        extraction_start_ts=args.extraction_start,
+        extraction_end_ts=args.extraction_end,
+    )
     return 0
 
 

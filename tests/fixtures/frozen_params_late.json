@@ -2,11 +2,32 @@
   "module": "module_1",
   "param_version": "1.0.0",
   "frozen_at": "2026-01-02T02:00:00Z",
-  "universe": ["GOLD", "EURUSD", "USDCAD", "GER40", "USOIL"],
-  "emission_timeframes": ["H1", "H4"],
+  "universe": [
+    "GOLD",
+    "EURUSD",
+    "USDCAD",
+    "GER40",
+    "USOIL"
+  ],
+  "emission_timeframes": [
+    "H1",
+    "H4"
+  ],
   "definition_timeframe": "D1",
-  "level_types": ["d1_prior_high", "d1_prior_low", "d1_session_structure", "grid_round"],
+  "level_types": [
+    "d1_prior_high",
+    "d1_prior_low",
+    "d1_session_structure",
+    "grid_round"
+  ],
   "atr_window": 14,
   "atr_basis": "closed_bars_only",
-  "proximity_bands_atr": null
+  "proximity_bands_atr": null,
+  "grid_steps": {
+    "GOLD": 25,
+    "EURUSD": 0.005,
+    "USDCAD": 0.005,
+    "GER40": 100,
+    "USOIL": 1.0
+  }
 }
