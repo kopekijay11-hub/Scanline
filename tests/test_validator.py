@@ -236,21 +236,55 @@ class TestByteHashVariant:
 
 
 class TestProductionParams:
-    """Test production param file rejection."""
-
+    """Test production param file rejection/acceptance."""
+    
     def test_production_params_rejected_R4(self, clean_batch, production_params_bytes):
-        """Production (unfrozen) params rejected under R4."""
+        """Production params rejected under R4 because header hash mismatch."""
         events, header = clean_batch
-        # Use production params but clean batch expects frozen params
-        # This should fail because frozen_at is null in production params
+        # header is built from frozen_params fixture; production file bytes differ
         result = validate_batch(events, header, production_params_bytes)
         
-        # The production params have frozen_at: null, so R4 should fail
         assert result["valid"] is False
         assert result["rule_results"]["R4"] == "fail"
-        # Check that the violation is about frozen_at being null
         r4_violations = [v for v in result["violations"] if v["rule"] == "R4"]
         assert len(r4_violations) >= 1
+        # mechanism pinned: hash/sha mismatch
+        assert any(("sha" in v["detail"].lower()) or ("hash" in v["detail"].lower()) for v in r4_violations)
+    
+    def test_production_params_accepted_with_own_header(self, clean_batch, production_params_bytes):
+        """Positive counterpart: header built from production file validates R4."""
+        import hashlib, json
+        from datetime import datetime, timedelta
+        events = [dict(e) for e in clean_batch[0]]
+        pdata = json.loads(production_params_bytes)
+        frozen_dt = datetime.fromisoformat(pdata["frozen_at"].replace("Z", "+00:00"))
+        bs = frozen_dt + timedelta(hours=1)
+        be = frozen_dt + timedelta(hours=2)
+        ev_ts = frozen_dt + timedelta(hours=1, minutes=30)
+        fmt = lambda d: d.strftime("%Y-%m-%dT%H:%M:%SZ")
+        batch_start = fmt(bs)
+        batch_end = fmt(be)
+        event_ts = fmt(ev_ts)
+        for e in events:
+            e["param_version"] = pdata["param_version"]
+            e["defined_at"] = batch_start
+            e["event_ts"] = event_ts
+        header = {
+            "module": pdata["module"],
+            "param_file": "scanner_params.level_proximity.json",
+            "param_sha256": hashlib.sha256(production_params_bytes).hexdigest(),
+            "param_version": pdata["param_version"],
+            "frozen_at": pdata["frozen_at"],
+            "universe": pdata["universe"],
+            "emission_timeframes": pdata["emission_timeframes"],
+            "definition_timeframe": pdata["definition_timeframe"],
+            "batch_start_ts": batch_start,
+            "batch_end_ts": batch_end,
+        }
+        result = validate_batch(events, header, production_params_bytes)
+        assert result["valid"] is True
+        assert result["rule_results"]["R4"] == "pass"
+
 
 
 class TestDeterminism:
