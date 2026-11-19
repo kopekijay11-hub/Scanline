@@ -425,3 +425,32 @@ class TestLevels:
         expected = evt("GOLD", "D1", "d1_prior_high", 100.0, "2026-01-02T00:00:00Z",
                        0.25, "2026-01-26T00:00:00Z")
         assert res == [expected]
+
+    def test_w_weekend_dwell(self, params):
+        # Mon-Thu D1 only (no Friday D1): persisting identity across Fri->Mon, no re-fire; fresh entry Tue.
+        d1_bars = [
+            make_bar("GOLD", "D1", "2026-01-05T00:00:00Z", 95, 100, 90, 95),
+            make_bar("GOLD", "D1", "2026-01-06T00:00:00Z", 95, 100, 90, 95),
+            make_bar("GOLD", "D1", "2026-01-07T00:00:00Z", 95, 100, 90, 95),
+            make_bar("GOLD", "D1", "2026-01-08T00:00:00Z", 95, 100, 90, 95),
+            make_bar("GOLD", "D1", "2026-01-12T00:00:00Z", 95, 100, 90, 95),
+        ]
+        em = []
+        # Friday: 16 bars outside, then 8 in-band
+        for i in range(24):
+            c = 108.0 if i < 16 else 100.0
+            em.append(make_bar("GOLD", "H1", f"2026-01-09T{i:02d}:00:00Z", c, c + 0.5, c - 0.5, c))
+        # Saturday, Sunday, Monday: in-band dwell
+        for day in (10, 11, 12):
+            for i in range(24):
+                em.append(make_bar("GOLD", "H1", f"2026-01-{day:02d}T{i:02d}:00:00Z", 100.0, 100.5, 99.5, 100.0))
+        # Tuesday: 15 bars outside, then in-band (fresh entry under Monday's D1)
+        for i in range(24):
+            c = 108.0 if i < 15 else 100.0
+            em.append(make_bar("GOLD", "H1", f"2026-01-13T{i:02d}:00:00Z", c, c + 0.5, c - 0.5, c))
+        res = compute_events(d1_bars, em, params)
+        expected = [
+            evt("GOLD", "H1", "d1_prior_high", 100.0, "2026-01-09T00:00:00Z", 0.0, "2026-01-09T17:00:00Z"),
+            evt("GOLD", "H1", "d1_prior_high", 100.0, "2026-01-13T00:00:00Z", 0.0, "2026-01-13T16:00:00Z"),
+        ]
+        assert res == expected
