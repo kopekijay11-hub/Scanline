@@ -23,6 +23,7 @@ CONVENTION_DOCS = [
     "docs/freezes/level_proximity-1.0.0-addendum-1.md",
     "docs/freezes/level_proximity-1.0.0-addendum-2.md",
     "docs/freezes/level_proximity-1.1.0.md",
+    "records/surveys/widening-survey-2026-11-19.json",
 ]
 
 
@@ -181,9 +182,12 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None, scan_mode: st
                 if batch_start_dt <= ets <= batch_end_dt:
                     all_events.append(e)
 
+    evidence_tier = "forward_asof" if scan_mode == "forward" else "retrospective_membership"
+
     header = {
         "module": params["module"],
         "scan_mode": scan_mode,
+        "evidence_tier": evidence_tier,
         "param_file": param_path.name,
         "param_sha256": hashlib.sha256(params_bytes).hexdigest(),
         "param_version": params["param_version"],
@@ -229,6 +233,7 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None, scan_mode: st
         "series": series_manifest,
         "param_file": param_path.name,
         "param_sha256": hashlib.sha256(params_bytes).hexdigest(),
+        "evidence_tier": evidence_tier,
         "convention_documents": list(CONVENTION_DOCS),
         "code_state": code_state,
     }

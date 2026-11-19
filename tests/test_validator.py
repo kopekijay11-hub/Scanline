@@ -272,6 +272,7 @@ class TestProductionParams:
         header = {
             "module": pdata["module"],
             "scan_mode": "forward",
+            "evidence_tier": "forward_asof",
             "param_file": "scanner_params.level_proximity.json",
             "param_sha256": hashlib.sha256(production_params_bytes).hexdigest(),
             "param_version": pdata["param_version"],
@@ -324,6 +325,7 @@ class TestViolationOrdering:
         header = {
             "module": "module_1",
             "scan_mode": "forward",
+            "evidence_tier": "forward_asof",
             "param_file": "frozen_params.json",
             "param_sha256": "0ca0696e775e2575e57ca3a076d8e75cfc6aafc647694bebe03e7c4dcd13ae67",
             "param_version": "1.0.0",
@@ -358,6 +360,7 @@ class TestContractV2Clauses:
         grid_idx = next(i for i, e in enumerate(events) if e["level_type"] == "grid_round")
         events[grid_idx]["level_price"] = 1.351  # not a multiple of USDCAD step 0.005
         header["scan_mode"] = "retrospective"
+        header["evidence_tier"] = "retrospective_membership"
         result = validate_batch(events, header, frozen_params_bytes)
 
         assert result["valid"] is False
@@ -376,6 +379,7 @@ class TestContractV2Clauses:
         events = [dict(e) for e in events]
         header = dict(header)
         header["scan_mode"] = "retrospective"
+        header["evidence_tier"] = "retrospective_membership"
         header["frozen_at"] = "2026-12-31T00:00:00Z"  # postdates every event_ts
         result = validate_batch(events, header, frozen_params_bytes)
 

@@ -226,6 +226,17 @@ def validate_batch(
             "detail": f"invalid scan_mode '{scan_mode}'"
         })
 
+    # Tier-mode binding check (contract v3): scan_mode <-> evidence_tier.
+    evidence_tier = header.get("evidence_tier")
+    _tier_for_mode = {"forward": "forward_asof", "retrospective": "retrospective_membership"}
+    if scan_mode in _tier_for_mode and evidence_tier is not None:
+        if evidence_tier != _tier_for_mode[scan_mode]:
+            r4_violations.append({
+                "rule": "R4",
+                "event_index": None,
+                "detail": f"evidence_tier '{evidence_tier}' inconsistent with scan_mode '{scan_mode}'"
+            })
+
     # 4c: frozen_at handling depends on mode.
     # forward: frozen_at strictly before batch's first event_ts.
     # retrospective: skip in-batch frozen_at check (proof lives outside).
@@ -326,6 +337,16 @@ def validate_batch(
             "event_index": None,
             "detail": f"header missing fields: {sorted(missing_header_fields)}"
         })
+
+    # R5 enum check for evidence_tier (contract v3).
+    if "evidence_tier" in header:
+        et = header.get("evidence_tier")
+        if et not in ("forward_asof", "retrospective_membership"):
+            r5_violations.append({
+                "rule": "R5",
+                "event_index": None,
+                "detail": f"header evidence_tier invalid enum: {et!r}"
+            })
     
     # Sort R5 violations: None event_index first, then by event_index, then by detail
     r5_violations.sort(key=lambda x: (

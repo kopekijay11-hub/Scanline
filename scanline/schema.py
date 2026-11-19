@@ -31,6 +31,7 @@ EMISSION_TIMEFRAMES: Set[str] = {"H1", "H4"}
 BATCH_HEADER_FIELDS: Set[str] = {
     "module",
     "scan_mode",
+    "evidence_tier",
     "param_file",
     "param_sha256",
     "param_version",
