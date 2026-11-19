@@ -1,0 +1,207 @@
+{
+  "execution_start": "2026-11-19T08:18:29.842950Z",
+  "extraction_span": {
+    "start": "2026-07-24T00:00:00Z",
+    "end": "2026-09-07T00:00:00Z",
+    "end_exclusive": true
+  },
+  "batch_window": {
+    "batch_start_ts": "2026-08-08T00:00:00Z",
+    "batch_end_ts": "2026-09-07T00:00:00Z",
+    "inclusive": true
+  },
+  "series": [
+    {
+      "symbol": "GOLD",
+      "timeframe": "D1",
+      "file": "GOLD_D1.csv",
+      "sha256": "5b7ca4ade1eaa4b38398625387d0898017d29a32600a9d23c0d05830ffc464d9",
+      "size_bytes": 23817,
+      "bars_extracted": 24,
+      "span": {
+        "first_open_ts": "2026-07-27T00:00:00Z",
+        "last_open_ts": "2026-09-03T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "GOLD",
+      "timeframe": "H1",
+      "file": "GOLD_H1.csv",
+      "sha256": "bf2f17e43231018f1db0ae2b0bd280fbb955a0f428f9d1fa587c1fc5cc10f67d",
+      "size_bytes": 742078,
+      "bars_extracted": 713,
+      "span": {
+        "first_open_ts": "2026-07-24T00:00:00Z",
+        "last_open_ts": "2026-09-06T23:00:00Z"
+      }
+    },
+    {
+      "symbol": "GOLD",
+      "timeframe": "H4",
+      "file": "GOLD_H4.csv",
+      "sha256": "ab2ebaef3ece7f76c06554c0842ac8b7fbe67f8096ec001f64c60862b697f185",
+      "size_bytes": 232860,
+      "bars_extracted": 193,
+      "span": {
+        "first_open_ts": "2026-07-24T00:00:00Z",
+        "last_open_ts": "2026-09-06T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "D1",
+      "file": "EURUSD_D1.csv",
+      "sha256": "b81e77ed8e0d584132dbf0d8ffacf85a4e555fe2a8bb7543ed581d9e05bad3eb",
+      "size_bytes": 232634,
+      "bars_extracted": 24,
+      "span": {
+        "first_open_ts": "2026-07-27T00:00:00Z",
+        "last_open_ts": "2026-09-03T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "H1",
+      "file": "EURUSD_H1.csv",
+      "sha256": "d2a51235b7e95573b78b581baadf9e0cc5f8ca91477b0b299b355097c3d3f05c",
+      "size_bytes": 6874153,
+      "bars_extracted": 744,
+      "span": {
+        "first_open_ts": "2026-07-24T00:00:00Z",
+        "last_open_ts": "2026-09-06T23:00:00Z"
+      }
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "H4",
+      "file": "EURUSD_H4.csv",
+      "sha256": "6e5643af4ab12f155ceb6acd766d61277e8567cbcbaa22097c87054c6b0c013b",
+      "size_bytes": 1783563,
+      "bars_extracted": 193,
+      "span": {
+        "first_open_ts": "2026-07-24T00:00:00Z",
+        "last_open_ts": "2026-09-06T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "D1",
+      "file": "USDCAD_D1.csv",
+      "sha256": "9342bf3fe9c18edd41607139cb2979726ae7811d8cd49b1b8682f61c4b71fa3f",
+      "size_bytes": 179924,
+      "bars_extracted": 24,
+      "span": {
+        "first_open_ts": "2026-07-27T00:00:00Z",
+        "last_open_ts": "2026-09-03T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "H1",
+      "file": "USDCAD_H1.csv",
+      "sha256": "197cbf053a0ce7e2952c68e06ddcc4ec32b3433cabb31603b929adb9855d4f64",
+      "size_bytes": 5291374,
+      "bars_extracted": 744,
+      "span": {
+        "first_open_ts": "2026-07-24T00:00:00Z",
+        "last_open_ts": "2026-09-06T23:00:00Z"
+      }
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "H4",
+      "file": "USDCAD_H4.csv",
+      "sha256": "3e4b7811f48007b72ac4bca8d82cf2885b9748931f133886969c20d11e965552",
+      "size_bytes": 1372960,
+      "bars_extracted": 193,
+      "span": {
+        "first_open_ts": "2026-07-24T00:00:00Z",
+        "last_open_ts": "2026-09-06T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "GER40",
+      "timeframe": "D1",
+      "file": "GER40_D1.csv",
+      "sha256": "d8ed705c70cec3a04cc3a3c6758ab836f20bb28aef9f4e60ceb0300008b4f390",
+      "size_bytes": 24482,
+      "bars_extracted": 24,
+      "span": {
+        "first_open_ts": "2026-07-27T00:00:00Z",
+        "last_open_ts": "2026-09-03T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "GER40",
+      "timeframe": "H1",
+      "file": "GER40_H1.csv",
+      "sha256": "9c05d3820801692384aa86ea11275c4273513fbf6b9e7b19daade0ebcaf67ab2",
+      "size_bytes": 765555,
+      "bars_extracted": 706,
+      "span": {
+        "first_open_ts": "2026-07-24T00:00:00Z",
+        "last_open_ts": "2026-09-06T23:00:00Z"
+      }
+    },
+    {
+      "symbol": "GER40",
+      "timeframe": "H4",
+      "file": "GER40_H4.csv",
+      "sha256": "6a412776389d931310835b25f20b343f64d6df45d292cf9718c5dc4a0cdde759",
+      "size_bytes": 236989,
+      "bars_extracted": 186,
+      "span": {
+        "first_open_ts": "2026-07-24T00:00:00Z",
+        "last_open_ts": "2026-09-06T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "USOIL",
+      "timeframe": "D1",
+      "file": "USOIL_D1.csv",
+      "sha256": "f99e600663c2047d0428c0caa504de988932e657d42db2c70313e6db670e35a1",
+      "size_bytes": 21727,
+      "bars_extracted": 24,
+      "span": {
+        "first_open_ts": "2026-07-27T00:00:00Z",
+        "last_open_ts": "2026-09-03T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "USOIL",
+      "timeframe": "H1",
+      "file": "USOIL_H1.csv",
+      "sha256": "d02af87c1362a84ee1c2216c1b0b56e96676cd5970ef3c467b021aa8aa00598b",
+      "size_bytes": 675161,
+      "bars_extracted": 713,
+      "span": {
+        "first_open_ts": "2026-07-24T00:00:00Z",
+        "last_open_ts": "2026-09-06T23:00:00Z"
+      }
+    },
+    {
+      "symbol": "USOIL",
+      "timeframe": "H4",
+      "file": "USOIL_H4.csv",
+      "sha256": "031101be049e7ad842a5a76422f945bf42b10e0f57e295a66abc5e213243ec9d",
+      "size_bytes": 212033,
+      "bars_extracted": 193,
+      "span": {
+        "first_open_ts": "2026-07-24T00:00:00Z",
+        "last_open_ts": "2026-09-06T20:00:00Z"
+      }
+    }
+  ],
+  "param_file": "scanner_params.level_proximity-1.1.0.json",
+  "param_sha256": "53a99a5f426c95c7bb6a4577ed6988c45d7ebabe27aced22ed560d54e604b1d6",
+  "convention_documents": [
+    "docs/freezes/level_proximity-1.0.0.md",
+    "docs/freezes/level_proximity-1.0.0-addendum-1.md",
+    "docs/freezes/level_proximity-1.0.0-addendum-2.md",
+    "docs/freezes/level_proximity-1.1.0.md"
+  ],
+  "code_state": {
+    "driver_sha256": "c49f9c03dd55eb88cf045df0b17e64e108ca7d818f9530e13e6eeeae22c8e620",
+    "commit": "6d1a6eebaf94edfc0c4bd685d0d0b98c145bf30a"
+  }
+}
