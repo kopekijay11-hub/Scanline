@@ -404,3 +404,124 @@ class TestContractV2Clauses:
         r5 = [v for v in result["violations"] if v["rule"] == "R5"]
         assert len(r5) == 1
         assert r5[0]["event_index"] is None
+
+
+class TestContractV3Clauses:
+    """Pin the contract-v3 clauses (evidence tier)."""
+
+    def test_evidence_tier_required_R5(self, clean_batch, frozen_params_bytes):
+        """EVIDENCE_TIER REQUIRED: header omitting evidence_tier fails R5."""
+        events, header = clean_batch
+        events = [dict(e) for e in events]
+        header = dict(header)
+        header["scan_mode"] = "retrospective"
+        header["evidence_tier"] = "retrospective_membership"
+        # baseline valid
+        result = validate_batch(events, header, frozen_params_bytes)
+        assert result["valid"] is True
+        # omit evidence_tier
+        del header["evidence_tier"]
+        result = validate_batch(events, header, frozen_params_bytes)
+        assert result["valid"] is False
+        assert result["rule_results"]["R5"] == "fail"
+        r5 = [v for v in result["violations"] if v["rule"] == "R5"]
+        assert len(r5) == 1
+        assert r5[0]["event_index"] is None
+        assert "evidence_tier" in r5[0]["detail"]
+
+    def test_evidence_tier_mode_mismatch_R4(self, clean_batch, frozen_params_bytes):
+        """TIER-MODE MISMATCH: inconsistent pair fails R4."""
+        events, header = clean_batch
+        events = [dict(e) for e in events]
+        # retrospective scan_mode with forward_asof tier
+        h = dict(header)
+        h["scan_mode"] = "retrospective"
+        h["evidence_tier"] = "forward_asof"
+        result = validate_batch(events, h, frozen_params_bytes)
+        assert result["valid"] is False
+        assert result["rule_results"]["R4"] == "fail"
+        r4 = [v for v in result["violations"] if v["rule"] == "R4"]
+        assert any("evidence_tier" in v["detail"] and "inconsistent" in v["detail"] for v in r4)
+        # forward scan_mode with retrospective_membership tier
+        h2 = dict(header)
+        h2["scan_mode"] = "forward"
+        h2["evidence_tier"] = "retrospective_membership"
+        result2 = validate_batch(events, h2, frozen_params_bytes)
+        assert result2["valid"] is False
+        assert result2["rule_results"]["R4"] == "fail"
+
+    def test_widened_grid_membership(self):
+        """WIDENED GRID: real 2.0.0 params validate on-grid prices; off-grid fails R1."""
+        from pathlib import Path
+        import hashlib, json
+        root = Path(__file__).resolve().parents[1]
+        param_path = root / "config" / "scanner_params.level_proximity-2.0.0.json"
+        param_bytes = param_path.read_bytes()
+        params = json.loads(param_bytes)
+        frozen_at = params["frozen_at"]
+        # Build a retrospective batch with grid_round events at on-grid prices
+        # for one widened FX (AUDCAD), one widened index (NDAQ100), one agricultural (CORN).
+        events = [
+            {
+                "symbol": "AUDCAD",
+                "timeframe": "H1",
+                "level_type": "grid_round",
+                "level_price": 0.90,
+                "defined_at": frozen_at,
+                "distance_atr": 0.25,
+                "atr_window": 14,
+                "atr_basis": "closed_bars_only",
+                "param_version": "2.0.0",
+                "event_ts": "2026-05-27T01:00:00Z",
+            },
+            {
+                "symbol": "NDAQ100",
+                "timeframe": "H1",
+                "level_type": "grid_round",
+                "level_price": 15000.0,
+                "defined_at": frozen_at,
+                "distance_atr": 0.25,
+                "atr_window": 14,
+                "atr_basis": "closed_bars_only",
+                "param_version": "2.0.0",
+                "event_ts": "2026-05-27T01:00:00Z",
+            },
+            {
+                "symbol": "CORN",
+                "timeframe": "H1",
+                "level_type": "grid_round",
+                "level_price": 400.0,
+                "defined_at": frozen_at,
+                "distance_atr": 0.25,
+                "atr_window": 14,
+                "atr_basis": "closed_bars_only",
+                "param_version": "2.0.0",
+                "event_ts": "2026-05-27T01:00:00Z",
+            },
+        ]
+        header = {
+            "module": params["module"],
+            "scan_mode": "retrospective",
+            "evidence_tier": "retrospective_membership",
+            "param_file": param_path.name,
+            "param_sha256": hashlib.sha256(param_bytes).hexdigest(),
+            "param_version": params["param_version"],
+            "frozen_at": frozen_at,
+            "universe": params["universe"],
+            "emission_timeframes": params["emission_timeframes"],
+            "definition_timeframe": params["definition_timeframe"],
+            "batch_start_ts": "2026-05-27T00:00:00Z",
+            "batch_end_ts": "2026-05-27T12:00:00Z",
+        }
+        result = validate_batch(events, header, param_bytes)
+        assert result["valid"] is True
+        assert all(r == "pass" for r in result["rule_results"].values())
+        # knock one agricultural grid price off-grid
+        bad = [dict(e) for e in events]
+        bad[2]["level_price"] = 402.5  # not a multiple of CORN step 5.0
+        result2 = validate_batch(bad, header, param_bytes)
+        assert result2["valid"] is False
+        assert result2["rule_results"]["R1"] == "fail"
+        r1 = [v for v in result2["violations"] if v["rule"] == "R1"]
+        assert len(r1) == 1
+        assert r1[0]["event_index"] == 2
