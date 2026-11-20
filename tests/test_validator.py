@@ -525,3 +525,80 @@ class TestContractV3Clauses:
         r1 = [v for v in result2["violations"] if v["rule"] == "R1"]
         assert len(r1) == 1
         assert r1[0]["event_index"] == 2
+
+
+class TestWidened210GridMembership:
+    """Pin contract grid membership for params 2.1.0."""
+
+    def test_widened_210_grid_membership(self):
+        from pathlib import Path
+        import hashlib, json
+        root = Path(__file__).resolve().parents[1]
+        param_path = root / "config" / "scanner_params.level_proximity-2.1.0.json"
+        param_bytes = param_path.read_bytes()
+        params = json.loads(param_bytes)
+        frozen_at = params["frozen_at"]
+        events = [
+            {
+                "symbol": "COPPER",
+                "timeframe": "H1",
+                "level_type": "grid_round",
+                "level_price": 2500.0,
+                "defined_at": frozen_at,
+                "distance_atr": 0.25,
+                "atr_window": 14,
+                "atr_basis": "closed_bars_only",
+                "param_version": "2.1.0",
+                "event_ts": "2026-07-10T01:00:00Z",
+            },
+            {
+                "symbol": "CADNOK",
+                "timeframe": "H1",
+                "level_type": "grid_round",
+                "level_price": 12.3,
+                "defined_at": frozen_at,
+                "distance_atr": 0.25,
+                "atr_window": 14,
+                "atr_basis": "closed_bars_only",
+                "param_version": "2.1.0",
+                "event_ts": "2026-07-10T01:00:00Z",
+            },
+            {
+                "symbol": "NDAQ100",
+                "timeframe": "H1",
+                "level_type": "grid_round",
+                "level_price": 15000.0,
+                "defined_at": frozen_at,
+                "distance_atr": 0.25,
+                "atr_window": 14,
+                "atr_basis": "closed_bars_only",
+                "param_version": "2.1.0",
+                "event_ts": "2026-07-10T01:00:00Z",
+            },
+        ]
+        header = {
+            "module": params["module"],
+            "scan_mode": "retrospective",
+            "evidence_tier": "retrospective_membership",
+            "param_file": param_path.name,
+            "param_sha256": hashlib.sha256(param_bytes).hexdigest(),
+            "param_version": params["param_version"],
+            "frozen_at": frozen_at,
+            "universe": params["universe"],
+            "emission_timeframes": params["emission_timeframes"],
+            "definition_timeframe": params["definition_timeframe"],
+            "batch_start_ts": "2026-07-10T00:00:00Z",
+            "batch_end_ts": "2026-07-10T12:00:00Z",
+        }
+        from scanline.validator import validate_batch
+        result = validate_batch(events, header, param_bytes)
+        assert result["valid"] is True
+        assert all(r == "pass" for r in result["rule_results"].values())
+        bad = [dict(e) for e in events]
+        bad[1]["level_price"] = 12.35  # not a multiple of CADNOK step 0.1
+        result2 = validate_batch(bad, header, param_bytes)
+        assert result2["valid"] is False
+        assert result2["rule_results"]["R1"] == "fail"
+        r1 = [v for v in result2["violations"] if v["rule"] == "R1"]
+        assert len(r1) == 1
+        assert r1[0]["event_index"] == 1

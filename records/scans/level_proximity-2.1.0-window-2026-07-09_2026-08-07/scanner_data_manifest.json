@@ -1,0 +1,1217 @@
+{
+  "execution_start": "2026-11-20T03:10:15.145248Z",
+  "extraction_span": {
+    "start": "2026-06-24T00:00:00Z",
+    "end": "2026-08-08T00:00:00Z",
+    "end_exclusive": true
+  },
+  "batch_window": {
+    "batch_start_ts": "2026-07-09T00:00:00Z",
+    "batch_end_ts": "2026-08-08T00:00:00Z",
+    "inclusive": true
+  },
+  "series": [
+    {
+      "symbol": "AUDCAD",
+      "timeframe": "D1",
+      "file": "AUDCAD_D1.csv",
+      "sha256": "326935b9be88cacc4a829ece6bd52e440d370fc163d980939e2ab0604de973c4",
+      "size_bytes": 159507,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "AUDCAD",
+      "timeframe": "H1",
+      "file": "AUDCAD_H1.csv",
+      "sha256": "8ef187b9bebb683d3014e939485ba5f69501f62f58480aeb6b9eda267cfd6e51",
+      "size_bytes": 4854957,
+      "bars_extracted": 789,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "AUDCAD",
+      "timeframe": "H4",
+      "file": "AUDCAD_H4.csv",
+      "sha256": "fe1e6db8dff635757ae38cdb6644099c017069fe66802339d79692fb0b0f85b6",
+      "size_bytes": 1382062,
+      "bars_extracted": 204,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "AUDUSD",
+      "timeframe": "D1",
+      "file": "AUDUSD_D1.csv",
+      "sha256": "b899f3b36c9926d4d28b8dac83006672ebd59c56f36cbba10f90cfb85247eec5",
+      "size_bytes": 169889,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "AUDUSD",
+      "timeframe": "H1",
+      "file": "AUDUSD_H1.csv",
+      "sha256": "48750835af8d01b2fc70b9d1b4580fabfb60532c594054251b09d389b2c95fa9",
+      "size_bytes": 5003496,
+      "bars_extracted": 789,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "AUDUSD",
+      "timeframe": "H4",
+      "file": "AUDUSD_H4.csv",
+      "sha256": "d4d1bfccaf01258bd170592cfc1a404afc66c707e56908e42238cb45585f40cd",
+      "size_bytes": 1298428,
+      "bars_extracted": 204,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "CADCHF",
+      "timeframe": "D1",
+      "file": "CADCHF_D1.csv",
+      "sha256": "f552b5899533cb012f4065bb199008b14c24f7840873af4fb700d689cb6be271",
+      "size_bytes": 201642,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "CADCHF",
+      "timeframe": "H1",
+      "file": "CADCHF_H1.csv",
+      "sha256": "8410e2980e8b73ebda53ef0ba8efc20059b3d02ffef78546c98ef18ea6ab8be5",
+      "size_bytes": 5947019,
+      "bars_extracted": 789,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "CADCHF",
+      "timeframe": "H4",
+      "file": "CADCHF_H4.csv",
+      "sha256": "6d40bd429f218e6154092e7dc6cd3e4cfb34778cdd190060178d51f044605ea0",
+      "size_bytes": 1553116,
+      "bars_extracted": 204,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "CADJPY",
+      "timeframe": "D1",
+      "file": "CADJPY_D1.csv",
+      "sha256": "9538cdb44f2325a9c5fb5d515b32e0d698257a63bbd73d941cd3ec22f87361cc",
+      "size_bytes": 195459,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "CADJPY",
+      "timeframe": "H1",
+      "file": "CADJPY_H1.csv",
+      "sha256": "236cd0461193dbf56081489f8f1f255cfca26ce5a8184ad668c1dac8effde79a",
+      "size_bytes": 5753329,
+      "bars_extracted": 789,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "CADJPY",
+      "timeframe": "H4",
+      "file": "CADJPY_H4.csv",
+      "sha256": "73b72bcc35dbf3e7754970a57d8c1690988a21871f4a5c29b0c0a1d5c0f6e802",
+      "size_bytes": 1498912,
+      "bars_extracted": 204,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "CADNOK",
+      "timeframe": "D1",
+      "file": "CADNOK_D1.csv",
+      "sha256": "c6435432a0328fbf55df9b577fed5838137cdd17806faeaa7f4877739203b20a",
+      "size_bytes": 28617,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "CADNOK",
+      "timeframe": "H1",
+      "file": "CADNOK_H1.csv",
+      "sha256": "96a13b33f877613759969b2199685f5946e3e4354f0ca5038293fbe93072f618",
+      "size_bytes": 841627,
+      "bars_extracted": 788,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "CADNOK",
+      "timeframe": "H4",
+      "file": "CADNOK_H4.csv",
+      "sha256": "5a7c3359695f5eded57adb126d40d730c9ca677e717f90755e3f7d5adf891b0e",
+      "size_bytes": 219138,
+      "bars_extracted": 204,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "COPPER",
+      "timeframe": "D1",
+      "file": "COPPER_D1.csv",
+      "sha256": "c8baddbc722b7ee77cb0ef2b7db328667bce2b65d2423ea92869d171c027bac4",
+      "size_bytes": 21607,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "COPPER",
+      "timeframe": "H1",
+      "file": "COPPER_H1.csv",
+      "sha256": "a31c6b09d13c8a7d83c38e3ddeb0b7202ad94c7d78aabf9c2d3488c9cff5ef51",
+      "size_bytes": 669281,
+      "bars_extracted": 753,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "COPPER",
+      "timeframe": "H4",
+      "file": "COPPER_H4.csv",
+      "sha256": "c5f54cb4c5d3305fa4d877f0049ca66e8bdfa364e483dbc3a8e5df7d932b9a43",
+      "size_bytes": 209867,
+      "bars_extracted": 203,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "CORN",
+      "timeframe": "D1",
+      "file": "CORN_D1.csv",
+      "sha256": "95790f41fbfd44cd02d772cfc6f38c64c2fbcd3ca517bc536e51c37ae1db0c71",
+      "size_bytes": 23502,
+      "bars_extracted": 32,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "CORN",
+      "timeframe": "H1",
+      "file": "CORN_H1.csv",
+      "sha256": "324c0296d87781c0ee20c4a20d1d7bed28e15f71d8dfc7572fa61053f2d885cd",
+      "size_bytes": 526288,
+      "bars_extracted": 608,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T18:00:00Z"
+      }
+    },
+    {
+      "symbol": "CORN",
+      "timeframe": "H4",
+      "file": "CORN_H4.csv",
+      "sha256": "2714f562af47dba6806c41f52a78d71cbba49d9cd52ebd051ad27e9720a1cc48",
+      "size_bytes": 169047,
+      "bars_extracted": 160,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T16:00:00Z"
+      }
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "D1",
+      "file": "EURUSD_D1.csv",
+      "sha256": "b81e77ed8e0d584132dbf0d8ffacf85a4e555fe2a8bb7543ed581d9e05bad3eb",
+      "size_bytes": 232634,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "H1",
+      "file": "EURUSD_H1.csv",
+      "sha256": "d2a51235b7e95573b78b581baadf9e0cc5f8ca91477b0b299b355097c3d3f05c",
+      "size_bytes": 6874153,
+      "bars_extracted": 789,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "EURUSD",
+      "timeframe": "H4",
+      "file": "EURUSD_H4.csv",
+      "sha256": "6e5643af4ab12f155ceb6acd766d61277e8567cbcbaa22097c87054c6b0c013b",
+      "size_bytes": 1783563,
+      "bars_extracted": 204,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "GASOLINE",
+      "timeframe": "D1",
+      "file": "GASOLINE_D1.csv",
+      "sha256": "937b78228a730acf0bb425db6d7a89bd5321a345a50756ae2ddb81434824637a",
+      "size_bytes": 23307,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "GASOLINE",
+      "timeframe": "H1",
+      "file": "GASOLINE_H1.csv",
+      "sha256": "3280f88879dc1ff4decee9e96a0312cb3744124277fad4f68eee8a40708c82f1",
+      "size_bytes": 731443,
+      "bars_extracted": 753,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "GASOLINE",
+      "timeframe": "H4",
+      "file": "GASOLINE_H4.csv",
+      "sha256": "f472fc2f8e90f4afbbe470a66f2ef7c4c6db4592f31922b8cd204709bf4f337a",
+      "size_bytes": 229009,
+      "bars_extracted": 203,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "GBPCAD",
+      "timeframe": "D1",
+      "file": "GBPCAD_D1.csv",
+      "sha256": "fe8db7cbbf017be302e9d13526e113cbf5d8bc74af6b6ca34a8f02cba603ab52",
+      "size_bytes": 242878,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "GBPCAD",
+      "timeframe": "H1",
+      "file": "GBPCAD_H1.csv",
+      "sha256": "b01b221cf6a77fd85a78bb96ad9c1c13b78c48095a0982fdca37710f13fea1f7",
+      "size_bytes": 7183604,
+      "bars_extracted": 789,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "GBPCAD",
+      "timeframe": "H4",
+      "file": "GBPCAD_H4.csv",
+      "sha256": "8a00747908b02e139a555988bb64ee75d3a3c03a59eabdb63176bad315f1437c",
+      "size_bytes": 1867213,
+      "bars_extracted": 204,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "GBPUSD",
+      "timeframe": "D1",
+      "file": "GBPUSD_D1.csv",
+      "sha256": "f45075416d60c32d0c2d7d7718bb1c197afe6d96c20c6483cdd2dbaf5d8cd821",
+      "size_bytes": 249721,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "GBPUSD",
+      "timeframe": "H1",
+      "file": "GBPUSD_H1.csv",
+      "sha256": "12a25bb9151139f7f038120f31d625762720afb5fe0df1917fb295a9ca936e0f",
+      "size_bytes": 7368604,
+      "bars_extracted": 789,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "GBPUSD",
+      "timeframe": "H4",
+      "file": "GBPUSD_H4.csv",
+      "sha256": "17da9f7ca5715fe22191e4212049b3562a31ac282044040d5bd7be12516fc331",
+      "size_bytes": 1911290,
+      "bars_extracted": 204,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "GER40",
+      "timeframe": "D1",
+      "file": "GER40_D1.csv",
+      "sha256": "d8ed705c70cec3a04cc3a3c6758ab836f20bb28aef9f4e60ceb0300008b4f390",
+      "size_bytes": 24482,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "GER40",
+      "timeframe": "H1",
+      "file": "GER40_H1.csv",
+      "sha256": "9c05d3820801692384aa86ea11275c4273513fbf6b9e7b19daade0ebcaf67ab2",
+      "size_bytes": 765555,
+      "bars_extracted": 750,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T19:00:00Z"
+      }
+    },
+    {
+      "symbol": "GER40",
+      "timeframe": "H4",
+      "file": "GER40_H4.csv",
+      "sha256": "6a412776389d931310835b25f20b343f64d6df45d292cf9718c5dc4a0cdde759",
+      "size_bytes": 236989,
+      "bars_extracted": 197,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T16:00:00Z"
+      }
+    },
+    {
+      "symbol": "GOLD",
+      "timeframe": "D1",
+      "file": "GOLD_D1.csv",
+      "sha256": "5b7ca4ade1eaa4b38398625387d0898017d29a32600a9d23c0d05830ffc464d9",
+      "size_bytes": 23817,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "GOLD",
+      "timeframe": "H1",
+      "file": "GOLD_H1.csv",
+      "sha256": "bf2f17e43231018f1db0ae2b0bd280fbb955a0f428f9d1fa587c1fc5cc10f67d",
+      "size_bytes": 742078,
+      "bars_extracted": 753,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "GOLD",
+      "timeframe": "H4",
+      "file": "GOLD_H4.csv",
+      "sha256": "ab2ebaef3ece7f76c06554c0842ac8b7fbe67f8096ec001f64c60862b697f185",
+      "size_bytes": 232860,
+      "bars_extracted": 203,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "HEATOIL",
+      "timeframe": "D1",
+      "file": "HEATOIL_D1.csv",
+      "sha256": "575da32a21dd20fae262426e962bbf5d4c99c53dd312b65ed4769d3b3e32e96c",
+      "size_bytes": 11457,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "HEATOIL",
+      "timeframe": "H1",
+      "file": "HEATOIL_H1.csv",
+      "sha256": "6d56f963c2c68dd89c1cb18bc86e070167765730845f336a8832f783e9d7c593",
+      "size_bytes": 339589,
+      "bars_extracted": 753,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "HEATOIL",
+      "timeframe": "H4",
+      "file": "HEATOIL_H4.csv",
+      "sha256": "34359f337fe3961c35ac6ead7743c1ce4b44b5faea2874d872ff2b7f008514ef",
+      "size_bytes": 92479,
+      "bars_extracted": 203,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "JPN225",
+      "timeframe": "D1",
+      "file": "JPN225_D1.csv",
+      "sha256": "22a7010ae9aaed869b3916dbaadf9bdabda05467201a9b441b45d1683c304cc0",
+      "size_bytes": 24948,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "JPN225",
+      "timeframe": "H1",
+      "file": "JPN225_H1.csv",
+      "sha256": "2b22b9781b244cd0d313eb9bd5fde295fdb29186a7d4806b53dbbc9f9e744c53",
+      "size_bytes": 779501,
+      "bars_extracted": 753,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "JPN225",
+      "timeframe": "H4",
+      "file": "JPN225_H4.csv",
+      "sha256": "d030b22806e6c23c0ce51d6b0a87d7b94beccc1314f5255d5ba3c18edb9776b2",
+      "size_bytes": 244779,
+      "bars_extracted": 203,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "LSGOIL",
+      "timeframe": "D1",
+      "file": "LSGOIL_D1.csv",
+      "sha256": "1be5487d50eaccace584296c7781c8b08f97a7198c11100c8c99fe2bc595ccb2",
+      "size_bytes": 13305,
+      "bars_extracted": 32,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "LSGOIL",
+      "timeframe": "H1",
+      "file": "LSGOIL_H1.csv",
+      "sha256": "321628b01367299db01ae45203a4c34a4bc52404b79c33a7c84cf22e5198b332",
+      "size_bytes": 308242,
+      "bars_extracted": 702,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "LSGOIL",
+      "timeframe": "H4",
+      "file": "LSGOIL_H4.csv",
+      "sha256": "ff60ce8352a5b336d66d2377946178a1f830e5eefb19968ca3c1c154762c3856",
+      "size_bytes": 90026,
+      "bars_extracted": 203,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "NDAQ100",
+      "timeframe": "D1",
+      "file": "NDAQ100_D1.csv",
+      "sha256": "f17b5523f39a53e6e4ae7f663ccb49110c8f9f0161f3208baf2a3a3a95c9b29d",
+      "size_bytes": 24181,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "NDAQ100",
+      "timeframe": "H1",
+      "file": "NDAQ100_H1.csv",
+      "sha256": "92fc1d8a8f8b84db93508ae3e27de4b4a4d363093fdf56826f8388f4d222d343",
+      "size_bytes": 795717,
+      "bars_extracted": 753,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "NDAQ100",
+      "timeframe": "H4",
+      "file": "NDAQ100_H4.csv",
+      "sha256": "3fd385572a6cfc050663a1a126a21dee3d6d72aeefb8aaddece0f86e7ccf85ed",
+      "size_bytes": 249656,
+      "bars_extracted": 203,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "NZDCAD",
+      "timeframe": "D1",
+      "file": "NZDCAD_D1.csv",
+      "sha256": "f400cc15b16a3f8995c174ab3d8d8cf90b412325e57ec3d7961622a1f6ad3353",
+      "size_bytes": 44158,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "NZDCAD",
+      "timeframe": "H1",
+      "file": "NZDCAD_H1.csv",
+      "sha256": "6dae8fa7713776c4bd063d543e49277660b8b1dbeed0ef9714acf67a25914000",
+      "size_bytes": 1334491,
+      "bars_extracted": 789,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "NZDCAD",
+      "timeframe": "H4",
+      "file": "NZDCAD_H4.csv",
+      "sha256": "73a05b399cfba68ae5b9683fcec90c352cdec5ddca8a6938444fe6b6d1dd28fd",
+      "size_bytes": 350330,
+      "bars_extracted": 204,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "PALLADIUM",
+      "timeframe": "D1",
+      "file": "PALLADIUM_D1.csv",
+      "sha256": "abcfaf970b4eb681430c0f3987d15a3daa195a00dfeabf80bd7405236ba60a47",
+      "size_bytes": 22597,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "PALLADIUM",
+      "timeframe": "H1",
+      "file": "PALLADIUM_H1.csv",
+      "sha256": "d4fd9401a9aaa2dddfb55c5afa725b0239dd10bfaca8430929af943e4936de7c",
+      "size_bytes": 703363,
+      "bars_extracted": 753,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "PALLADIUM",
+      "timeframe": "H4",
+      "file": "PALLADIUM_H4.csv",
+      "sha256": "eb836ec70e64306a05ccd35e875a781818d90624a446292c3dbe558fe0dbe3af",
+      "size_bytes": 221023,
+      "bars_extracted": 203,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "PLATINUM",
+      "timeframe": "D1",
+      "file": "PLATINUM_D1.csv",
+      "sha256": "86247bd69ffd37c386f2ee1ea994d6f1e92a0b3f2f4591b9bfe2f50a5afd7ebb",
+      "size_bytes": 22854,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "PLATINUM",
+      "timeframe": "H1",
+      "file": "PLATINUM_H1.csv",
+      "sha256": "fe388a97eea15d23038cac0b72aa05ea40b258ce0651d581637ef0089d5214fe",
+      "size_bytes": 709814,
+      "bars_extracted": 753,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "PLATINUM",
+      "timeframe": "H4",
+      "file": "PLATINUM_H4.csv",
+      "sha256": "1ec8a23d5f615ea253231ea2818e28bf4440003a1116634a78cc970ce9d88447",
+      "size_bytes": 221520,
+      "bars_extracted": 203,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "SILVER",
+      "timeframe": "D1",
+      "file": "SILVER_D1.csv",
+      "sha256": "13cc4cc6f1adc78d9403a6748853fc07834eb6387ac93403479e737511a60393",
+      "size_bytes": 21726,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "SILVER",
+      "timeframe": "H1",
+      "file": "SILVER_H1.csv",
+      "sha256": "67e12ce3ef1917d69f436c791c1d2411dff43270ba87708b3826dcbb07dd3c6e",
+      "size_bytes": 676386,
+      "bars_extracted": 753,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "SILVER",
+      "timeframe": "H4",
+      "file": "SILVER_H4.csv",
+      "sha256": "784eca901cf8a607dd3d10308cb4aa68db2bf68a147543c6ddd8338b0212da46",
+      "size_bytes": 212164,
+      "bars_extracted": 203,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "SOYBEAN",
+      "timeframe": "D1",
+      "file": "SOYBEAN_D1.csv",
+      "sha256": "8aff4f7b1686cc07e08da45d0e5a0fa3e57c68bc1c2b0a4c136815b89f4ad29e",
+      "size_bytes": 28038,
+      "bars_extracted": 32,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "SOYBEAN",
+      "timeframe": "H1",
+      "file": "SOYBEAN_H1.csv",
+      "sha256": "0411fd5fa3ae04c632010037ca14fa7b21fa299cfe8e97e6ec1c3db8ca08cc40",
+      "size_bytes": 574865,
+      "bars_extracted": 608,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T18:00:00Z"
+      }
+    },
+    {
+      "symbol": "SOYBEAN",
+      "timeframe": "H4",
+      "file": "SOYBEAN_H4.csv",
+      "sha256": "64330017e5e493c47d01196407559469a19fa68d8885505f027cf3f578a72500",
+      "size_bytes": 183089,
+      "bars_extracted": 160,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T16:00:00Z"
+      }
+    },
+    {
+      "symbol": "SPX500",
+      "timeframe": "D1",
+      "file": "SPX500_D1.csv",
+      "sha256": "fa3699911dd32ff806c143c9d520782935dafc8bb425b0c367e453a8ee0d4b6c",
+      "size_bytes": 22396,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "SPX500",
+      "timeframe": "H1",
+      "file": "SPX500_H1.csv",
+      "sha256": "5f4613d42944253f3feb11552e1cfb2a2c66da4d3bd3cc2f83846b1415404501",
+      "size_bytes": 735241,
+      "bars_extracted": 753,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "SPX500",
+      "timeframe": "H4",
+      "file": "SPX500_H4.csv",
+      "sha256": "4effc6eafc88254fb4d95a22f63d99b1e48ffdeb716ce53da22e7e5acca79f11",
+      "size_bytes": 230709,
+      "bars_extracted": 203,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "UK100",
+      "timeframe": "D1",
+      "file": "UK100_D1.csv",
+      "sha256": "4fb90aa9b6117acd93851e9eaf37186f38c46fc63cb7b87f122c6ab70419d2e1",
+      "size_bytes": 23240,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "UK100",
+      "timeframe": "H1",
+      "file": "UK100_H1.csv",
+      "sha256": "5dc64a89d2aabc5b49a0b2bd0278abbc6f3bc1477ccb7daacaa2be40bb336690",
+      "size_bytes": 727898,
+      "bars_extracted": 750,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T19:00:00Z"
+      }
+    },
+    {
+      "symbol": "UK100",
+      "timeframe": "H4",
+      "file": "UK100_H4.csv",
+      "sha256": "70ef70562cc6d1e5d9eb02a5db9a3e1b0fc99254fdfcec936bb97624cb137c32",
+      "size_bytes": 223202,
+      "bars_extracted": 197,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T16:00:00Z"
+      }
+    },
+    {
+      "symbol": "UKOIL",
+      "timeframe": "D1",
+      "file": "UKOIL_D1.csv",
+      "sha256": "c9fe5ba9ae60083acfdfb0765137c4ba67c1d6b45e0173d80a8a4de9b6e85985",
+      "size_bytes": 22065,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "UKOIL",
+      "timeframe": "H1",
+      "file": "UKOIL_H1.csv",
+      "sha256": "d686b2200d325e56ea48230826a8e76c77735569e8e087e29786e3f42256b968",
+      "size_bytes": 653865,
+      "bars_extracted": 728,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "UKOIL",
+      "timeframe": "H4",
+      "file": "UKOIL_H4.csv",
+      "sha256": "6d700a6887ea321cca71dab857ab8159d3509099c1963cd86a8e3863ccf710da",
+      "size_bytes": 211698,
+      "bars_extracted": 203,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "US2000",
+      "timeframe": "D1",
+      "file": "US2000_D1.csv",
+      "sha256": "2f975974f404922a0d59777fe5031918e0f271fd040226702c6fb3026e74edbb",
+      "size_bytes": 12355,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "US2000",
+      "timeframe": "H1",
+      "file": "US2000_H1.csv",
+      "sha256": "e852ef45a2ddffa0b1225b1359aec5b432468180ca06b2b26b596a137e4d753a",
+      "size_bytes": 370175,
+      "bars_extracted": 753,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "US2000",
+      "timeframe": "H4",
+      "file": "US2000_H4.csv",
+      "sha256": "bec1fb4297af0b0c2f298fe3b1f2a1cf819f0556983c82360f1722bc5ea07477",
+      "size_bytes": 101147,
+      "bars_extracted": 203,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "US30",
+      "timeframe": "D1",
+      "file": "US30_D1.csv",
+      "sha256": "7a3dfd611f84cb0de58b406cb020dd359d4a844094f18eeadbda24ebc15ec36b",
+      "size_bytes": 23240,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "US30",
+      "timeframe": "H1",
+      "file": "US30_H1.csv",
+      "sha256": "6b2d5f328ebfbc6213ce7ae94c9a509d87988c7a78cc021f140a62d5d85612b8",
+      "size_bytes": 772714,
+      "bars_extracted": 753,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "US30",
+      "timeframe": "H4",
+      "file": "US30_H4.csv",
+      "sha256": "a8329fd9ab46639c90dbdd781649139976e5ac35067142c40aa557fd5936a874",
+      "size_bytes": 242896,
+      "bars_extracted": 203,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "D1",
+      "file": "USDCAD_D1.csv",
+      "sha256": "9342bf3fe9c18edd41607139cb2979726ae7811d8cd49b1b8682f61c4b71fa3f",
+      "size_bytes": 179924,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "H1",
+      "file": "USDCAD_H1.csv",
+      "sha256": "197cbf053a0ce7e2952c68e06ddcc4ec32b3433cabb31603b929adb9855d4f64",
+      "size_bytes": 5291374,
+      "bars_extracted": 789,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "USDCAD",
+      "timeframe": "H4",
+      "file": "USDCAD_H4.csv",
+      "sha256": "3e4b7811f48007b72ac4bca8d82cf2885b9748931f133886969c20d11e965552",
+      "size_bytes": 1372960,
+      "bars_extracted": 204,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "USDCHF",
+      "timeframe": "D1",
+      "file": "USDCHF_D1.csv",
+      "sha256": "486232524ea318d45e8ef7c10395dd1e006a83bbcfd904e665f9367d777d982f",
+      "size_bytes": 171246,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "USDCHF",
+      "timeframe": "H1",
+      "file": "USDCHF_H1.csv",
+      "sha256": "02110c4026a0b5b118ae1daacd1dd69dc2ee719ee988f2a4afab766f5537aae4",
+      "size_bytes": 5051177,
+      "bars_extracted": 789,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "USDCHF",
+      "timeframe": "H4",
+      "file": "USDCHF_H4.csv",
+      "sha256": "b1e05a76864ee74f39bd228246d703d152cec6f866d20cff00d8ea367eae3a4a",
+      "size_bytes": 1310336,
+      "bars_extracted": 204,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "USDJPY",
+      "timeframe": "D1",
+      "file": "USDJPY_D1.csv",
+      "sha256": "0b9c30978db57b8e1a965e4eb6422319744de486a3c5a7e375c96dc0a1891234",
+      "size_bytes": 165720,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "USDJPY",
+      "timeframe": "H1",
+      "file": "USDJPY_H1.csv",
+      "sha256": "901d6700c4451b2e6a7454dc61cce60a25daf1dab02258bab99088b4ed4605dc",
+      "size_bytes": 4909376,
+      "bars_extracted": 789,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "USDJPY",
+      "timeframe": "H4",
+      "file": "USDJPY_H4.csv",
+      "sha256": "7041900efbd3670e93f3b109190b8023591028a47793911590fda66f84cb4d6b",
+      "size_bytes": 1302116,
+      "bars_extracted": 204,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "USNATGAS",
+      "timeframe": "D1",
+      "file": "USNATGAS_D1.csv",
+      "sha256": "d6729d78fdf1983efeff102dde876e25ef5e2d737cea41852e87e2b1deab7f28",
+      "size_bytes": 21434,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "USNATGAS",
+      "timeframe": "H1",
+      "file": "USNATGAS_H1.csv",
+      "sha256": "0a134c4e4bf1442284e52fbc3ca67e36b69a63f52e946d8a2f8ca8b75038ce70",
+      "size_bytes": 662587,
+      "bars_extracted": 753,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "USNATGAS",
+      "timeframe": "H4",
+      "file": "USNATGAS_H4.csv",
+      "sha256": "07ba2745bdc349106170a39b6e7e3a293aaef98ee8c0553d0d4546d9c16d9341",
+      "size_bytes": 208096,
+      "bars_extracted": 203,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "USOIL",
+      "timeframe": "D1",
+      "file": "USOIL_D1.csv",
+      "sha256": "f99e600663c2047d0428c0caa504de988932e657d42db2c70313e6db670e35a1",
+      "size_bytes": 21727,
+      "bars_extracted": 26,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-06T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "USOIL",
+      "timeframe": "H1",
+      "file": "USOIL_H1.csv",
+      "sha256": "d02af87c1362a84ee1c2216c1b0b56e96676cd5970ef3c467b021aa8aa00598b",
+      "size_bytes": 675161,
+      "bars_extracted": 753,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "USOIL",
+      "timeframe": "H4",
+      "file": "USOIL_H4.csv",
+      "sha256": "031101be049e7ad842a5a76422f945bf42b10e0f57e295a66abc5e213243ec9d",
+      "size_bytes": 212033,
+      "bars_extracted": 203,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T20:00:00Z"
+      }
+    },
+    {
+      "symbol": "WHEAT",
+      "timeframe": "D1",
+      "file": "WHEAT_D1.csv",
+      "sha256": "3374fbb7aafbf161ece278c5025f1055854b92fa7c812ea5ecbaf56f65efcf22",
+      "size_bytes": 26092,
+      "bars_extracted": 32,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T00:00:00Z"
+      }
+    },
+    {
+      "symbol": "WHEAT",
+      "timeframe": "H1",
+      "file": "WHEAT_H1.csv",
+      "sha256": "985293d3a495c7fb299118db9821610d85fde18e1e150602443afc7f19122e13",
+      "size_bytes": 534144,
+      "bars_extracted": 608,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T18:00:00Z"
+      }
+    },
+    {
+      "symbol": "WHEAT",
+      "timeframe": "H4",
+      "file": "WHEAT_H4.csv",
+      "sha256": "21f68916701f759e34472d681411d77c4c174d4613113546852df3c0ff290884",
+      "size_bytes": 170493,
+      "bars_extracted": 160,
+      "span": {
+        "first_open_ts": "2026-06-24T00:00:00Z",
+        "last_open_ts": "2026-08-07T16:00:00Z"
+      }
+    }
+  ],
+  "param_file": "scanner_params.level_proximity-2.1.0.json",
+  "param_sha256": "1181255cfb1b9529211ec3df2c9dd725748c7079775d20fc2d288673b4e6c6fb",
+  "evidence_tier": "retrospective_membership",
+  "convention_documents": [
+    "docs/freezes/level_proximity-1.0.0.md",
+    "docs/freezes/level_proximity-1.0.0-addendum-1.md",
+    "docs/freezes/level_proximity-1.0.0-addendum-2.md",
+    "docs/freezes/level_proximity-1.1.0.md",
+    "records/surveys/widening-survey-2026-11-19.json"
+  ],
+  "code_state": {
+    "driver_sha256": "c1b8316166c6f7e30dc585d53d0a1c9d814421105c1e3814b2ef7493dd94026e",
+    "commit": "283cb68df7093182be7c98587d92623290499cf4"
+  }
+}
