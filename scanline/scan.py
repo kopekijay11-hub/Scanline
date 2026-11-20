@@ -13,6 +13,7 @@ from typing import Any, Dict, List, Tuple
 from scanline.levels import compute_events as compute_level_events
 from scanline.sessions import compute_events as compute_session_events
 from scanline.validator import validate_batch
+from scanline.schema import normalize_module_id
 
 BATCH_START_TS = "2026-09-22T00:00:00Z"
 BATCH_END_TS = "2026-10-22T00:00:00Z"
@@ -113,7 +114,7 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None, scan_mode: st
     param_path = Path(param_path)
     params_bytes = param_path.read_bytes()
     params = json.loads(params_bytes)
-    module = params.get("module", "level_proximity")
+    module = normalize_module_id(params.get("module", "level_proximity"))
 
     if scan_mode not in ("forward", "retrospective"):
         raise ValueError(f"invalid scan_mode {scan_mode}")
@@ -202,7 +203,7 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None, scan_mode: st
     evidence_tier = "forward_asof" if scan_mode == "forward" else "retrospective_membership"
 
     header = {
-        "module": params["module"],
+        "module": module,
         "scan_mode": scan_mode,
         "evidence_tier": evidence_tier,
         "param_file": param_path.name,

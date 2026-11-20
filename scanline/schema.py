@@ -1,6 +1,6 @@
 """Event schema for Scanline: closed-field definitions."""
 
-from typing import Dict, Set
+from typing import Any, Dict, Set
 
 # Closed set of event fields - NO other fields permitted
 EVENT_FIELDS: Set[str] = {
@@ -92,3 +92,18 @@ EMISSION_TIMEFRAMES_BY_MODULE: Dict[str, Set[str]] = {
     "level_proximity": EMISSION_TIMEFRAMES,
     "session_anomalies": SESSION_EMISSION_TIMEFRAMES,
 }
+
+
+# Module identifier aliases (input compatibility)
+MODULE_ALIASES: Dict[str, str] = {
+    "module_1": "level_proximity",
+    "level_proximity": "level_proximity",
+    "session_anomalies": "session_anomalies",
+}
+
+
+def normalize_module_id(module: Any) -> Any:
+    """Normalize legacy module identifiers to canonical IDs at the boundary."""
+    if isinstance(module, str):
+        return MODULE_ALIASES.get(module, module)
+    return module
