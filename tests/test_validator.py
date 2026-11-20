@@ -602,3 +602,126 @@ class TestWidened210GridMembership:
         r1 = [v for v in result2["violations"] if v["rule"] == "R1"]
         assert len(r1) == 1
         assert r1[0]["event_index"] == 1
+
+
+class TestSessionAnomaliesModule:
+    """Module 2 validator pins."""
+
+    def _params_bytes(self, params):
+        import json
+        return json.dumps(params).encode()
+
+    def _header(self, module="session_anomalies", scan_mode="forward", evidence_tier="forward_asof", frozen_at="2026-01-01T00:00:00Z", batch_end="2026-01-02T23:00:00Z"):
+        return {
+            "module": module,
+            "scan_mode": scan_mode,
+            "evidence_tier": evidence_tier,
+            "param_file": "p.json",
+            "param_sha256": None,
+            "param_version": "1.0.0",
+            "frozen_at": frozen_at,
+            "universe": ["GOLD"],
+            "emission_timeframes": ["H1"],
+            "definition_timeframe": "H1",
+            "batch_start_ts": "2026-01-02T00:00:00Z",
+            "batch_end_ts": batch_end,
+        }
+
+    def test_unknown_module_fails_R5(self, frozen_params_bytes):
+        import hashlib, json
+        params = {"module": "nope", "param_version": "1.0.0", "frozen_at": "2026-01-01T00:00:00Z", "clusters": {"GOLD": {"expected_bars": 24}}}
+        pb = self._params_bytes(params)
+        h = self._header(module="nope")
+        h["param_sha256"] = hashlib.sha256(pb).hexdigest()
+        ev = [{
+            "symbol": "GOLD", "timeframe": "H1", "anomaly_type": "missing_session",
+            "session_date": "2026-01-02", "expected_bars": 24, "observed_bars": 0,
+            "defined_at": "2026-01-01T00:00:00Z", "gap_hours": 0,
+            "param_version": "1.0.0", "event_ts": "2026-01-02T23:00:00Z",
+        }]
+        from scanline.validator import validate_batch
+        r = validate_batch(ev, h, pb)
+        assert r["rule_results"]["R5"] == "fail"
+        assert any("module" in v["detail"] for v in r["violations"])
+
+    def test_unknown_anomaly_type_fails_R2(self):
+        import hashlib, json
+        params = {"module": "session_anomalies", "param_version": "1.0.0", "frozen_at": "2026-01-01T00:00:00Z", "clusters": {"GOLD": {"expected_bars": 24}}}
+        pb = self._params_bytes(params)
+        h = self._header()
+        h["param_sha256"] = hashlib.sha256(pb).hexdigest()
+        ev = [{
+            "symbol": "GOLD", "timeframe": "H1", "anomaly_type": "bogus",
+            "session_date": "2026-01-02", "expected_bars": 24, "observed_bars": 0,
+            "defined_at": "2026-01-01T00:00:00Z", "gap_hours": 0,
+            "param_version": "1.0.0", "event_ts": "2026-01-02T23:00:00Z",
+        }]
+        from scanline.validator import validate_batch
+        r = validate_batch(ev, h, pb)
+        assert r["rule_results"]["R2"] == "fail"
+
+    def test_extra_event_field_fails_R5(self):
+        import hashlib, json
+        params = {"module": "session_anomalies", "param_version": "1.0.0", "frozen_at": "2026-01-01T00:00:00Z", "clusters": {"GOLD": {"expected_bars": 24}}}
+        pb = self._params_bytes(params)
+        h = self._header()
+        h["param_sha256"] = hashlib.sha256(pb).hexdigest()
+        ev = [{
+            "symbol": "GOLD", "timeframe": "H1", "anomaly_type": "missing_session",
+            "session_date": "2026-01-02", "expected_bars": 24, "observed_bars": 0,
+            "defined_at": "2026-01-01T00:00:00Z", "gap_hours": 0,
+            "param_version": "1.0.0", "event_ts": "2026-01-02T23:00:00Z",
+            "extra": 1,
+        }]
+        from scanline.validator import validate_batch
+        r = validate_batch(ev, h, pb)
+        assert r["rule_results"]["R5"] == "fail"
+
+    def test_tier_mismatch_fails_R4(self):
+        import hashlib, json
+        params = {"module": "session_anomalies", "param_version": "1.0.0", "frozen_at": "2026-01-01T00:00:00Z", "clusters": {"GOLD": {"expected_bars": 24}}}
+        pb = self._params_bytes(params)
+        h = self._header(scan_mode="retrospective", evidence_tier="forward_asof")
+        h["param_sha256"] = hashlib.sha256(pb).hexdigest()
+        # retrospective requires defined_at == frozen_at; fix
+        ev = [{
+            "symbol": "GOLD", "timeframe": "H1", "anomaly_type": "missing_session",
+            "session_date": "2026-01-02", "expected_bars": 24, "observed_bars": 0,
+            "defined_at": "2026-01-01T00:00:00Z", "gap_hours": 0,
+            "param_version": "1.0.0", "event_ts": "2026-01-02T23:00:00Z",
+        }]
+        from scanline.validator import validate_batch
+        r = validate_batch(ev, h, pb)
+        assert r["rule_results"]["R4"] == "fail"
+
+    def test_retrospective_r1_cluster_schedule(self):
+        import hashlib, json
+        params = {"module": "session_anomalies", "param_version": "1.0.0", "frozen_at": "2026-01-01T00:00:00Z", "clusters": {"GOLD": {"expected_bars": 24}}}
+        pb = self._params_bytes(params)
+        h = self._header(scan_mode="retrospective", evidence_tier="retrospective_membership", frozen_at="2026-01-01T00:00:00Z")
+        h["param_sha256"] = hashlib.sha256(pb).hexdigest()
+        ev = [{
+            "symbol": "GOLD", "timeframe": "H1", "anomaly_type": "missing_session",
+            "session_date": "2026-01-02", "expected_bars": 24, "observed_bars": 0,
+            "defined_at": "2026-01-01T00:00:00Z", "gap_hours": 0,
+            "param_version": "1.0.0", "event_ts": "2026-01-02T23:00:00Z",
+        }]
+        from scanline.validator import validate_batch
+        r = validate_batch(ev, h, pb)
+        assert r["valid"] is True, r["violations"]
+
+    def test_r3_future_event_fails(self):
+        import hashlib, json
+        params = {"module": "session_anomalies", "param_version": "1.0.0", "frozen_at": "2026-01-01T00:00:00Z", "clusters": {"GOLD": {"expected_bars": 24}}}
+        pb = self._params_bytes(params)
+        h = self._header(batch_end="2026-01-02T12:00:00Z")
+        h["param_sha256"] = hashlib.sha256(pb).hexdigest()
+        ev = [{
+            "symbol": "GOLD", "timeframe": "H1", "anomaly_type": "missing_session",
+            "session_date": "2026-01-02", "expected_bars": 24, "observed_bars": 0,
+            "defined_at": "2026-01-01T00:00:00Z", "gap_hours": 0,
+            "param_version": "1.0.0", "event_ts": "2026-01-02T23:00:00Z",
+        }]
+        from scanline.validator import validate_batch
+        r = validate_batch(ev, h, pb)
+        assert r["rule_results"]["R3"] == "fail"
