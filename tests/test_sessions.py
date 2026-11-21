@@ -2,10 +2,11 @@
 
 from datetime import datetime, timedelta, timezone
 from scanline.sessions import compute_events
+from scanline.validation.duplicate import DuplicateBarKeyError
 
 
-def mk(symbol, ts):
-    return {"symbol": symbol, "timeframe": "H1", "open_ts": ts, "open": 1.0, "high": 1.0, "low": 1.0, "close": 1.0}
+def mk(symbol, ts, tf="H1"):
+    return {"symbol": symbol, "timeframe": tf, "open_ts": ts, "open": 1.0, "high": 1.0, "low": 1.0, "close": 1.0}
 
 
 def params(expected=3, sun=2, zone="America/New_York", maint_start="17:00", maint_end="18:00", stub_tol=1, sun_tol=0):
@@ -291,7 +292,16 @@ class TestScan016B:
 
 
 class TestSessionCurrentBehavior:
-    """Characterization of current session anomaly behavior (not approved policy)."""
+    """Characterization of current session anomaly behavior (not approved policy).
+
+    The four duplicate tests below characterized the pre-SCAN-017F tolerant
+    behavior (duplicates were counted and could suppress anomalies). Under
+    Policy B (SCAN-017F) repeated ``(symbol, timeframe, open_ts)`` keys are
+    rejected, so these tests now assert rejection; the historical
+    duplicate-inflation behavior remains documented in
+    docs/SCAN-017E-DUPLICATE-POLICY.md and is no longer accepted runtime
+    behavior. All other tests in this class are unchanged.
+    """
 
     def _bars(self, dates_counts):
         bars = []
@@ -474,20 +484,20 @@ class TestSessionCurrentBehavior:
 
     # --- 5. Duplicate input tests ---
 
-    def test_duplicate_identical_bars_inflate_count(self):
+    def test_duplicate_identical_keys_rejected(self):
+        import pytest
         bars = self._bars([
             ("2026-01-05", 3),   # first
             ("2026-01-09", 3),   # last
         ])
-        # interior Wednesday: one unique bar plus two identical duplicates -> 3 observed
         bars.append(mk("GOLD", "2026-01-07T00:00:00Z"))
         bars.append(mk("GOLD", "2026-01-07T00:00:00Z"))
         bars.append(mk("GOLD", "2026-01-07T00:00:00Z"))
-        ev = compute_events(bars, params(expected=3, sun=2, stub_tol=1))
-        target_events = [e for e in ev if e["session_date"] == "2026-01-07" and e["anomaly_type"] in ("missing_session", "stub_session")]
-        assert target_events == []
+        with pytest.raises(DuplicateBarKeyError):
+            compute_events(bars, params(expected=3, sun=2, stub_tol=1))
 
-    def test_duplicate_same_timestamp_differing_ohlcv_no_gap(self):
+    def test_duplicate_conflicting_keys_rejected(self):
+        import pytest
         bars = [
             mk("GOLD", "2026-01-05T00:00:00Z"),
         ]
@@ -495,32 +505,30 @@ class TestSessionCurrentBehavior:
         bar2["close"] = 2.0
         bars.append(bar2)
         bars.append(mk("GOLD", "2026-01-06T00:00:00Z"))
-        ev = compute_events(bars, params(expected=3, sun=2))
-        gaps = [e for e in ev if e["anomaly_type"] == "intra_session_gap"]
-        assert gaps == []
+        with pytest.raises(DuplicateBarKeyError):
+            compute_events(bars, params(expected=3, sun=2))
 
-    def test_duplicate_bars_inflating_observed_counts_suppress_stub(self):
+    def test_duplicate_bars_inflating_observed_counts_suppress_stub_rejected(self):
+        import pytest
         bars = self._bars([
             ("2026-01-05", 3),   # first
             ("2026-01-09", 3),   # last
         ])
-        # interior Wednesday: one unique bar plus one duplicate -> 2 observed (boundary)
         bars.append(mk("GOLD", "2026-01-07T00:00:00Z"))
         bars.append(mk("GOLD", "2026-01-07T00:00:00Z"))
-        ev = compute_events(bars, params(expected=3, sun=2, stub_tol=1))
-        target_events = [e for e in ev if e["session_date"] == "2026-01-07" and e["anomaly_type"] == "stub_session"]
-        assert target_events == []
+        with pytest.raises(DuplicateBarKeyError):
+            compute_events(bars, params(expected=3, sun=2, stub_tol=1))
 
-    def test_duplicate_timestamps_no_positive_duration_gap(self):
+    def test_duplicate_timestamps_rejected(self):
+        import pytest
         bars = [
             mk("GOLD", "2026-01-05T00:00:00Z"),
             mk("GOLD", "2026-01-05T00:00:00Z"),
             mk("GOLD", "2026-01-05T01:00:00Z"),
             mk("GOLD", "2026-01-06T00:00:00Z"),
         ]
-        ev = compute_events(bars, params(expected=3, sun=2))
-        gaps = [e for e in ev if e["anomaly_type"] == "intra_session_gap"]
-        assert gaps == []
+        with pytest.raises(DuplicateBarKeyError):
+            compute_events(bars, params(expected=3, sun=2))
 
     # --- 6. Other tests ---
 
@@ -675,3 +683,313 @@ class TestMixedTimeframeInput:
     def test_scan_execution_unaffected(self):
         from scanline.scan import run_scan
         assert run_scan is not None
+
+
+class TestScan017FDuplicateIntegrity:
+    """Duplicate bar-key integrity (SCAN-017F, Policy B): repeated
+    (symbol, timeframe, open_ts) keys are rejected; cross-symbol and
+    cross-timeframe timestamp matches remain valid."""
+
+    def _multi_symbol_params(self):
+        p = params()
+        p["clusters"]["SILVER"] = {
+            "symbol": "SILVER",
+            "zone": "America/New_York",
+            "expected_bars": 3,
+            "expected_sun_bars": 2,
+            "maintenance_local_start": "17:00",
+            "maintenance_local_end": "18:00",
+            "stub_tolerance": 1,
+            "sun_tolerance": 0,
+        }
+        return p
+
+    # --- 1. Identical duplicate rejection ---
+
+    def test_identical_duplicate_keys_rejected(self):
+        import pytest
+        bars = [
+            mk("GOLD", "2026-01-05T00:00:00Z"),
+            mk("GOLD", "2026-01-05T00:00:00Z"),
+        ]
+        with pytest.raises(DuplicateBarKeyError):
+            compute_events(bars, params(expected=3, sun=2))
+
+    # --- 2. Conflicting duplicate rejection ---
+
+    def test_conflicting_duplicate_keys_rejected(self):
+        import pytest
+        bars = [mk("GOLD", "2026-01-05T00:00:00Z")]
+        conflicting = mk("GOLD", "2026-01-05T00:00:00Z")
+        conflicting["close"] = 5.5
+        bars.append(conflicting)
+        with pytest.raises(DuplicateBarKeyError):
+            compute_events(bars, params(expected=3, sun=2))
+
+    # --- 3. Three or more occurrences: failure on the second occurrence ---
+
+    def test_three_or_more_occurrences_rejected_on_second(self):
+        import pytest
+        bars = [mk("GOLD", "2026-01-05T00:00:00Z")] * 4
+        with pytest.raises(DuplicateBarKeyError) as excinfo:
+            compute_events(bars, params(expected=3, sun=2))
+        err = excinfo.value
+        assert err.first_index == 0
+        assert err.duplicate_index == 1
+        assert "open_ts=2026-01-05T00:00:00Z" in str(err)
+        assert "input index 0" in str(err)
+        assert "input index 1" in str(err)
+
+    # --- 4. Duplicate keys across combined direct-call inputs ---
+
+    def test_duplicate_keys_across_combined_inputs_rejected(self):
+        import pytest
+        source_a = [mk("GOLD", "2026-01-05T00:00:00Z"), mk("GOLD", "2026-01-06T00:00:00Z")]
+        source_b = [mk("GOLD", "2026-01-06T00:00:00Z"), mk("GOLD", "2026-01-07T00:00:00Z")]
+        with pytest.raises(DuplicateBarKeyError) as excinfo:
+            compute_events(source_a + source_b, params(expected=3, sun=2))
+        err = excinfo.value
+        assert err.duplicate_index == 2
+
+    # --- 5. Same timestamps across symbols accepted ---
+
+    def test_same_timestamp_across_symbols_accepted(self):
+        bars = {
+            "GOLD": [mk("GOLD", "2026-01-05T00:00:00Z")],
+            "SILVER": [mk("SILVER", "2026-01-05T00:00:00Z")],
+        }
+        ev = compute_events(bars, self._multi_symbol_params())
+        assert isinstance(ev, list)
+
+    # --- 6. Same timestamps across timeframes accepted (key includes timeframe) ---
+
+    def test_same_timestamp_across_timeframes_accepted(self):
+        from scanline.validation.duplicate import validate_unique_bar_keys
+        bars = [
+            mk("GOLD", "2026-01-05T00:00:00Z", "H1"),
+            mk("GOLD", "2026-01-05T00:00:00Z", "H4"),
+        ]
+        validate_unique_bar_keys(bars)
+
+    # --- 7. Equivalent timestamp representations rejected as duplicates ---
+
+    def test_equivalent_timestamp_representations_rejected(self):
+        import pytest
+        bars = [
+            mk("GOLD", "2026-01-05T00:00:00Z"),
+            mk("GOLD", "2026-01-05T00:00:00+00:00"),
+            mk("GOLD", "2026-01-05T00:00:00"),
+        ]
+        with pytest.raises(DuplicateBarKeyError):
+            compute_events(bars, params(expected=3, sun=2))
+
+    # --- 8. Unique-bar inputs producing exactly unchanged outputs ---
+
+    def test_unique_inputs_produce_unchanged_outputs(self):
+        bars = []
+        for d, n in [("2026-01-05", 3), ("2026-01-06", 3), ("2026-01-07", 3), ("2026-01-08", 0), ("2026-01-09", 3)]:
+            for h in range(n):
+                bars.append(mk("GOLD", f"{d}T{h:02d}:00:00Z"))
+        first = compute_events(bars, params(expected=3, sun=2, stub_tol=1))
+        second = compute_events(bars, params(expected=3, sun=2, stub_tol=1))
+        assert first == second
+        assert len(first) == 1
+        assert first[0]["anomaly_type"] == "missing_session"
+        assert first[0]["session_date"] == "2026-01-08"
+
+    # --- Contextual symbol/timeframe defaults and missing per-bar metadata ---
+
+    def test_contextual_symbol_default_accepted(self):
+        bars = [
+            {"timeframe": "H1", "open_ts": "2026-01-05T00:00:00Z", "open": 1.0, "high": 1.0, "low": 1.0, "close": 1.0},
+        ]
+        ev = compute_events("GOLD", bars, params(expected=3, sun=2))
+        assert isinstance(ev, list)
+
+    def test_contextual_timeframe_default_accepted(self):
+        bars = [
+            {"symbol": "GOLD", "open_ts": "2026-01-05T00:00:00Z", "open": 1.0, "high": 1.0, "low": 1.0, "close": 1.0},
+        ]
+        ev = compute_events(bars, params(expected=3, sun=2))
+        assert isinstance(ev, list)
+
+    def test_missing_per_bar_metadata_rejected(self):
+        import pytest
+        bars = [
+            {"open_ts": "2026-01-05T00:00:00Z", "open": 1.0, "high": 1.0, "low": 1.0, "close": 1.0},
+        ]
+        with pytest.raises(ValueError, match="missing 'symbol'"):
+            compute_events(bars, params(expected=3, sun=2))
+
+
+# ---------------------------------------------------------------------------
+# Regression tests (SCAN-017F-R2): session input compatibility correction.
+# Contextual symbol (explicit argument, dictionary key, or tuple symbol) is
+# propagated to symbolless bars before duplicate validation for every input
+# form. Existing bars carrying a symbol are never overwritten, and an
+# inconsistent contextual identity is rejected.
+# ---------------------------------------------------------------------------
+
+class TestScan017FInputCompatibility:
+    """Symbolless-bar input forms accept a contextual symbol from any supported
+    source and behave identically to the equivalent symbolic-bar input."""
+
+    def _symbollish(self, ts_list):
+        bars = []
+        for ts in ts_list:
+            bars.append({
+                "timeframe": "H1", "open_ts": ts,
+                "open": 1.0, "high": 1.0, "low": 1.0, "close": 1.0,
+            })
+        return bars
+
+    def _symbolic(self, ts_list):
+        return [mk("GOLD", ts) for ts in ts_list]
+
+    def _dates_bars(self):
+        # First Monday, interior Tuesday with zero bars (missing_session),
+        # last Wednesday. Exactly one interior date -> one event.
+        return [
+            "2026-01-05T00:00:00Z", "2026-01-05T01:00:00Z", "2026-01-05T02:00:00Z",
+            "2026-01-07T00:00:00Z", "2026-01-07T01:00:00Z", "2026-01-07T02:00:00Z",
+        ]
+
+    def _baseline_events(self, bars):
+        return compute_events(bars, params(expected=3, sun=2, stub_tol=1))
+
+    # --- unique bars accepted for all three forms ---
+
+    def test_explicit_symbol_with_symbolless_bars_accepted(self):
+        bars = self._symbollish(self._dates_bars())
+        ev = compute_events("GOLD", bars, params(expected=3, sun=2, stub_tol=1))
+        assert isinstance(ev, list)
+        assert len(ev) == 1
+        assert ev[0]["anomaly_type"] == "missing_session"
+        assert ev[0]["session_date"] == "2026-01-06"
+
+    def test_dictionary_key_with_symbolless_bars_accepted(self):
+        bars = self._symbollish(self._dates_bars())
+        ev = compute_events({"GOLD": bars}, params(expected=3, sun=2, stub_tol=1))
+        assert isinstance(ev, list)
+        assert len(ev) == 1
+        assert ev[0]["anomaly_type"] == "missing_session"
+        assert ev[0]["session_date"] == "2026-01-06"
+
+    def test_tuple_symbol_with_symbolless_bars_accepted(self):
+        bars = self._symbollish(self._dates_bars())
+        ev = compute_events([("GOLD", bars)], params(expected=3, sun=2, stub_tol=1))
+        assert isinstance(ev, list)
+        assert len(ev) == 1
+        assert ev[0]["anomaly_type"] == "missing_session"
+        assert ev[0]["session_date"] == "2026-01-06"
+
+    # --- outputs match the symbolic baseline ---
+
+    def test_all_forms_match_symbolic_baseline(self):
+        ts_list = self._dates_bars()
+        symbolic = self._symbolic(ts_list)
+        symbolless = self._symbollish(ts_list)
+        baseline = self._baseline_events(symbolic)
+        assert len(baseline) == 1
+        assert baseline[0]["anomaly_type"] == "missing_session"
+        assert baseline[0]["session_date"] == "2026-01-06"
+        assert compute_events("GOLD", symbolless, params(expected=3, sun=2, stub_tol=1)) == baseline
+        assert compute_events({"GOLD": symbolless}, params(expected=3, sun=2, stub_tol=1)) == baseline
+        assert compute_events([("GOLD", symbolless)], params(expected=3, sun=2, stub_tol=1)) == baseline
+
+    # --- output symbol is correct ---
+
+    def test_output_symbol_is_contextual_symbol(self):
+        symbolless = self._symbollish(self._dates_bars())
+        for form in (
+            lambda: compute_events("GOLD", symbolless, params(expected=3, sun=2, stub_tol=1)),
+            lambda: compute_events({"GOLD": symbolless}, params(expected=3, sun=2, stub_tol=1)),
+            lambda: compute_events([("GOLD", symbolless)], params(expected=3, sun=2, stub_tol=1)),
+        ):
+            ev = form()
+            assert all(e["symbol"] == "GOLD" for e in ev), ev
+
+    # --- duplicate keys rejected with correct positions ---
+
+    def test_duplicate_keys_rejected_explicit_symbol(self):
+        ts_list = self._dates_bars()
+        bars = self._symbollish(ts_list)
+        bars.append(dict(bars[0]))
+        import pytest
+        with pytest.raises(DuplicateBarKeyError) as excinfo:
+            compute_events("GOLD", bars, params(expected=3, sun=2, stub_tol=1))
+        err = excinfo.value
+        assert err.first_index == 0
+        assert err.duplicate_index == len(ts_list)
+        assert "open_ts=2026-01-05T00:00:00Z" in str(err)
+
+    def test_duplicate_keys_rejected_dictionary_key(self):
+        ts_list = self._dates_bars()
+        bars = self._symbollish(ts_list)
+        bars.append(dict(bars[0]))
+        import pytest
+        with pytest.raises(DuplicateBarKeyError) as excinfo:
+            compute_events({"GOLD": bars}, params(expected=3, sun=2, stub_tol=1))
+        err = excinfo.value
+        assert err.first_index == 0
+        assert err.duplicate_index == len(ts_list)
+
+    def test_duplicate_keys_rejected_tuple_symbol(self):
+        ts_list = self._dates_bars()
+        bars = self._symbollish(ts_list)
+        bars.append(dict(bars[0]))
+        import pytest
+        with pytest.raises(DuplicateBarKeyError) as excinfo:
+            compute_events([("GOLD", bars)], params(expected=3, sun=2, stub_tol=1))
+        err = excinfo.value
+        assert err.first_index == 0
+        assert err.duplicate_index == len(ts_list)
+
+    # --- explicit bar symbols are preserved ---
+
+    def test_explicit_bar_symbol_preserved(self):
+        ts_list = self._dates_bars()
+        bars = self._symbolic(ts_list)  # every bar already carries symbol GOLD
+        ev = compute_events("GOLD", bars, params(expected=3, sun=2, stub_tol=1))
+        assert len(ev) == 1
+        assert ev[0]["symbol"] == "GOLD"
+        # bars were not mutated to a different symbol
+        assert all(b["symbol"] == "GOLD" for b in bars)
+
+    # --- conflicting contextual symbols are rejected ---
+
+    def test_conflicting_contextual_symbol_rejected(self):
+        import pytest
+        symbolless = self._symbollish(self._dates_bars())
+        conflicted = [dict(b) for b in symbolless]
+        conflicted[0] = dict(conflicted[0], symbol="SILVER")
+        for form in (
+            lambda: compute_events("GOLD", conflicted, params(expected=3, sun=2, stub_tol=1)),
+            lambda: compute_events({"GOLD": conflicted}, params(expected=3, sun=2, stub_tol=1)),
+            lambda: compute_events([("GOLD", conflicted)], params(expected=3, sun=2, stub_tol=1)),
+        ):
+            with pytest.raises(ValueError, match="conflicting contextual symbol"):
+                form()
+
+    # --- mixed-symbol protection remains active ---
+
+    def test_mixed_symbol_protection_remains_active(self):
+        import pytest
+        multi = params(expected=3, sun=2)
+        multi["clusters"]["SILVER"] = {
+            "symbol": "SILVER", "zone": "America/New_York", "expected_bars": 3,
+            "expected_sun_bars": 2, "maintenance_local_start": "17:00",
+            "maintenance_local_end": "18:00", "stub_tolerance": 1, "sun_tolerance": 0,
+        }
+        bars = [mk("GOLD", "2026-01-05T00:00:00Z"), mk("SILVER", "2026-01-06T00:00:00Z")]
+        with pytest.raises(ValueError, match="mixed-symbol"):
+            compute_events(bars, multi)
+
+    # --- mixed-timeframe protection remains active ---
+
+    def test_mixed_timeframe_protection_remains_active(self):
+        import pytest
+        bars = self._symbollish(self._dates_bars())
+        bars[1]["timeframe"] = "H4"
+        with pytest.raises(ValueError, match="mixed-timeframe"):
+            compute_events("GOLD", bars, params(expected=3, sun=2, stub_tol=1))

@@ -8,6 +8,8 @@ from datetime import datetime, timedelta, timezone, time
 from typing import Any, Dict, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
+from scanline.validation.duplicate import validate_unique_bar_keys
+
 INTERVAL_H1 = timedelta(hours=1)
 GAP_TOLERANCE = timedelta(minutes=1)
 
@@ -461,6 +463,9 @@ def _core_compute(bars: List[Dict[str, Any]], params: Dict[str, Any]) -> List[Di
         validate_session_config(params)
     if not bars:
         return []
+    # Duplicate-key integrity: reject before sorting, session counting,
+    # state processing, or event generation (SCAN-017F, Policy B).
+    validate_unique_bar_keys(bars, symbol=None, timeframe="H1", source="sessions")
     bars_sorted = sorted(bars, key=lambda b: _parse_ts(b["open_ts"]))
     _symbols = {b.get("symbol") if isinstance(b, dict) else None for b in bars_sorted}
     if len(_symbols) > 1:
@@ -530,28 +535,46 @@ def _normalize_args(args, kwargs):
     return symbol, bars, params
 
 
+def _apply_contextual_symbol(bars, symbol):
+    """Propagate a contextual symbol to symbolless bars without overwriting.
+
+    Bars already carrying a symbol are preserved; a mismatch between a bar's
+    symbol and the contextual symbol is rejected rather than silently
+    misattributing bars.
+    """
+    if bars is None or symbol is None:
+        return bars
+    for b in bars:
+        if not isinstance(b, dict):
+            continue
+        existing = b.get("symbol")
+        if existing is None or existing == "":
+            b["symbol"] = symbol
+        elif str(existing).strip().upper() != str(symbol).strip().upper():
+            raise ValueError(
+                f"conflicting contextual symbol: bar symbol {existing!r} != contextual {symbol!r}"
+            )
+    return bars
+
+
 def compute_events(*args, **kwargs):
     symbol, bars, params = _normalize_args(args, kwargs)
     if isinstance(bars, dict):
-        # symbol -> bars
+        # symbol -> bars; propagate the dictionary key as contextual symbol
         all_events = []
         for sym, bs in bars.items():
-            all_events.extend(_core_compute(bs, params))
+            all_events.extend(_core_compute(_apply_contextual_symbol(bs, sym), params))
         return all_events
     if isinstance(bars, list) and bars and isinstance(bars[0], (list, tuple)):
-        # list of (symbol, bars)
+        # list of (symbol, bars); propagate the tuple symbol as contextual symbol
         all_events = []
         for item in bars:
             if isinstance(item, (list, tuple)) and len(item) >= 2:
-                all_events.extend(_core_compute(item[1], params))
+                all_events.extend(_core_compute(_apply_contextual_symbol(item[1], item[0]), params))
         return all_events
     if bars is None:
         bars = []
-    # if symbol provided and bars list, tag bars? core uses bar symbol
-    if symbol is not None and isinstance(bars, list):
-        for b in bars:
-            if isinstance(b, dict) and "symbol" not in b:
-                b["symbol"] = symbol
+    bars = _apply_contextual_symbol(bars, symbol)
     return _core_compute(bars, params)
 
 

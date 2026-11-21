@@ -6,6 +6,7 @@ from pathlib import Path
 import pytest
 
 from scanline.levels import compute_events
+from scanline.validation.duplicate import DuplicateBarKeyError
 
 FIXTURES_DIR = Path(__file__).parent / "fixtures"
 PARAMS_PATH = FIXTURES_DIR / "predicate_params.json"
@@ -456,3 +457,84 @@ class TestLevels:
             evt("GOLD", "H1", "d1_prior_high", 100.0, "2026-01-13T00:00:00Z", 0.0, "2026-01-13T16:00:00Z"),
         ]
         assert res == expected
+
+
+class TestScan017FDuplicateIntegrity:
+    """Duplicate bar-key integrity for the level-proximity path (SCAN-017F, Policy B)."""
+
+    def test_identical_d1_duplicates_rejected(self, params):
+        import pytest
+        d1 = [d1_bar(), d1_bar()]
+        with pytest.raises(DuplicateBarKeyError):
+            compute_events(d1, h1_series("GOLD", [108.0] * 20), params)
+
+    def test_identical_emission_duplicates_rejected(self, params):
+        import pytest
+        d1 = d1_bar()
+        em = h1_series("GOLD", [108.0] * 20)
+        em.append(dict(em[0]))
+        with pytest.raises(DuplicateBarKeyError):
+            compute_events([d1], em, params)
+
+    def test_conflicting_emission_duplicates_rejected(self, params):
+        import pytest
+        d1 = d1_bar()
+        em = h1_series("GOLD", [108.0] * 20)
+        conflicting = dict(em[0])
+        conflicting["close"] = 99.9
+        em.append(conflicting)
+        with pytest.raises(DuplicateBarKeyError):
+            compute_events([d1], em, params)
+
+    def test_three_or_more_occurrences_rejected_on_second(self, params):
+        import pytest
+        d1 = d1_bar()
+        bar = make_bar("GOLD", "H1", "2026-01-02T00:00:00Z", 108.0, 108.5, 107.5, 108.0)
+        em = [bar, bar, bar, bar, bar]
+        with pytest.raises(DuplicateBarKeyError) as excinfo:
+            compute_events([d1], em, params)
+        err = excinfo.value
+        assert err.first_index == 0
+        assert err.duplicate_index == 1
+
+    def test_duplicate_keys_across_combined_inputs_rejected(self, params):
+        import pytest
+        d1 = [d1_bar()]
+        em_a = h1_series("GOLD", [108.0] * 10)
+        em_b = [dict(b) for b in h1_series("GOLD", [108.0] * 10)]
+        with pytest.raises(DuplicateBarKeyError) as excinfo:
+            compute_events(d1, em_a + em_b, params)
+        assert excinfo.value.duplicate_index == len(em_a)
+
+    def test_same_timestamp_across_symbols_accepted(self, params):
+        d1_gold = d1_bar()
+        d1_silver = make_bar("SILVER", "D1", "2026-01-01T00:00:00Z", 95.0, 100.0, 90.0, 95.0)
+        em = h1_series("GOLD", [108.0] * 20)
+        res = compute_events([d1_gold, d1_silver], em, params)
+        assert isinstance(res, list)
+
+    def test_same_timestamp_across_timeframes_accepted(self, params):
+        d1 = d1_bar()
+        em_h1 = h1_series("GOLD", [108.0] * 20)
+        res = compute_events([d1], em_h1, params)
+        assert isinstance(res, list)
+
+    def test_equivalent_timestamp_representations_rejected(self, params):
+        import pytest
+        d1 = [
+            make_bar("GOLD", "D1", "2026-01-01T00:00:00Z", 95, 100, 90, 95),
+            make_bar("GOLD", "D1", "2026-01-01T00:00:00+00:00", 95, 100, 90, 95),
+        ]
+        em = h1_series("GOLD", [108.0] * 20)
+        with pytest.raises(DuplicateBarKeyError):
+            compute_events(d1, em, params)
+
+    def test_unique_inputs_produce_unchanged_outputs(self, params):
+        d1 = d1_bar()
+        closes = [109 - 0.5 * i for i in range(20)]
+        em = h1_series("GOLD", closes)
+        first = compute_events([d1], em, params)
+        second = compute_events([d1], em, params)
+        assert first == second
+        assert len(first) == 1
+        assert first[0]["level_type"] == "d1_prior_high"

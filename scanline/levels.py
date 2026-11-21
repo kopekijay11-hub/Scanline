@@ -7,6 +7,8 @@ parsed param file, returns the list of emitted events in pinned order.
 from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List, Optional, Tuple
 
+from scanline.validation.duplicate import validate_unique_bar_keys
+
 INTERVALS = {
     "M1": timedelta(minutes=1),
     "M5": timedelta(minutes=5),
@@ -158,6 +160,10 @@ def _grid_levels(symbol: str, grid_steps: Dict[str, Any], all_prices: List[float
 
 
 def compute_events(d1_bars: List[Dict[str, Any]], emission_bars: List[Dict[str, Any]], params: Dict[str, Any]) -> List[Dict[str, Any]]:
+    # Duplicate-key integrity before sorting/state processing (SCAN-017F, Policy B).
+    validate_unique_bar_keys(d1_bars, source="levels")
+    validate_unique_bar_keys(emission_bars, source="levels")
+
     bands, atr_window, atr_basis, frozen_at, grid_steps, param_version = _validate_params(params)
 
     d1_sorted = sorted(list(d1_bars), key=lambda b: _parse_ts(b["open_ts"]))

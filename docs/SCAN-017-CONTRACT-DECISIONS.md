@@ -91,10 +91,13 @@ Status: ANALYSIS AND DOCUMENTATION ONLY. No source, tests, config, fixtures, or 
 - For identical duplicate bars, all fields including OHLCV match.
 - For same timestamp with differing OHLCV, the bars are not identical duplicates; policy must specify whether timestamp uniqueness is required.
 
-### Recommendation
-- Do not implement deduplication or rejection now.
-- If a future contract requires unique bars, prefer rejecting duplicates at the input boundary over silent deduplication, because silent deduplication hides data-quality issues and requires choosing among conflicting OHLCV values.
-- Anomaly-record deduplication is not a substitute for input-bar handling.
+### Policy decision
+
+**Policy B — reject duplicate keys at the input boundary (implemented in SCAN-017F).** Repeated `(symbol, timeframe, open_ts)` keys are rejected by `scanline/validation/duplicate.py::validate_unique_bar_keys`, including identical and conflicting OHLCV records. No silent deduplication. Cross-symbol (Class C) and cross-timeframe (Class D) timestamp matches are accepted.
+
+Enforcement: `scanline/sessions.py::_core_compute` (before session counting/sorting) and `scanline/levels.py::compute_events` (before sorting/state processing), both calling the shared helper. `run_scan` is covered through these detectors; `scanline/scan.py` is not modified.
+
+Error contract: `DuplicateBarKeyError(ValueError)` naming the canonical key (symbol, timeframe, UTC `open_ts` ISO + epoch seconds) and both occurrence input indices, plus `source` where available. No OHLCV values in error messages. Missing bar metadata or an unparseable `open_ts` raises a distinct plain `ValueError`.
 
 ## 4. Count semantics
 
@@ -224,7 +227,7 @@ Example with `expected_sun_bars = 2`, `sun_tolerance = 1`:
 - UTC-date grouping; interior dates only; Saturday skipped; Sunday separate.
 - Weekday: missing at 0 bars (if expected > 0), stub below `expected - stub_tolerance`.
 - Sunday: absolute tolerance around `expected_sun_bars`.
-- No duplicate handling; mixed input mis-attributed to first bar/timeframe.
+- No duplicate handling; duplicates are rejected at the input boundary under Policy B (SCAN-017F; see `scanline/validation/duplicate.py`). Mixed-symbol and mixed-timeframe lists are rejected (SCAN-017).
 - Empty input returns `[]`; config defaults and validation as documented.
 
 ### Unresolved decisions
