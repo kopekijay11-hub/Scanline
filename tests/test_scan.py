@@ -9,6 +9,7 @@ historical records.
 import calendar
 import csv
 import hashlib
+import itertools
 import json
 import os
 import re
@@ -565,3 +566,249 @@ def test_28_is_scan_complete_is_read_only(tmp_path):
     assert is_scan_complete(dest) is True
     assert is_scan_complete(dest) is True
     assert _dest_snapshot(dest) == before
+
+
+# ---------------------------------------------------------------------------
+# SCAN-018B versioned manifest contract tests (isolated, tmp_path).
+# Every test builds its own scan directory; no historical records are touched
+# and is_scan_complete() is exercised read-only.
+# ---------------------------------------------------------------------------
+
+_SCAN_018B_ID = "20261121T013740123456Z_abcdef0123456789abcdef0123456789"
+
+_018b_dir_counter = itertools.count()
+
+
+def _scan_018b_v100_dir(tmp_path, mutate=None, **extra):
+    """Build a valid v1.0.0 scan directory: events.json + manifest.
+
+    ``mutate`` receives the manifest dict before it is serialized, letting
+    each test corrupt a single field. ``extra`` overrides manifest fields.
+    A unique scan directory is created per call so parallel field loops do
+    not collide on exclusive directory creation.
+    """
+    name = f"20261121T013740123456Z_{next(_018b_dir_counter):032x}"
+    dest = tmp_path / "scans" / name
+    dest.mkdir(parents=True)
+
+    header = {
+        "module": "level_proximity",
+        "scan_mode": "forward",
+        "param_version": "1.0.0",
+        "frozen_at": "2026-11-19T03:25:04Z",
+        "universe": ["GOLD", "EURUSD"],
+        "emission_timeframes": ["H1", "H4"],
+    }
+    events = [{"event_ts": "2026-09-07T00:00:00Z", "symbol": "GOLD"}]
+    batch = {"events": events, "header": header}
+    events_bytes = scan_mod._serialize_json(batch)
+    (dest / "events.json").write_bytes(events_bytes)
+    events_sha256 = hashlib.sha256(events_bytes).hexdigest()
+    events_size = len(events_bytes)
+
+    base = "2026-11-21T01:37:40.123456Z"
+    manifest = {
+        "manifest_version": "1.0.0",
+        "scan_id": name,
+        "status": "COMPLETE",
+        "scan_start": base,
+        "outputs_complete_at": base,
+        "execution_start": base,
+        "module": "level_proximity",
+        "scan_mode": "forward",
+        "param_file": "scanner_params.level_proximity.json",
+        "param_sha256": hashlib.sha256(b"{}").hexdigest(),
+        "param_version": "1.0.0",
+        "frozen_at": "2026-11-19T03:25:04Z",
+        "universe": ["GOLD", "EURUSD"],
+        "emission_timeframes": ["H1", "H4"],
+        "series": [
+            {
+                "symbol": "GOLD",
+                "timeframe": "D1",
+                "file": "GOLD_D1.csv",
+                "sha256": hashlib.sha256(b"dummy").hexdigest(),
+                "size_bytes": 5,
+                "bars_extracted": 1,
+                "span": {"first_open_ts": None, "last_open_ts": None},
+            }
+        ],
+        "total_bars_extracted": 1,
+        "event_count": len(events),
+        "validation_status": "valid",
+        "validation_violation_count": 0,
+        "evidence_tier": "forward_asof",
+        "code_state": {"driver_sha256": hashlib.sha256(b"driver").hexdigest()},
+        "outputs": [
+            {"name": "events.json", "sha256": events_sha256, "size_bytes": events_size}
+        ],
+    }
+    manifest.update(extra)
+    if mutate:
+        mutate(manifest)
+    (dest / "scanner_data_manifest.json").write_text(json.dumps(manifest) + "\n")
+    return dest
+
+
+def test_scan_018b_complete_v100_manifest(tmp_path):
+    dest = _scan_018b_v100_dir(tmp_path)
+    assert is_scan_complete(dest) is True
+
+
+def test_scan_018b_required_fields_missing(tmp_path):
+    required = [
+        "manifest_version", "scan_id", "status", "execution_start",
+        "scan_start", "outputs_complete_at", "module", "scan_mode",
+        "series", "param_file", "param_sha256", "param_version",
+        "frozen_at", "universe", "emission_timeframes", "event_count",
+        "validation_status", "evidence_tier", "code_state", "outputs",
+    ]
+    for field in required:
+        dest = _scan_018b_v100_dir(tmp_path, mutate=lambda m, f=field: m.pop(f))
+        assert is_scan_complete(dest) is False, f"missing {field} should be incomplete"
+
+
+@pytest.mark.parametrize("field,corrupt", [
+    ("event_count", "not-an-int"),
+    ("event_count", True),
+    ("event_count", -1),
+    ("total_bars_extracted", True),
+    ("validation_violation_count", "0"),
+    ("size_bytes", "100"),
+    ("outputs", "not-a-list"),
+    ("module", ""),
+    ("scan_mode", "bogus"),
+    ("universe", []),
+    ("emission_timeframes", ["H1", 2]),
+    ("series", "not-a-list"),
+    ("code_state", "not-a-dict"),
+])
+def test_scan_018b_invalid_field_types(tmp_path, field, corrupt):
+    def mutate(m, f=field, c=corrupt):
+        if f == "size_bytes":
+            m["outputs"][0]["size_bytes"] = c
+        else:
+            m[f] = c
+    dest = _scan_018b_v100_dir(tmp_path, mutate=mutate)
+    assert is_scan_complete(dest) is False, f"{field}={corrupt!r} should be incomplete"
+
+
+def test_scan_018b_invalid_schema_versions(tmp_path):
+    for version in ["1.0", "1.0.0.0", "v1.0.0", "abc", "", 1.0, None]:
+        dest = _scan_018b_v100_dir(tmp_path, mutate=lambda m, v=version: m.__setitem__("manifest_version", v))
+        assert is_scan_complete(dest) is False, f"version {version!r} should be rejected"
+
+
+def test_scan_018b_unknown_major_version_rejected(tmp_path):
+    dest = _scan_018b_v100_dir(tmp_path, mutate=lambda m: m.__setitem__("manifest_version", "2.0.0"))
+    assert is_scan_complete(dest) is False
+    # Unknown major is unverifiable, not a failed scan: still False (incomplete).
+    dest = _scan_018b_v100_dir(tmp_path, mutate=lambda m: m.__setitem__("manifest_version", "9.0.0"))
+    assert is_scan_complete(dest) is False
+
+
+def test_scan_018b_compatible_newer_minor_version(tmp_path):
+    # Compatible minor/patch (major == 1) accepted when required fields present.
+    dest = _scan_018b_v100_dir(tmp_path, mutate=lambda m: m.__setitem__("manifest_version", "1.1.0"))
+    assert is_scan_complete(dest) is True
+    dest = _scan_018b_v100_dir(tmp_path, mutate=lambda m: m.__setitem__("manifest_version", "1.0.1"))
+    assert is_scan_complete(dest) is True
+
+
+def test_scan_018b_event_count_mismatch(tmp_path):
+    dest = _scan_018b_v100_dir(tmp_path, mutate=lambda m: m.__setitem__("event_count", 999))
+    assert is_scan_complete(dest) is False
+
+
+def test_scan_018b_header_manifest_mismatch(tmp_path):
+    for field in ["module", "scan_mode", "param_version", "frozen_at", "universe", "emission_timeframes"]:
+        dest = _scan_018b_v100_dir(
+            tmp_path,
+            mutate=lambda m, f=field: m.__setitem__(f, "mismatched-value"),
+        )
+        assert is_scan_complete(dest) is False, f"{field} mismatch should be incomplete"
+
+
+def test_scan_018b_validation_status_consistency(tmp_path):
+    dest = _scan_018b_v100_dir(
+        tmp_path,
+        mutate=lambda m: m.__setitem__("validation_status", "invalid"),
+    )
+    assert is_scan_complete(dest) is False
+    # A COMPLETE manifest must not report failed validation.
+    dest = _scan_018b_v100_dir(
+        tmp_path,
+        mutate=lambda m: (m.__setitem__("validation_status", "valid"), m.__setitem__("status", "FAILED")),
+    )
+    assert is_scan_complete(dest) is False
+
+
+def test_scan_018b_both_legacy_categories(tmp_path):
+    # Category A — pre-SCAN-018A: no scan_id/status/outputs/manifest_version →
+    # readable but not verifiable as complete.
+    dest = _make_scan_dir(tmp_path)
+    (dest / "events.json").write_bytes(b'{"events": [], "header": {}}\n')
+    (dest / "scanner_data_manifest.json").write_text(
+        json.dumps({"execution_start": "2026-01-01T00:00:00Z"}) + "\n"
+    )
+    assert is_scan_complete(dest) is False
+
+    # Category B — SCAN-018A: scan_id, status COMPLETE, outputs, no
+    # manifest_version → verified via the original SCAN-018A contract.
+    dest = _make_scan_dir(tmp_path, name="20260101T000000000000Z_" + "9" * 32)
+    data = b'{"events": [], "header": {}}\n'
+    (dest / "events.json").write_bytes(data)
+    _write_manifest(dest, outputs=[_events_entry(data)])  # no manifest_version
+    assert is_scan_complete(dest) is True
+
+
+def test_scan_018b_missing_scan_start(tmp_path):
+    dest = _scan_018b_v100_dir(tmp_path, mutate=lambda m: m.pop("scan_start"))
+    assert is_scan_complete(dest) is False
+
+
+def test_scan_018b_missing_outputs_complete_at(tmp_path):
+    dest = _scan_018b_v100_dir(tmp_path, mutate=lambda m: m.pop("outputs_complete_at"))
+    assert is_scan_complete(dest) is False
+
+
+def test_scan_018b_timestamp_ordering(tmp_path):
+    # scan_start > outputs_complete_at → rejected.
+    dest = _scan_018b_v100_dir(
+        tmp_path,
+        mutate=lambda m: m.__setitem__("scan_start", "2026-11-21T01:37:45Z"),
+    )
+    assert is_scan_complete(dest) is False
+    # outputs_complete_at > execution_start → rejected.
+    dest = _scan_018b_v100_dir(
+        tmp_path,
+        mutate=lambda m: m.__setitem__("outputs_complete_at", "2026-11-21T01:37:50Z"),
+    )
+    assert is_scan_complete(dest) is False
+    # Equal timestamps (all captured at the same moment) are accepted.
+    dest = _scan_018b_v100_dir(tmp_path)
+    assert is_scan_complete(dest) is True
+
+
+def test_scan_018b_output_integrity_verification(tmp_path):
+    # Hash mismatch between manifest and on-disk events.json → rejected.
+    dest = _scan_018b_v100_dir(
+        tmp_path,
+        mutate=lambda m: m["outputs"][0].__setitem__("sha256", "0" * 64),
+    )
+    assert is_scan_complete(dest) is False
+    # Size mismatch → rejected.
+    dest = _scan_018b_v100_dir(
+        tmp_path,
+        mutate=lambda m: m["outputs"][0].__setitem__("size_bytes", 999999),
+    )
+    assert is_scan_complete(dest) is False
+
+
+def test_scan_018b_path_protections_preserved(tmp_path):
+    # SCAN-018A-R1 protections still apply to v1.0.0 manifests.
+    dest = _scan_018b_v100_dir(tmp_path)
+    manifest = json.loads((dest / "scanner_data_manifest.json").read_text())
+    manifest["outputs"][0]["name"] = "/etc/passwd"
+    (dest / "scanner_data_manifest.json").write_text(json.dumps(manifest) + "\n")
+    assert is_scan_complete(dest) is False

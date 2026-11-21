@@ -83,6 +83,20 @@ SHA256_HEX_RE = re.compile(r"[0-9a-f]{64}")
 MANIFEST_NAME = "scanner_data_manifest.json"
 EVENTS_NAME = "events.json"
 
+# Manifest schema version emitted by the current writer (SCAN-018B).
+MANIFEST_VERSION = "1.0.0"
+MANIFEST_VERSION_RE = re.compile(r"^(\d+)\.(\d+)\.(\d+)$")
+
+# Fields introduced by SCAN-018B that are not part of the SCAN-018A contract.
+# A manifest carrying these fields without a ``manifest_version`` key is a
+# malformed hybrid: incomplete under the versioned protocol.
+_V100_ONLY_FIELDS = frozenset({
+    "scan_start", "outputs_complete_at", "module", "scan_mode",
+    "param_version", "frozen_at", "universe", "emission_timeframes",
+    "event_count", "validation_status", "total_bars_extracted",
+    "validation_violation_count",
+})
+
 
 def _serialize_json(obj: Any) -> bytes:
     return json.dumps(obj, indent=2).encode("utf-8") + b"\n"
@@ -134,6 +148,17 @@ def _is_valid_size(value: Any) -> bool:
     return isinstance(value, int) and not isinstance(value, bool) and value >= 0
 
 
+def _is_valid_iso_ts(value: Any) -> bool:
+    """True only for non-empty ISO-8601 UTC strings parseable by _parse_ts."""
+    if not isinstance(value, str) or not value:
+        return False
+    try:
+        _parse_ts(value)
+        return True
+    except (ValueError, TypeError):
+        return False
+
+
 def _is_safe_output_name(name: Any) -> bool:
     """True only for simple relative output filenames: a single path
     component, never absolute, never a traversal, never a Windows drive or
@@ -169,43 +194,12 @@ def _is_within_directory(path: Path, directory: Path) -> bool:
         return False
 
 
-def is_scan_complete(dest: Path) -> bool:
-    """Consumer rule: a scan is complete iff it holds a durable manifest with
-    ``status == "COMPLETE"`` and every listed output exists on disk with
-    matching sha256 and size_bytes. A scan without a valid COMPLETE manifest
-    is incomplete.
+def _verify_identity_and_outputs(dest: Path, manifest: Dict[str, Any]) -> bool:
+    """SCAN-018A identity + output-integrity checks (R1 protections).
 
-    Hardened verification (SCAN-018A-R1):
-
-    * Path validation: output names must be simple relative filenames.
-      Absolute paths, ``..`` traversal, Windows drive/UNC paths, and any
-      name that escapes the scan directory after resolution (including via
-      symlinks) are rejected. External files are never treated as valid
-      scan outputs.
-    * Scan identity: the manifest must carry a ``scan_id`` that is a valid
-      string, matches the SCAN-018A identifier format, and equals the name
-      of the containing scan directory. Mismatches are rejected.
-    * Outputs: ``outputs`` must be a nonempty list. Every entry needs a
-      valid filename, a valid SHA-256, and a valid non-negative integer
-      ``size_bytes``. Duplicate names are rejected and ``events.json``
-      must be declared. Every listed output must exist inside the scan
-      directory and match its recorded hash and size. Malformed manifests
-      return False; empty output collections are never accepted
-      (no vacuous truth).
-
-    The function is read-only: it never creates, modifies, or deletes
-    files.
+    Assumes ``manifest`` is a dict whose ``status`` has already been checked.
+    Read-only: never creates, modifies, or deletes files.
     """
-    manifest_path = dest / MANIFEST_NAME
-    if not manifest_path.is_file():
-        return False
-    try:
-        manifest = json.loads(manifest_path.read_text())
-    except (ValueError, OSError):
-        return False
-    if not isinstance(manifest, dict) or manifest.get("status") != "COMPLETE":
-        return False
-
     # Scan identity: present, well-formed, and matching the directory name.
     scan_id = manifest.get("scan_id")
     if not _is_valid_scan_id(scan_id):
@@ -252,6 +246,211 @@ def is_scan_complete(dest: Path) -> bool:
         if entry["size_bytes"] != _size_file(out_path):
             return False
     return True
+
+
+def _verify_v100(dest: Path, manifest: Dict[str, Any]) -> bool:
+    """Validate the complete SCAN-018B v1.0.0 versioned contract.
+
+    Required fields: manifest_version, scan_id, status, execution_start,
+    scan_start, outputs_complete_at, module, scan_mode, series,
+    param_file, param_sha256, param_version, frozen_at, universe,
+    emission_timeframes, event_count, validation_status, evidence_tier,
+    code_state.driver_sha256, outputs (nonempty, events.json declared).
+    Optional: total_bars_extracted, validation_violation_count, and the
+    remaining reference fields. Unknown fields are ignored.
+    """
+    # Required fields present (scan_start / outputs_complete_at are required
+    # for new v1.0.0 manifests per the SCAN-018B binding requirement).
+    required = (
+        "manifest_version", "scan_id", "status", "execution_start",
+        "scan_start", "outputs_complete_at", "module", "scan_mode",
+        "series", "param_file", "param_sha256", "param_version",
+        "frozen_at", "universe", "emission_timeframes", "event_count",
+        "validation_status", "evidence_tier", "code_state", "outputs",
+    )
+    for field in required:
+        if field not in manifest:
+            return False
+
+    if manifest.get("status") != "COMPLETE":
+        return False
+    # A COMPLETE manifest must not report failed validation.
+    if manifest.get("validation_status") != "valid":
+        return False
+
+    # code_state.driver_sha256 is required.
+    code_state = manifest.get("code_state")
+    if not isinstance(code_state, dict) or not _is_valid_sha256(code_state.get("driver_sha256")):
+        return False
+
+    # Field type / presence checks.
+    if not isinstance(manifest.get("module"), str) or not manifest["module"]:
+        return False
+    if manifest.get("scan_mode") not in ("forward", "retrospective"):
+        return False
+    if not isinstance(manifest.get("param_file"), str) or not manifest["param_file"]:
+        return False
+    if not _is_valid_sha256(manifest.get("param_sha256")):
+        return False
+    if not isinstance(manifest.get("param_version"), str) or not manifest["param_version"]:
+        return False
+    if not _is_valid_iso_ts(manifest.get("frozen_at")):
+        return False
+    universe = manifest.get("universe")
+    if not isinstance(universe, list) or not universe or not all(isinstance(s, str) for s in universe):
+        return False
+    emission_timeframes = manifest.get("emission_timeframes")
+    if not isinstance(emission_timeframes, list) or not emission_timeframes or not all(isinstance(s, str) for s in emission_timeframes):
+        return False
+    if not isinstance(manifest.get("series"), list) or not manifest["series"]:
+        return False
+    if not _is_valid_size(manifest.get("event_count")):
+        return False
+    if not isinstance(manifest.get("evidence_tier"), str) or not manifest["evidence_tier"]:
+        return False
+    if not _is_valid_iso_ts(manifest.get("execution_start")):
+        return False
+
+    # Optional fields, when present, must be well-typed rather than silently
+    # accepted with wrong types.
+    if "total_bars_extracted" in manifest and not _is_valid_size(manifest["total_bars_extracted"]):
+        return False
+    if "validation_violation_count" in manifest and not _is_valid_size(manifest["validation_violation_count"]):
+        return False
+
+    # Identity + output integrity (SCAN-018A-R1 preserved).
+    if not _verify_identity_and_outputs(dest, manifest):
+        return False
+
+    # Timestamp ordering: scan_start <= outputs_complete_at <= execution_start.
+    try:
+        scan_start = _parse_ts(manifest["scan_start"])
+        outputs_complete_at = _parse_ts(manifest["outputs_complete_at"])
+        execution_start = _parse_ts(manifest["execution_start"])
+    except (ValueError, TypeError):
+        return False
+    if not (scan_start <= outputs_complete_at <= execution_start):
+        return False
+
+    # Event-count and header consistency against events.json.
+    events_path = dest / EVENTS_NAME
+    try:
+        events_data = json.loads(events_path.read_text())
+    except (ValueError, OSError):
+        return False
+    if not isinstance(events_data, dict):
+        return False
+    events = events_data.get("events")
+    if not isinstance(events, list):
+        return False
+    if manifest["event_count"] != len(events):
+        return False
+
+    header = events_data.get("header")
+    if not isinstance(header, dict):
+        return False
+    if manifest.get("module") != header.get("module"):
+        return False
+    if manifest.get("scan_mode") != header.get("scan_mode"):
+        return False
+    if manifest.get("param_version") != header.get("param_version"):
+        return False
+    if manifest.get("frozen_at") != header.get("frozen_at"):
+        return False
+    if manifest.get("universe") != header.get("universe"):
+        return False
+    if manifest.get("emission_timeframes") != header.get("emission_timeframes"):
+        return False
+
+    return True
+
+
+def is_scan_complete(dest: Path) -> bool:
+    """Consumer rule: a scan is complete iff it holds a durable manifest with
+    ``status == "COMPLETE"`` and every listed output exists on disk with
+    matching sha256 and size_bytes. A scan without a valid COMPLETE manifest
+    is incomplete.
+
+    Three manifest categories are distinguished:
+
+    * Pre-SCAN-018A (no ``manifest_version``, missing ``scan_id``/``status``/
+      ``outputs``): readable but not verifiable as complete → ``False``.
+    * SCAN-018A (``scan_id``, ``status == "COMPLETE"``, ``outputs``, no
+      ``manifest_version``): verified via the original SCAN-018A contract.
+    * SCAN-018B v1.0.0 (``manifest_version`` present): verified against the
+      complete versioned contract; unknown major versions are rejected as
+      unverifiable, compatible minor/patch versions are accepted.
+
+    Hardened verification (SCAN-018A-R1):
+
+    * Path validation: output names must be simple relative filenames.
+      Absolute paths, ``..`` traversal, Windows drive/UNC paths, and any
+      name that escapes the scan directory after resolution (including via
+      symlinks) are rejected. External files are never treated as valid
+      scan outputs.
+    * Scan identity: the manifest must carry a ``scan_id`` that is a valid
+      string, matches the SCAN-018A identifier format, and equals the name
+      of the containing scan directory. Mismatches are rejected.
+    * Outputs: ``outputs`` must be a nonempty list. Every entry needs a
+      valid filename, a valid SHA-256, and a valid non-negative integer
+      ``size_bytes``. Duplicate names are rejected and ``events.json``
+      must be declared. Every listed output must exist inside the scan
+      directory and match its recorded hash and size. Malformed manifests
+      return False; empty output collections are never accepted
+      (no vacuous truth).
+
+    The function is read-only: it never creates, modifies, or deletes
+    files.
+
+    Legacy readability and modern completion verification are different
+    capabilities: a historical manifest may be readable as JSON while still
+    returning ``False`` from ``is_scan_complete()``. That means it cannot be
+    verified under the current completion protocol, not that the historical
+    scan failed.
+    """
+    manifest_path = dest / MANIFEST_NAME
+    if not manifest_path.is_file():
+        return False
+    try:
+        manifest = json.loads(manifest_path.read_text())
+    except (ValueError, OSError):
+        return False
+    if not isinstance(manifest, dict):
+        return False
+
+    # The ``manifest_version`` key is the version discriminant. A manifest
+    # that lacks the key entirely is a legacy manifest (Category A: pre
+    # SCAN-018A; Category B: SCAN-018A). A manifest that carries the key but
+    # with an unparseable or unknown-major value is a versioned manifest that
+    # cannot be verified (rejected as incomplete, not treated as failed).
+    if "manifest_version" not in manifest:
+        # Legacy manifests without a schema version key. A manifest carrying
+        # v1.0.0-only fields but no version is a malformed hybrid: incomplete
+        # under the versioned protocol.
+        if any(field in manifest for field in _V100_ONLY_FIELDS):
+            return False
+        # Pre-SCAN-018A manifests lack status/scan_id/outputs → not
+        # verifiable. SCAN-018A manifests carry status == "COMPLETE" → the
+        # original SCAN-018A contract (Category B).
+        if manifest.get("status") != "COMPLETE":
+            return False
+        return _verify_identity_and_outputs(dest, manifest)
+
+    manifest_version = manifest["manifest_version"]
+
+    # Category C: versioned manifests. Strict major.minor.patch parsing;
+    # malformed version strings are never silently accepted.
+    if not isinstance(manifest_version, str):
+        return False
+    match = MANIFEST_VERSION_RE.fullmatch(manifest_version)
+    if not match:
+        return False
+    major = int(match.group(1))
+    # Unknown major versions are rejected as unverifiable (not a failed scan).
+    if major != 1:
+        return False
+    # Compatible minor/patch (major == 1): validate the complete v1.0.0 contract.
+    return _verify_v100(dest, manifest)
 
 
 def _extract_series(corpus_path: Path, symbol: str, tf: str) -> Tuple[List[Dict[str, Any]], Path]:
@@ -309,6 +508,10 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None, scan_mode: st
     global EXTRACTION_START_TS, EXTRACTION_END_TS
     corpus_path = Path(corpus_path)
     output_dir = Path(output_dir)
+
+    # Scan invocation timestamp: first wall-clock capture of run_scan entry,
+    # captured before scan-ID generation.
+    scan_start = _fmt_ts(datetime.now(timezone.utc))
 
     # One scan ID per execution, retained throughout the execution.
     scan_id = generate_scan_id()
@@ -443,6 +646,9 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None, scan_mode: st
     events_sha256 = hashlib.sha256(events_bytes).hexdigest()
     events_size = len(events_bytes)
 
+    # All required outputs are durable; record output-completion timestamp.
+    outputs_complete_at = _fmt_ts(datetime.now(timezone.utc))
+
     # Publish manifest last: the completion marker, only after the event
     # output is durable and verified.
     head = _git_head(repo_root)
@@ -451,9 +657,26 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None, scan_mode: st
         code_state["commit"] = head
     execution_start = _fmt_ts(datetime.now(timezone.utc))
     manifest = {
+        "manifest_version": MANIFEST_VERSION,
         "scan_id": scan_id,
         "status": "COMPLETE",
+        "scan_start": scan_start,
         "execution_start": execution_start,
+        "outputs_complete_at": outputs_complete_at,
+        "module": module,
+        "scan_mode": scan_mode,
+        "param_file": param_path.name,
+        "param_sha256": hashlib.sha256(params_bytes).hexdigest(),
+        "param_version": params["param_version"],
+        "frozen_at": params["frozen_at"],
+        "universe": list(params["universe"]),
+        "emission_timeframes": list(params["emission_timeframes"]),
+        "series": series_manifest,
+        "total_bars_extracted": sum(entry["bars_extracted"] for entry in series_manifest),
+        "event_count": len(all_events),
+        "validation_status": "valid",
+        "validation_violation_count": len(result["violations"]),
+        "evidence_tier": evidence_tier,
         "extraction_span": {
             "start": EXTRACTION_START_TS,
             "end": EXTRACTION_END_TS,
@@ -464,10 +687,6 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None, scan_mode: st
             "batch_end_ts": batch_end_ts,
             "inclusive": True,
         },
-        "series": series_manifest,
-        "param_file": param_path.name,
-        "param_sha256": hashlib.sha256(params_bytes).hexdigest(),
-        "evidence_tier": evidence_tier,
         "convention_documents": list(CONVENTION_DOCS),
         "code_state": code_state,
         "outputs": [
