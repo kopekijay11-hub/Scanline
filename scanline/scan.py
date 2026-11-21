@@ -4,6 +4,9 @@ import argparse
 import csv
 import hashlib
 import json
+import os
+import re
+import secrets
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -62,6 +65,195 @@ def _size_file(path: Path) -> int:
     return path.stat().st_size
 
 
+def generate_scan_id() -> str:
+    """Generate one unique scan ID per execution.
+
+    Format: ``YYYYMMDDTHHMMSSffffffZ_<32-hex>`` using UTC wall clock and
+    ``secrets.token_hex(16)``. Safe for directory/file names. Never embedded
+    in events.json; the scan ID is publication metadata only.
+    """
+    ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    return f"{ts}_{secrets.token_hex(16)}"
+
+
+# Format of scan IDs produced by generate_scan_id(): UTC timestamp plus a
+# 128-bit random hex suffix. Safe for directory and file names.
+SCAN_ID_RE = re.compile(r"\d{8}T\d{6}\d{6}Z_[0-9a-f]{32}")
+SHA256_HEX_RE = re.compile(r"[0-9a-f]{64}")
+MANIFEST_NAME = "scanner_data_manifest.json"
+EVENTS_NAME = "events.json"
+
+
+def _serialize_json(obj: Any) -> bytes:
+    return json.dumps(obj, indent=2).encode("utf-8") + b"\n"
+
+
+def _sync_directory(path: Path) -> None:
+    """Best-effort fsync of the containing directory entry after a replace."""
+    try:
+        fd = os.open(path, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+    except (OSError, NotImplementedError):
+        return
+    try:
+        os.fsync(fd)
+    except (OSError, NotImplementedError):
+        return
+    finally:
+        os.close(fd)
+
+
+def _publish_bytes(dest_dir: Path, name: str, data: bytes) -> None:
+    """Atomically publish ``data`` as ``dest_dir / name`` (Approach A).
+
+    Serializes complete contents to a temp file in the same destination
+    directory, flushes, fsyncs the file descriptor, then atomically renames
+    via os.replace. The containing directory is synced afterward where
+    supported.
+    """
+    tmp = dest_dir / f"{name}.tmp.{os.getpid()}"
+    with open(tmp, "wb") as f:
+        f.write(data)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, dest_dir / name)
+    _sync_directory(dest_dir)
+
+
+def _is_valid_scan_id(value: Any) -> bool:
+    """True only for well-formed SCAN-018A scan IDs."""
+    return isinstance(value, str) and SCAN_ID_RE.fullmatch(value) is not None
+
+
+def _is_valid_sha256(value: Any) -> bool:
+    """True only for lowercase SHA-256 hex digests as emitted by the driver."""
+    return isinstance(value, str) and SHA256_HEX_RE.fullmatch(value) is not None
+
+
+def _is_valid_size(value: Any) -> bool:
+    """True only for real (non-bool) non-negative integers."""
+    return isinstance(value, int) and not isinstance(value, bool) and value >= 0
+
+
+def _is_safe_output_name(name: Any) -> bool:
+    """True only for simple relative output filenames: a single path
+    component, never absolute, never a traversal, never a Windows drive or
+    UNC path, and never ``.`` or ``..``.
+
+    The current publication contract uses simple relative filenames
+    (e.g. ``events.json``); nested or otherwise exotic names are rejected
+    rather than resolved.
+    """
+    if not isinstance(name, str) or not name:
+        return False
+    if os.path.isabs(name):
+        return False
+    if re.match(r"^[a-zA-Z]:[\\/]", name) or name.startswith("\\\\"):
+        return False
+    if "\\" in name or "/" in name:
+        return False
+    if name in (".", ".."):
+        return False
+    return True
+
+
+def _is_within_directory(path: Path, directory: Path) -> bool:
+    """True if ``path`` resolves to a location inside ``directory``.
+
+    Symlinks are followed during resolution, so a symlink that escapes the
+    directory (or any other escape) yields False. Never modifies files.
+    """
+    try:
+        path.resolve().relative_to(directory.resolve())
+        return True
+    except (ValueError, OSError):
+        return False
+
+
+def is_scan_complete(dest: Path) -> bool:
+    """Consumer rule: a scan is complete iff it holds a durable manifest with
+    ``status == "COMPLETE"`` and every listed output exists on disk with
+    matching sha256 and size_bytes. A scan without a valid COMPLETE manifest
+    is incomplete.
+
+    Hardened verification (SCAN-018A-R1):
+
+    * Path validation: output names must be simple relative filenames.
+      Absolute paths, ``..`` traversal, Windows drive/UNC paths, and any
+      name that escapes the scan directory after resolution (including via
+      symlinks) are rejected. External files are never treated as valid
+      scan outputs.
+    * Scan identity: the manifest must carry a ``scan_id`` that is a valid
+      string, matches the SCAN-018A identifier format, and equals the name
+      of the containing scan directory. Mismatches are rejected.
+    * Outputs: ``outputs`` must be a nonempty list. Every entry needs a
+      valid filename, a valid SHA-256, and a valid non-negative integer
+      ``size_bytes``. Duplicate names are rejected and ``events.json``
+      must be declared. Every listed output must exist inside the scan
+      directory and match its recorded hash and size. Malformed manifests
+      return False; empty output collections are never accepted
+      (no vacuous truth).
+
+    The function is read-only: it never creates, modifies, or deletes
+    files.
+    """
+    manifest_path = dest / MANIFEST_NAME
+    if not manifest_path.is_file():
+        return False
+    try:
+        manifest = json.loads(manifest_path.read_text())
+    except (ValueError, OSError):
+        return False
+    if not isinstance(manifest, dict) or manifest.get("status") != "COMPLETE":
+        return False
+
+    # Scan identity: present, well-formed, and matching the directory name.
+    scan_id = manifest.get("scan_id")
+    if not _is_valid_scan_id(scan_id):
+        return False
+    if dest.name != scan_id:
+        return False
+
+    # Outputs: a nonempty list; no vacuous acceptance of empty collections.
+    outputs = manifest.get("outputs")
+    if not isinstance(outputs, list) or not outputs:
+        return False
+
+    seen_names = set()
+    for entry in outputs:
+        if not isinstance(entry, dict):
+            return False
+        name = entry.get("name")
+        if not _is_safe_output_name(name):
+            return False
+        if name in seen_names:
+            return False
+        seen_names.add(name)
+        if not _is_valid_sha256(entry.get("sha256")):
+            return False
+        if not _is_valid_size(entry.get("size_bytes")):
+            return False
+
+    # events.json is a required declared output.
+    if EVENTS_NAME not in seen_names:
+        return False
+
+    # Every declared output must exist inside the scan directory and match
+    # its recorded hash and size. Symlinks escaping the directory fail the
+    # containment check and are never followed as valid outputs.
+    for entry in outputs:
+        name = entry["name"]
+        out_path = dest / name
+        if not _is_within_directory(out_path, dest):
+            return False
+        if not out_path.is_file():
+            return False
+        if entry["sha256"] != _sha256_file(out_path):
+            return False
+        if entry["size_bytes"] != _size_file(out_path):
+            return False
+    return True
+
+
 def _extract_series(corpus_path: Path, symbol: str, tf: str) -> Tuple[List[Dict[str, Any]], Path]:
     path = corpus_path / f"{symbol}_{tf}.csv"
     start_dt = _parse_ts(EXTRACTION_START_TS)
@@ -102,11 +294,25 @@ def _driver_sha256() -> str:
 
 def run_scan(corpus_path: Path, output_dir: Path, param_path=None, scan_mode: str = "forward",
               batch_start_ts: str = None, batch_end_ts: str = None,
-              extraction_start_ts: str = None, extraction_end_ts: str = None) -> None:
+              extraction_start_ts: str = None, extraction_end_ts: str = None) -> str:
+    """Run one deterministic scan and publish its outputs atomically.
+
+    Generates one scan ID per execution, creates the destination directory
+    ``<output_dir>/<scan_id>`` with exclusive ownership, publishes
+    ``events.json`` first and ``scanner_data_manifest.json`` last via
+    temp-file + flush + fsync + os.replace, and returns the scan ID.
+
+    The manifest's ``status == "COMPLETE"`` is the completion marker: a scan
+    without a valid COMPLETE manifest is incomplete. Historical directories
+    are never overwritten or deleted.
+    """
     global EXTRACTION_START_TS, EXTRACTION_END_TS
     corpus_path = Path(corpus_path)
     output_dir = Path(output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
+
+    # One scan ID per execution, retained throughout the execution.
+    scan_id = generate_scan_id()
+    dest = output_dir / scan_id
 
     repo_root = Path(__file__).resolve().parents[1]
     if param_path is None:
@@ -219,24 +425,34 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None, scan_mode: st
 
     batch = {"events": all_events, "header": header}
 
-    # Validate.
+    # Validate before any destination write; validation failures leave no
+    # artifacts behind (preserves existing behavior).
     result = validate_batch(all_events, header, params_bytes)
     if not result["valid"]:
         raise RuntimeError(f"scan validation failed: {result['violations']}")
 
-    # Write events.json.
-    events_path = output_dir / "events.json"
-    with open(events_path, "w") as f:
-        json.dump(batch, f, indent=2)
-        f.write("\n")
+    # Exclusive scan-directory creation: no exist_ok. os.mkdir raises
+    # FileExistsError if the destination already exists; nothing is
+    # overwritten, deleted, or resumed.
+    output_dir.mkdir(parents=True, exist_ok=True)
+    os.mkdir(dest)
 
-    # Write manifest.
+    # Publish events.json first.
+    events_bytes = _serialize_json(batch)
+    _publish_bytes(dest, "events.json", events_bytes)
+    events_sha256 = hashlib.sha256(events_bytes).hexdigest()
+    events_size = len(events_bytes)
+
+    # Publish manifest last: the completion marker, only after the event
+    # output is durable and verified.
     head = _git_head(repo_root)
     code_state: Dict[str, Any] = {"driver_sha256": _driver_sha256()}
     if head:
         code_state["commit"] = head
     execution_start = _fmt_ts(datetime.now(timezone.utc))
     manifest = {
+        "scan_id": scan_id,
+        "status": "COMPLETE",
         "execution_start": execution_start,
         "extraction_span": {
             "start": EXTRACTION_START_TS,
@@ -254,11 +470,15 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None, scan_mode: st
         "evidence_tier": evidence_tier,
         "convention_documents": list(CONVENTION_DOCS),
         "code_state": code_state,
+        "outputs": [
+            {"name": "events.json", "sha256": events_sha256, "size_bytes": events_size}
+        ],
     }
-    manifest_path = output_dir / "scanner_data_manifest.json"
-    with open(manifest_path, "w") as f:
-        json.dump(manifest, f, indent=2)
-        f.write("\n")
+    manifest_bytes = _serialize_json(manifest)
+    _publish_bytes(dest, "scanner_data_manifest.json", manifest_bytes)
+
+    _sync_directory(dest)
+    return scan_id
 
 
 def main(argv=None) -> int:
@@ -272,7 +492,7 @@ def main(argv=None) -> int:
     parser.add_argument("--extraction-end", default=None)
     parser.add_argument("--param-file", default=None)
     args = parser.parse_args(argv)
-    run_scan(
+    scan_id = run_scan(
         Path(args.corpus_path),
         Path(args.output_dir),
         param_path=Path(args.param_file) if args.param_file else None,
@@ -282,6 +502,7 @@ def main(argv=None) -> int:
         extraction_start_ts=args.extraction_start,
         extraction_end_ts=args.extraction_end,
     )
+    print(f"Scan {scan_id} complete: {Path(args.output_dir) / scan_id}")
     return 0
 
 
