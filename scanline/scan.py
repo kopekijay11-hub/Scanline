@@ -521,9 +521,11 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None, scan_mode: st
     if param_path is None:
         param_path = repo_root / "config" / "scanner_params.level_proximity.json"
     param_path = Path(param_path)
-    params_bytes = param_path.read_bytes()
-    params = json.loads(params_bytes)
-    module = normalize_module_id(params.get("module", "level_proximity"))
+    from scanline.config_load import load_config
+    loaded = load_config(param_path)
+    params_bytes = loaded.raw_bytes
+    params = loaded.runtime_config
+    module = loaded.module
 
     if scan_mode not in ("forward", "retrospective"):
         raise ValueError(f"invalid scan_mode {scan_mode}")
@@ -615,13 +617,13 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None, scan_mode: st
         "module": module,
         "scan_mode": scan_mode,
         "evidence_tier": evidence_tier,
-        "param_file": param_path.name,
-        "param_sha256": hashlib.sha256(params_bytes).hexdigest(),
-        "param_version": params["param_version"],
-        "frozen_at": params["frozen_at"],
+        "param_file": loaded.param_file,
+        "param_sha256": loaded.param_sha256,
+        "param_version": loaded.param_version,
+        "frozen_at": loaded.frozen_at,
         "universe": list(params["universe"]),
         "emission_timeframes": list(params["emission_timeframes"]),
-        "definition_timeframe": params["definition_timeframe"],
+        "definition_timeframe": params.get("definition_timeframe", "D1"),
         "batch_start_ts": batch_start_ts,
         "batch_end_ts": batch_end_ts,
     }
@@ -665,10 +667,10 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None, scan_mode: st
         "outputs_complete_at": outputs_complete_at,
         "module": module,
         "scan_mode": scan_mode,
-        "param_file": param_path.name,
-        "param_sha256": hashlib.sha256(params_bytes).hexdigest(),
-        "param_version": params["param_version"],
-        "frozen_at": params["frozen_at"],
+        "param_file": loaded.param_file,
+        "param_sha256": loaded.param_sha256,
+        "param_version": loaded.param_version,
+        "frozen_at": loaded.frozen_at,
         "universe": list(params["universe"]),
         "emission_timeframes": list(params["emission_timeframes"]),
         "series": series_manifest,
