@@ -1,0 +1,46 @@
+{
+  "schema_id": "scanline.level_proximity.batch",
+  "schema_version": 1,
+  "contract": "v3",
+  "emitted_module_alias": "module_1",
+  "canonical_module_name": "level_proximity",
+  "level_type_enum": [
+    "d1_prior_high",
+    "d1_prior_low",
+    "d1_session_structure",
+    "grid_round"
+  ],
+  "emission_timeframes": [
+    "H1",
+    "H4"
+  ],
+  "definition_timeframe": "D1",
+  "atr_basis": "closed_bars_only",
+  "header_fields_closed": [
+    "batch_end_ts",
+    "batch_start_ts",
+    "definition_timeframe",
+    "emission_timeframes",
+    "evidence_tier",
+    "frozen_at",
+    "module",
+    "param_file",
+    "param_sha256",
+    "param_version",
+    "scan_mode",
+    "universe"
+  ],
+  "event_fields_closed": [
+    "atr_basis",
+    "atr_window",
+    "defined_at",
+    "distance_atr",
+    "event_ts",
+    "level_price",
+    "level_type",
+    "param_version",
+    "symbol",
+    "timeframe"
+  ],
+  "notes": "Headers emit module value 'module_1' (emitted_module_alias) while canonical module name is 'level_proximity'. Field lists mirror scanline/schema.py closed sets exactly."
+}
