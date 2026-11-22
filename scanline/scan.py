@@ -83,9 +83,17 @@ SHA256_HEX_RE = re.compile(r"[0-9a-f]{64}")
 MANIFEST_NAME = "scanner_data_manifest.json"
 EVENTS_NAME = "events.json"
 
-# Manifest schema version emitted by the current writer (SCAN-018B).
-MANIFEST_VERSION = "1.0.0"
+# Manifest schema version emitted by the current writer.
+MANIFEST_VERSION = "1.1.0"
+MANIFEST_VERSION_100 = "1.0.0"
+MANIFEST_VERSION_110 = "1.1.0"
 MANIFEST_VERSION_RE = re.compile(r"^(\d+)\.(\d+)\.(\d+)$")
+
+RAW_SNAPSHOT_NAME = "param_snapshot.raw.json"
+EFFECTIVE_SNAPSHOT_NAME = "param_snapshot.effective.json"
+CONFIG_HASH_ALGORITHM = "sha256"
+CONFIG_CANONICALIZATION_VERSION = "SCANLINE-config-canon-v1"
+CONFIG_HASH_SUBJECT = "effective_validated_config"
 
 # Fields introduced by SCAN-018B that are not part of the SCAN-018A contract.
 # A manifest carrying these fields without a ``manifest_version`` key is a
@@ -245,6 +253,151 @@ def _verify_identity_and_outputs(dest: Path, manifest: Dict[str, Any]) -> bool:
             return False
         if entry["size_bytes"] != _size_file(out_path):
             return False
+    return True
+
+
+def _verify_v110(dest: Path, manifest: Dict[str, Any]) -> bool:
+    """Validate the complete SCAN-018C v1.1.0 provenance contract."""
+    required = (
+        "manifest_version", "scan_id", "status", "execution_start",
+        "scan_start", "outputs_complete_at", "module", "scan_mode",
+        "series", "param_file", "param_sha256", "param_version",
+        "frozen_at", "universe", "emission_timeframes", "event_count",
+        "validation_status", "evidence_tier", "code_state", "outputs",
+        "config_hash", "config_hash_algorithm", "config_canonicalization_version",
+        "config_hash_subject", "config_schema_version", "config_snapshot_raw",
+        "config_snapshot_effective",
+    )
+    for field in required:
+        if field not in manifest:
+            return False
+
+    if manifest.get("status") != "COMPLETE":
+        return False
+    if manifest.get("validation_status") != "valid":
+        return False
+
+    code_state = manifest.get("code_state")
+    if not isinstance(code_state, dict) or not _is_valid_sha256(code_state.get("driver_sha256")):
+        return False
+
+    if not isinstance(manifest.get("module"), str) or not manifest["module"]:
+        return False
+    if manifest.get("scan_mode") not in ("forward", "retrospective"):
+        return False
+    if not isinstance(manifest.get("param_file"), str) or not manifest["param_file"]:
+        return False
+    if not _is_valid_sha256(manifest.get("param_sha256")):
+        return False
+    if not isinstance(manifest.get("param_version"), str) or not manifest["param_version"]:
+        return False
+    if not _is_valid_iso_ts(manifest.get("frozen_at")):
+        return False
+    universe = manifest.get("universe")
+    if not isinstance(universe, list) or not universe or not all(isinstance(s, str) for s in universe):
+        return False
+    emission_timeframes = manifest.get("emission_timeframes")
+    if not isinstance(emission_timeframes, list) or not emission_timeframes or not all(isinstance(s, str) for s in emission_timeframes):
+        return False
+    if not isinstance(manifest.get("series"), list) or not manifest["series"]:
+        return False
+    if not _is_valid_size(manifest.get("event_count")):
+        return False
+    if not isinstance(manifest.get("evidence_tier"), str) or not manifest["evidence_tier"]:
+        return False
+    if not _is_valid_iso_ts(manifest.get("execution_start")):
+        return False
+    if "total_bars_extracted" in manifest and not _is_valid_size(manifest["total_bars_extracted"]):
+        return False
+    if "validation_violation_count" in manifest and not _is_valid_size(manifest["validation_violation_count"]):
+        return False
+
+    # v1.1.0 provenance fields
+    if not _is_valid_sha256(manifest.get("config_hash")):
+        return False
+    if manifest.get("config_hash_algorithm") != CONFIG_HASH_ALGORITHM:
+        return False
+    if manifest.get("config_canonicalization_version") != CONFIG_CANONICALIZATION_VERSION:
+        return False
+    if manifest.get("config_hash_subject") != CONFIG_HASH_SUBJECT:
+        return False
+    config_schema_version = manifest.get("config_schema_version")
+    if not isinstance(config_schema_version, str) or not config_schema_version:
+        return False
+    if manifest.get("config_snapshot_raw") != RAW_SNAPSHOT_NAME:
+        return False
+    if manifest.get("config_snapshot_effective") != EFFECTIVE_SNAPSHOT_NAME:
+        return False
+
+    if not _verify_identity_and_outputs(dest, manifest):
+        return False
+
+    try:
+        scan_start = _parse_ts(manifest["scan_start"])
+        outputs_complete_at = _parse_ts(manifest["outputs_complete_at"])
+        execution_start = _parse_ts(manifest["execution_start"])
+    except (ValueError, TypeError):
+        return False
+    if not (scan_start <= outputs_complete_at <= execution_start):
+        return False
+
+    events_path = dest / EVENTS_NAME
+    try:
+        events_data = json.loads(events_path.read_text())
+    except (ValueError, OSError):
+        return False
+    if not isinstance(events_data, dict):
+        return False
+    events = events_data.get("events")
+    if not isinstance(events, list):
+        return False
+    if manifest["event_count"] != len(events):
+        return False
+
+    header = events_data.get("header")
+    if not isinstance(header, dict):
+        return False
+    if manifest.get("module") != header.get("module"):
+        return False
+    if manifest.get("scan_mode") != header.get("scan_mode"):
+        return False
+    if manifest.get("param_version") != header.get("param_version"):
+        return False
+    if manifest.get("frozen_at") != header.get("frozen_at"):
+        return False
+    if manifest.get("universe") != header.get("universe"):
+        return False
+    if manifest.get("emission_timeframes") != header.get("emission_timeframes"):
+        return False
+
+    outputs = manifest.get("outputs")
+    by_name = {entry["name"]: entry for entry in outputs if isinstance(entry, dict) and "name" in entry}
+    for required_name in (RAW_SNAPSHOT_NAME, EFFECTIVE_SNAPSHOT_NAME):
+        if required_name not in by_name:
+            return False
+
+    raw_entry = by_name[RAW_SNAPSHOT_NAME]
+    eff_entry = by_name[EFFECTIVE_SNAPSHOT_NAME]
+    if raw_entry.get("sha256") != manifest.get("param_sha256"):
+        return False
+    if eff_entry.get("sha256") != manifest.get("config_hash"):
+        return False
+
+    raw_path = dest / RAW_SNAPSHOT_NAME
+    eff_path = dest / EFFECTIVE_SNAPSHOT_NAME
+    try:
+        raw_bytes = raw_path.read_bytes()
+        eff_bytes = eff_path.read_bytes()
+    except OSError:
+        return False
+    if hashlib.sha256(raw_bytes).hexdigest() != manifest.get("param_sha256"):
+        return False
+    if hashlib.sha256(eff_bytes).hexdigest() != manifest.get("config_hash"):
+        return False
+    if len(raw_bytes) != raw_entry.get("size_bytes"):
+        return False
+    if len(eff_bytes) != eff_entry.get("size_bytes"):
+        return False
     return True
 
 
@@ -446,11 +599,14 @@ def is_scan_complete(dest: Path) -> bool:
     if not match:
         return False
     major = int(match.group(1))
-    # Unknown major versions are rejected as unverifiable (not a failed scan).
     if major != 1:
         return False
-    # Compatible minor/patch (major == 1): validate the complete v1.0.0 contract.
-    return _verify_v100(dest, manifest)
+    minor = int(match.group(2))
+    if minor == 0:
+        return _verify_v100(dest, manifest)
+    if minor == 1:
+        return _verify_v110(dest, manifest)
+    return False
 
 
 def _extract_series(corpus_path: Path, symbol: str, tf: str) -> Tuple[List[Dict[str, Any]], Path]:
@@ -642,61 +798,97 @@ def run_scan(corpus_path: Path, output_dir: Path, param_path=None, scan_mode: st
     output_dir.mkdir(parents=True, exist_ok=True)
     os.mkdir(dest)
 
-    # Publish events.json first.
-    events_bytes = _serialize_json(batch)
-    _publish_bytes(dest, "events.json", events_bytes)
-    events_sha256 = hashlib.sha256(events_bytes).hexdigest()
-    events_size = len(events_bytes)
+    try:
+        # Publish required outputs in contract order: events, raw snapshot, effective snapshot.
+        events_bytes = _serialize_json(batch)
+        _publish_bytes(dest, EVENTS_NAME, events_bytes)
 
-    # All required outputs are durable; record output-completion timestamp.
-    outputs_complete_at = _fmt_ts(datetime.now(timezone.utc))
+        raw_snapshot_bytes = bytes(loaded.raw_snapshot_bytes)
+        _publish_bytes(dest, RAW_SNAPSHOT_NAME, raw_snapshot_bytes)
 
-    # Publish manifest last: the completion marker, only after the event
-    # output is durable and verified.
-    head = _git_head(repo_root)
-    code_state: Dict[str, Any] = {"driver_sha256": _driver_sha256()}
-    if head:
-        code_state["commit"] = head
-    execution_start = _fmt_ts(datetime.now(timezone.utc))
-    manifest = {
-        "manifest_version": MANIFEST_VERSION,
-        "scan_id": scan_id,
-        "status": "COMPLETE",
-        "scan_start": scan_start,
-        "execution_start": execution_start,
-        "outputs_complete_at": outputs_complete_at,
-        "module": module,
-        "scan_mode": scan_mode,
-        "param_file": loaded.param_file,
-        "param_sha256": loaded.param_sha256,
-        "param_version": loaded.param_version,
-        "frozen_at": loaded.frozen_at,
-        "universe": list(params["universe"]),
-        "emission_timeframes": list(params["emission_timeframes"]),
-        "series": series_manifest,
-        "total_bars_extracted": sum(entry["bars_extracted"] for entry in series_manifest),
-        "event_count": len(all_events),
-        "validation_status": "valid",
-        "validation_violation_count": len(result["violations"]),
-        "evidence_tier": evidence_tier,
-        "extraction_span": {
-            "start": EXTRACTION_START_TS,
-            "end": EXTRACTION_END_TS,
-            "end_exclusive": True,
-        },
-        "batch_window": {
-            "batch_start_ts": batch_start_ts,
-            "batch_end_ts": batch_end_ts,
-            "inclusive": True,
-        },
-        "convention_documents": list(CONVENTION_DOCS),
-        "code_state": code_state,
-        "outputs": [
-            {"name": "events.json", "sha256": events_sha256, "size_bytes": events_size}
-        ],
-    }
-    manifest_bytes = _serialize_json(manifest)
-    _publish_bytes(dest, "scanner_data_manifest.json", manifest_bytes)
+        effective_snapshot_bytes = bytes(loaded.effective_snapshot_bytes)
+        _publish_bytes(dest, EFFECTIVE_SNAPSHOT_NAME, effective_snapshot_bytes)
+
+        outputs = []
+        for name, data in (
+            (EVENTS_NAME, events_bytes),
+            (RAW_SNAPSHOT_NAME, raw_snapshot_bytes),
+            (EFFECTIVE_SNAPSHOT_NAME, effective_snapshot_bytes),
+        ):
+            outputs.append({
+                "name": name,
+                "sha256": hashlib.sha256(data).hexdigest(),
+                "size_bytes": len(data),
+            })
+
+        # All required outputs are durable; record output-completion timestamp.
+        outputs_complete_at = _fmt_ts(datetime.now(timezone.utc))
+
+        # Publish manifest last: completion marker only after required outputs are durable.
+        head = _git_head(repo_root)
+        code_state: Dict[str, Any] = {"driver_sha256": _driver_sha256()}
+        if head:
+            code_state["commit"] = head
+        execution_start = _fmt_ts(datetime.now(timezone.utc))
+        manifest = {
+            "manifest_version": MANIFEST_VERSION,
+            "scan_id": scan_id,
+            "status": "COMPLETE",
+            "scan_start": scan_start,
+            "execution_start": execution_start,
+            "outputs_complete_at": outputs_complete_at,
+            "module": module,
+            "scan_mode": scan_mode,
+            "param_file": loaded.param_file,
+            "param_sha256": loaded.param_sha256,
+            "param_version": loaded.param_version,
+            "frozen_at": loaded.frozen_at,
+            "config_hash": loaded.config_hash,
+            "config_hash_algorithm": loaded.config_hash_algorithm,
+            "config_canonicalization_version": loaded.config_canonicalization_version,
+            "config_hash_subject": loaded.config_hash_subject,
+            "config_schema_version": loaded.config_schema_version,
+            "config_snapshot_raw": RAW_SNAPSHOT_NAME,
+            "config_snapshot_effective": EFFECTIVE_SNAPSHOT_NAME,
+            "universe": list(params["universe"]),
+            "emission_timeframes": list(params["emission_timeframes"]),
+            "series": series_manifest,
+            "total_bars_extracted": sum(entry["bars_extracted"] for entry in series_manifest),
+            "event_count": len(all_events),
+            "validation_status": "valid",
+            "validation_violation_count": len(result["violations"]),
+            "evidence_tier": evidence_tier,
+            "extraction_span": {
+                "start": EXTRACTION_START_TS,
+                "end": EXTRACTION_END_TS,
+                "end_exclusive": True,
+            },
+            "batch_window": {
+                "batch_start_ts": batch_start_ts,
+                "batch_end_ts": batch_end_ts,
+                "inclusive": True,
+            },
+            "convention_documents": list(CONVENTION_DOCS),
+            "code_state": code_state,
+            "outputs": outputs,
+        }
+        manifest_bytes = _serialize_json(manifest)
+        _publish_bytes(dest, MANIFEST_NAME, manifest_bytes)
+    except Exception:
+        # No COMPLETE manifest may remain published on failure. Preserve published outputs
+        # and temporary files where useful for diagnosis; do not leave a scan that passes
+        # is_scan_complete().
+        try:
+            manifest_path = dest / MANIFEST_NAME
+            if manifest_path.exists():
+                try:
+                    manifest_path.unlink()
+                except OSError:
+                    pass
+            _sync_directory(dest)
+        except OSError:
+            pass
+        raise
 
     _sync_directory(dest)
     return scan_id

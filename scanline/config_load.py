@@ -409,6 +409,15 @@ def _normalize_session_anomalies(parsed: Mapping[str, Any], schema: SchemaEntry)
     if not isinstance(frozen_at, str) or not frozen_at.strip():
         raise InvalidFieldTypeError("frozen_at must be non-empty string")
 
+    universe = parsed.get("universe")
+    emission_timeframes = parsed.get("emission_timeframes")
+    if universe is not None:
+        if not isinstance(universe, list) or not universe or not all(isinstance(s, str) and s for s in universe):
+            raise InvalidFieldTypeError("universe must be non-empty list[str]")
+    if emission_timeframes is not None:
+        if not isinstance(emission_timeframes, list) or not emission_timeframes or not all(isinstance(s, str) and s for s in emission_timeframes):
+            raise InvalidFieldTypeError("emission_timeframes must be non-empty list[str]")
+
     symbol_records = _session_collect_symbol_records(parsed)
     symbols_out: Dict[str, Any] = {}
 
@@ -488,6 +497,10 @@ def _normalize_session_anomalies(parsed: Mapping[str, Any], schema: SchemaEntry)
         "config_family": schema.config_family,
         "symbols": symbols_out,
     }
+    if universe is not None:
+        effective["universe"] = list(universe)
+    if emission_timeframes is not None:
+        effective["emission_timeframes"] = list(emission_timeframes)
     ensure_allowed_fields(effective, schema.allowed_fields, context="session_anomalies effective")
     return effective
 
@@ -519,6 +532,10 @@ def _runtime_session_anomalies(effective: Mapping[str, Any]) -> Dict[str, Any]:
         "frozen_at": eff["frozen_at"],
         "clusters": clusters,
     }
+    if "universe" in eff:
+        rt["universe"] = list(eff["universe"])
+    if "emission_timeframes" in eff:
+        rt["emission_timeframes"] = list(eff["emission_timeframes"])
     # flat compatibility for single-symbol configs
     if len(symbols) == 1:
         only = next(iter(symbols.values()))
@@ -582,10 +599,10 @@ def _ensure_default_registry() -> None:
             config_schema_version="1",
             param_version="1.0.0",
             allowed_fields=(
-                "module","param_version","frozen_at","config_schema_version","config_family","symbols",
+                "module","param_version","frozen_at","config_schema_version","config_family","symbols","universe","emission_timeframes",
             ),
             allowed_raw_fields=(
-                "module","param_version","frozen_at","universe","symbol",
+                "module","param_version","frozen_at","universe","emission_timeframes","symbol",
                 "clusters","cluster_schedule","clusters_schedule","session_clusters","cluster_expected_bars",
                 "expected_bars","weekday_expected_bars","expected_weekday_bars","expected",
                 "expected_sun_bars","sunday_expected_bars","expected_sunday_bars","sunday_bars",

@@ -708,11 +708,12 @@ def test_scan_018b_unknown_major_version_rejected(tmp_path):
 
 
 def test_scan_018b_compatible_newer_minor_version(tmp_path):
-    # Compatible minor/patch (major == 1) accepted when required fields present.
-    dest = _scan_018b_v100_dir(tmp_path, mutate=lambda m: m.__setitem__("manifest_version", "1.1.0"))
-    assert is_scan_complete(dest) is True
+    # Compatible v1.0.x minor/patch accepted when v1.0.0 required fields present.
     dest = _scan_018b_v100_dir(tmp_path, mutate=lambda m: m.__setitem__("manifest_version", "1.0.1"))
     assert is_scan_complete(dest) is True
+    # v1.1.0 requires provenance fields and snapshots; a v1.0.0-shaped manifest must not pass.
+    dest = _scan_018b_v100_dir(tmp_path, mutate=lambda m: m.__setitem__("manifest_version", "1.1.0"))
+    assert is_scan_complete(dest) is False
 
 
 def test_scan_018b_event_count_mismatch(tmp_path):
@@ -811,4 +812,272 @@ def test_scan_018b_path_protections_preserved(tmp_path):
     manifest = json.loads((dest / "scanner_data_manifest.json").read_text())
     manifest["outputs"][0]["name"] = "/etc/passwd"
     (dest / "scanner_data_manifest.json").write_text(json.dumps(manifest) + "\n")
+    assert is_scan_complete(dest) is False
+
+# ---------------------------------------------------------------------------
+# SCAN-018C-I3 v1.1.0 dual snapshot + provenance tests
+# ---------------------------------------------------------------------------
+
+RAW_SNAPSHOT = "param_snapshot.raw.json"
+EFFECTIVE_SNAPSHOT = "param_snapshot.effective.json"
+
+
+def _scan_018c_v110_dir(tmp_path, mutate=None, **extra):
+    name = f"20261121T013740123456Z_{next(_018b_dir_counter):032x}"
+    dest = tmp_path / "scans" / name
+    dest.mkdir(parents=True)
+
+    header = {
+        "module": "level_proximity",
+        "scan_mode": "forward",
+        "param_version": "1.0.0",
+        "frozen_at": "2026-11-19T03:25:04Z",
+        "universe": ["GOLD", "EURUSD"],
+        "emission_timeframes": ["H1", "H4"],
+    }
+    events = [{"event_ts": "2026-09-07T00:00:00Z", "symbol": "GOLD"}]
+    batch = {"events": events, "header": header}
+    events_bytes = scan_mod._serialize_json(batch)
+    raw_bytes = b'{"module":"level_proximity","param_version":"1.0.0"}\n'
+    effective_bytes = b'{"module":"level_proximity","param_version":"1.0.0"}'
+    (dest / "events.json").write_bytes(events_bytes)
+    (dest / RAW_SNAPSHOT).write_bytes(raw_bytes)
+    (dest / EFFECTIVE_SNAPSHOT).write_bytes(effective_bytes)
+
+    base = "2026-11-21T01:37:40.123456Z"
+    manifest = {
+        "manifest_version": "1.1.0",
+        "scan_id": name,
+        "status": "COMPLETE",
+        "scan_start": base,
+        "outputs_complete_at": base,
+        "execution_start": base,
+        "module": "level_proximity",
+        "scan_mode": "forward",
+        "param_file": "scanner_params.level_proximity.json",
+        "param_sha256": hashlib.sha256(raw_bytes).hexdigest(),
+        "param_version": "1.0.0",
+        "frozen_at": "2026-11-19T03:25:04Z",
+        "config_hash": hashlib.sha256(effective_bytes).hexdigest(),
+        "config_hash_algorithm": "sha256",
+        "config_canonicalization_version": "SCANLINE-config-canon-v1",
+        "config_hash_subject": "effective_validated_config",
+        "config_schema_version": "1",
+        "config_snapshot_raw": RAW_SNAPSHOT,
+        "config_snapshot_effective": EFFECTIVE_SNAPSHOT,
+        "universe": ["GOLD", "EURUSD"],
+        "emission_timeframes": ["H1", "H4"],
+        "series": [
+            {
+                "symbol": "GOLD",
+                "timeframe": "D1",
+                "file": "GOLD_D1.csv",
+                "sha256": hashlib.sha256(b"dummy").hexdigest(),
+                "size_bytes": 5,
+                "bars_extracted": 1,
+                "span": {"first_open_ts": None, "last_open_ts": None},
+            }
+        ],
+        "total_bars_extracted": 1,
+        "event_count": len(events),
+        "validation_status": "valid",
+        "validation_violation_count": 0,
+        "evidence_tier": "forward_asof",
+        "code_state": {"driver_sha256": hashlib.sha256(b"driver").hexdigest()},
+        "outputs": [
+            {"name": "events.json", "sha256": hashlib.sha256(events_bytes).hexdigest(), "size_bytes": len(events_bytes)},
+            {"name": RAW_SNAPSHOT, "sha256": hashlib.sha256(raw_bytes).hexdigest(), "size_bytes": len(raw_bytes)},
+            {"name": EFFECTIVE_SNAPSHOT, "sha256": hashlib.sha256(effective_bytes).hexdigest(), "size_bytes": len(effective_bytes)},
+        ],
+    }
+    manifest.update(extra)
+    if mutate:
+        mutate(manifest)
+    (dest / "scanner_data_manifest.json").write_text(json.dumps(manifest) + "\n")
+    return dest
+
+
+def test_scan_018c_v110_complete_manifest(tmp_path):
+    dest = _scan_018c_v110_dir(tmp_path)
+    assert is_scan_complete(dest) is True
+
+
+@pytest.mark.parametrize("field", [
+    "config_hash", "config_hash_algorithm", "config_canonicalization_version",
+    "config_hash_subject", "config_schema_version", "config_snapshot_raw", "config_snapshot_effective",
+])
+def test_scan_018c_v110_missing_required_provenance_fields(tmp_path, field):
+    dest = _scan_018c_v110_dir(tmp_path, mutate=lambda m, f=field: m.pop(f))
+    assert is_scan_complete(dest) is False
+
+
+def test_scan_018c_v110_malformed_provenance_fields(tmp_path):
+    cases = [
+        ("config_hash", "not-a-hash"),
+        ("config_hash_algorithm", "md5"),
+        ("config_canonicalization_version", "bad"),
+        ("config_hash_subject", "wrong"),
+        ("config_schema_version", None),
+        ("config_schema_version", ""),
+        ("config_snapshot_raw", "other.json"),
+        ("config_snapshot_effective", "other.json"),
+    ]
+    for field, value in cases:
+        dest = _scan_018c_v110_dir(tmp_path, mutate=lambda m, f=field, v=value: m.__setitem__(f, v))
+        assert is_scan_complete(dest) is False, (field, value)
+
+
+def test_scan_018c_v110_snapshot_missing_fails(tmp_path):
+    dest = _scan_018c_v110_dir(tmp_path)
+    (dest / RAW_SNAPSHOT).unlink()
+    assert is_scan_complete(dest) is False
+    dest = _scan_018c_v110_dir(tmp_path)
+    (dest / EFFECTIVE_SNAPSHOT).unlink()
+    assert is_scan_complete(dest) is False
+
+
+def test_scan_018c_v110_snapshot_hash_mismatch_fails(tmp_path):
+    dest = _scan_018c_v110_dir(tmp_path)
+    (dest / RAW_SNAPSHOT).write_bytes(b"tampered")
+    assert is_scan_complete(dest) is False
+    dest = _scan_018c_v110_dir(tmp_path)
+    (dest / EFFECTIVE_SNAPSHOT).write_bytes(b"tampered")
+    assert is_scan_complete(dest) is False
+
+
+def test_scan_018c_v110_size_mismatch_fails(tmp_path):
+    dest = _scan_018c_v110_dir(tmp_path, mutate=lambda m: m["outputs"][1].__setitem__("size_bytes", 999))
+    assert is_scan_complete(dest) is False
+    dest = _scan_018c_v110_dir(tmp_path, mutate=lambda m: m["outputs"][2].__setitem__("size_bytes", 999))
+    assert is_scan_complete(dest) is False
+
+
+def test_scan_018c_v110_duplicate_or_missing_output_entry_fails(tmp_path):
+    def dup(m):
+        m["outputs"].append(dict(m["outputs"][1]))
+    dest = _scan_018c_v110_dir(tmp_path, mutate=dup)
+    assert is_scan_complete(dest) is False
+
+    def missing(m):
+        m["outputs"] = [o for o in m["outputs"] if o["name"] != RAW_SNAPSHOT]
+    dest = _scan_018c_v110_dir(tmp_path, mutate=missing)
+    assert is_scan_complete(dest) is False
+
+
+def test_scan_018c_v110_traversal_and_absolute_path_rejected(tmp_path):
+    dest = _scan_018c_v110_dir(tmp_path, mutate=lambda m: m["outputs"][1].__setitem__("name", "../escape.json"))
+    assert is_scan_complete(dest) is False
+    dest = _scan_018c_v110_dir(tmp_path, mutate=lambda m: m.__setitem__("config_snapshot_raw", "/tmp/x"))
+    assert is_scan_complete(dest) is False
+
+
+def test_scan_018c_v110_symlink_escape_rejected(tmp_path):
+    dest = _scan_018c_v110_dir(tmp_path)
+    outside = tmp_path / "outside.json"
+    outside.write_bytes(b"{}")
+    (dest / RAW_SNAPSHOT).unlink()
+    (dest / RAW_SNAPSHOT).symlink_to(outside)
+    manifest = json.loads((dest / "scanner_data_manifest.json").read_text())
+    for o in manifest["outputs"]:
+        if o["name"] == RAW_SNAPSHOT:
+            b = outside.read_bytes()
+            o["sha256"] = hashlib.sha256(b).hexdigest()
+            o["size_bytes"] = len(b)
+    manifest["param_sha256"] = hashlib.sha256(outside.read_bytes()).hexdigest()
+    (dest / "scanner_data_manifest.json").write_text(json.dumps(manifest) + "\n")
+    assert is_scan_complete(dest) is False
+
+
+def test_scan_018c_v110_unsupported_version_fails(tmp_path):
+    dest = _scan_018c_v110_dir(tmp_path, mutate=lambda m: m.__setitem__("manifest_version", "2.0.0"))
+    assert is_scan_complete(dest) is False
+
+
+def test_scan_018c_historical_v100_still_accepted(tmp_path):
+    dest = _scan_018b_v100_dir(tmp_path)
+    assert is_scan_complete(dest) is True
+
+
+def test_scan_018c_real_scan_dual_snapshots_and_hashes(tmp_path):
+    corpus = _make_corpus(tmp_path)
+    param_path = _params_path(tmp_path)
+    out = tmp_path / "out"
+    scan_id = run_scan(corpus, out, param_path=param_path)
+    dest = out / scan_id
+
+    manifest = json.loads((dest / "scanner_data_manifest.json").read_text())
+    assert manifest["manifest_version"] == "1.1.0"
+
+    raw_bytes = param_path.read_bytes()
+    raw_snap = (dest / RAW_SNAPSHOT).read_bytes()
+    eff_snap = (dest / EFFECTIVE_SNAPSHOT).read_bytes()
+    assert raw_snap == raw_bytes
+    assert hashlib.sha256(raw_snap).hexdigest() == manifest["param_sha256"]
+    assert hashlib.sha256(eff_snap).hexdigest() == manifest["config_hash"]
+    assert eff_snap == eff_snap.rstrip(b"\n") or not eff_snap.endswith(b"\n")
+    assert not eff_snap.endswith(b"\n")
+
+    output_names = [o["name"] for o in manifest["outputs"]]
+    assert output_names.count("events.json") == 1
+    assert output_names.count(RAW_SNAPSHOT) == 1
+    assert output_names.count(EFFECTIVE_SNAPSHOT) == 1
+
+    by_name = {o["name"]: o for o in manifest["outputs"]}
+    for name in ["events.json", RAW_SNAPSHOT, EFFECTIVE_SNAPSHOT]:
+        p = dest / name
+        assert by_name[name]["sha256"] == hashlib.sha256(p.read_bytes()).hexdigest()
+        assert by_name[name]["size_bytes"] == p.stat().st_size
+
+    assert is_scan_complete(dest) is True
+
+
+def _atomic_failure_case(tmp_path, monkeypatch, fail_stage):
+    corpus = _make_corpus(tmp_path)
+    param_path = _params_path(tmp_path)
+    root = tmp_path / f"scans_{fail_stage}"
+    fixed_id = "20260101T000000000000Z_" + f"{abs(hash(fail_stage)) % (16**32):032x}"[:32]
+    real_publish = scan_mod._publish_bytes
+    real_sha = scan_mod.hashlib.sha256
+
+    def fake_publish(dest_dir, name, data):
+        if fail_stage == "events_write" and name == "events.json":
+            raise OSError("injected events write failure")
+        if fail_stage == "raw_snapshot_write" and name == RAW_SNAPSHOT:
+            raise OSError("injected raw snapshot write failure")
+        if fail_stage == "effective_snapshot_write" and name == EFFECTIVE_SNAPSHOT:
+            raise OSError("injected effective snapshot write failure")
+        if fail_stage == "manifest_publish" and name == "scanner_data_manifest.json":
+            raise OSError("injected manifest publish failure")
+        return real_publish(dest_dir, name, data)
+
+    def fake_sha(data=b""):
+        if fail_stage == "hash_size_preparation":
+            # Fail during output inventory hash/size preparation after snapshots published.
+            # Trigger when hashing raw snapshot bytes object used in inventory.
+            if data == (root / fixed_id / RAW_SNAPSHOT).read_bytes() if (root / fixed_id / RAW_SNAPSHOT).exists() else None:
+                raise RuntimeError("injected hash preparation failure")
+        return real_sha(data)
+
+    monkeypatch.setattr(scan_mod, "generate_scan_id", lambda: fixed_id)
+    monkeypatch.setattr(scan_mod, "_publish_bytes", fake_publish)
+    if fail_stage == "hash_size_preparation":
+        monkeypatch.setattr(scan_mod.hashlib, "sha256", fake_sha)
+
+    with pytest.raises(Exception):
+        run_scan(corpus, root, param_path=param_path)
+    dest = root / fixed_id
+    assert is_scan_complete(dest) is False
+    return dest
+
+
+@pytest.mark.parametrize("stage", [
+    "events_write", "raw_snapshot_write", "effective_snapshot_write", "hash_size_preparation", "manifest_publish",
+])
+def test_scan_018c_atomic_publication_failures_no_complete_scan(tmp_path, monkeypatch, stage):
+    dest = _atomic_failure_case(tmp_path, monkeypatch, stage)
+    # no COMPLETE manifest may be present
+    manifest = dest / "scanner_data_manifest.json"
+    if manifest.exists():
+        obj = json.loads(manifest.read_text())
+        assert obj.get("status") != "COMPLETE" or is_scan_complete(dest) is False
     assert is_scan_complete(dest) is False

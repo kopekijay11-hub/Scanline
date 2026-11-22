@@ -590,6 +590,8 @@ _SESSION_TOP_LEVEL_KEYS = {
     "param_version",
     "version",
     "frozen_at",
+    "universe",
+    "emission_timeframes",
     "clusters",
     "cluster_schedule",
     "clusters_schedule",
