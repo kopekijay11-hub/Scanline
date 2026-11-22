@@ -315,8 +315,7 @@ class TestSessionNormalization:
 
 
 class TestRegression:
-    def test_existing_scan_manifest_v1_unchanged(self, tmp_path):
-        # reuse existing scan fixture pattern
+    def test_new_scan_manifest_v110_with_provenance(self, tmp_path):
         from tests.test_scan import _make_corpus, _params_path
         corpus = _make_corpus(tmp_path)
         param_path = _params_path(tmp_path)
@@ -324,9 +323,16 @@ class TestRegression:
         scan_id = run_scan(corpus, out, param_path=param_path)
         dest = out / scan_id
         manifest = json.loads((dest / "scanner_data_manifest.json").read_text())
-        assert manifest["manifest_version"] == "1.0.0"
-        assert "config_hash" not in manifest
-        assert "param_snapshot.raw.json" not in [o["name"] for o in manifest["outputs"]]
+        assert manifest["manifest_version"] == "1.1.0"
+        assert manifest["config_hash_algorithm"] == "sha256"
+        assert manifest["config_canonicalization_version"] == "SCANLINE-config-canon-v1"
+        assert manifest["config_hash_subject"] == "effective_validated_config"
+        assert isinstance(manifest["config_schema_version"], str) and manifest["config_schema_version"]
+        assert manifest["config_snapshot_raw"] == "param_snapshot.raw.json"
+        assert manifest["config_snapshot_effective"] == "param_snapshot.effective.json"
+        names = [o["name"] for o in manifest["outputs"]]
+        assert "param_snapshot.raw.json" in names
+        assert "param_snapshot.effective.json" in names
         assert is_scan_complete(dest) is True
 
     def test_historical_records_readable(self):
