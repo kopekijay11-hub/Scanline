@@ -1,0 +1,41 @@
+{
+  "manifest_version": "1.0.0-publication",
+  "scan_id": "level_proximity-1.1.0-window-2026-08-08_2026-09-06",
+  "backfilled_at": "2026-11-22T11:41:45Z",
+  "backfill_of": "scanner_data_manifest.json (legacy, unversioned, preserved unchanged)",
+  "status": "COMPLETE",
+  "completeness_basis": "events.json sha256 equals the scan ledger's confirmatory batch_sha256 for this scan",
+  "outputs": [
+    {
+      "name": "events.json",
+      "sha256": "9d89edb4c35b6f24786fc4b406e943cb1c26ba9424c5b1e1a5f1091b6c45d0d9",
+      "size": 218297
+    },
+    {
+      "name": "scanner_data_manifest.json",
+      "sha256": "ffdbb8434318d1005c809ae471f7a4db97d560ddabb8892b5bd78f14a4d38a16",
+      "size": 6198
+    }
+  ],
+  "event_count": 616,
+  "header_summary": {
+    "emitted_module": "module_1",
+    "canonical_module": "level_proximity",
+    "param_version": "1.1.0",
+    "param_sha256": "53a99a5f426c95c7bb6a4577ed6988c45d7ebabe27aced22ed560d54e604b1d6",
+    "param_file": "scanner_params.level_proximity-1.1.0.json",
+    "scan_mode": "retrospective",
+    "evidence_tier": null,
+    "batch_start_ts": "2026-08-08T00:00:00Z",
+    "batch_end_ts": "2026-09-07T00:00:00Z",
+    "universe_size": 5
+  },
+  "ledger_outcome": "inside pre-registration",
+  "ledger_batch_sha256": "9d89edb4c35b6f24786fc4b406e943cb1c26ba9424c5b1e1a5f1091b6c45d0d9",
+  "ledger_params_version": "1.1.0",
+  "ledger_window": {
+    "start": "2026-08-08",
+    "end": "2026-09-06"
+  },
+  "ledger_code_commit": "6d1a6eebaf94edfc0c4bd685d0d0b98c145bf30a"
+}
