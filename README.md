@@ -14,12 +14,13 @@ Sibling of [Feedline](https://github.com/kopekijay11-hub/feedline) and Watchline
 |---|---|---|
 | **Module 1** | Core scan + validation baseline | ✅ Complete |
 | **Module 2** | Persistence, manifests, configuration provenance (SCAN-018 series) | ✅ Complete |
-| **Module 3** | Additional detector families | Not started |
+| **Module 3** | Remaining detector families (volatility expansion, spread blowouts) | Not started |
 
 ## What it detects
 
 - **Level proximity** — the first detector family (Module 1): price approaching, touching, or reacting at defined levels.
-- Planned subsequent families: **session anomalies**, **volatility expansion**, and **spread blowouts**.
+- **Session anomalies** — implemented for H1: missing/stub/Sunday/intra-gap detection with DST-aware maintenance windows.
+- Planned subsequent families: **volatility expansion** and **spread blowouts**.
 
 **Initial universe:** GOLD, EURUSD, USDCAD, GER40, USOIL · **Emission timeframes:** H1, H4 · **Definition timeframe:** D1
 
@@ -58,4 +59,4 @@ Design and contract records live in `docs/`:
 
 ## Testing
 
-A pytest suite covers the validator rule modules, persistence and manifest handling, and the configuration layers — including characterization tests that pin detector behavior against known sessions.
+A pytest suite (348 tests on main) covers the validator rule modules, persistence and manifest handling, and the configuration layers — including characterization tests that pin detector behavior against known sessions. Tests currently run locally; a GitHub Actions CI pipeline is in preparation (November 2026).
