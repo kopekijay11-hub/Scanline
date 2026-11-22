@@ -511,9 +511,6 @@ def _runtime_session_anomalies(effective: Mapping[str, Any]) -> Dict[str, Any]:
         if m.get("mode") == "fixed_utc":
             rec["maintenance_utc_start"] = m["start_hhmm"]
             rec["maintenance_utc_end"] = m["end_hhmm"]
-            rec["_fixed_utc"] = True
-        else:
-            rec["_fixed_utc"] = False
         clusters[sym] = rec
 
     rt: Dict[str, Any] = {
