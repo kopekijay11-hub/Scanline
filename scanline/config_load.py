@@ -127,7 +127,7 @@ def _normalize_grid_step(value: Any, field: str) -> Dict[str, Any]:
     if f <= 0:
         raise InvalidFieldTypeError(f"{field} must be > 0")
     if f.is_integer():
-        # float token but integer-valued: preserve binary64 type semantics? 
+        # float token but integer-valued: preserve binary64 type semantics?
         # Source inspection: levels.py inspects original type; 5.0 should behave as float.
         # So binary64 cell.
         pass
@@ -511,9 +511,6 @@ def _runtime_session_anomalies(effective: Mapping[str, Any]) -> Dict[str, Any]:
         if m.get("mode") == "fixed_utc":
             rec["maintenance_utc_start"] = m["start_hhmm"]
             rec["maintenance_utc_end"] = m["end_hhmm"]
-            rec["_fixed_utc"] = True
-        else:
-            rec["_fixed_utc"] = False
         clusters[sym] = rec
 
     rt: Dict[str, Any] = {
@@ -618,7 +615,7 @@ def load_config(param_path: str | Path, *, schema_version: Optional[str] = None)
     if not isinstance(parsed_any, dict):
         raise ConfigLoadError("top-level config must be a JSON object")
 
-    # Parse also through canon parser for duplicate-key/UTF-8/number rules? 
+    # Parse also through canon parser for duplicate-key/UTF-8/number rules?
     # raw_bytes already loaded; use strict parser to catch duplicate keys and invalid numerics.
     try:
         # Use canonical parser to validate structure; but it returns Decimals for fractional numbers.
