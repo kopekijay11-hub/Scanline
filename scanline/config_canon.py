@@ -76,6 +76,136 @@ def canonicalize_json_text(text: str) -> bytes:
     return canonicalize(text.encode("utf-8"))
 
 
+def parse_json_bytes(raw_bytes: bytes) -> Any:
+    """Parse JSON bytes with SCANLINE-config-canon-v1 parser rules."""
+    if not isinstance(raw_bytes, (bytes, bytearray)):
+        raise CanonicalizationError("input must be bytes")
+    raw_bytes = bytes(raw_bytes)
+    if len(raw_bytes) > MAX_RAW_BYTES:
+        raise CanonicalizationError(f"input exceeds MAX_RAW_BYTES ({MAX_RAW_BYTES})")
+    try:
+        text = raw_bytes.decode("utf-8", errors="strict")
+    except UnicodeDecodeError as e:
+        raise CanonicalizationError(f"invalid UTF-8: {e}") from e
+    parser = _Parser(text)
+    value = parser.parse_value(depth=0)
+    parser.skip_ws()
+    if not parser.at_end():
+        raise CanonicalizationError("trailing content after JSON value")
+    return _to_python(value)
+
+
+def canonicalize_object(obj: Any) -> bytes:
+    """Canonicalize a Python object into SCANLINE-config-canon-v1 bytes.
+
+    Supported types: dict(str->value), list/tuple, str, int(non-bool), bool,
+    None, float (finite, serialized as shortest round-trip decimal). Floats are
+    converted through their shortest round-trip decimal representation and then
+    formatted by canon-v1 numeric rules.
+    """
+    norm = _normalize_py(obj, depth=0)
+    out = _serialize(norm)
+    out_bytes = out.encode("utf-8")
+    if len(out_bytes) > MAX_RAW_BYTES:
+        raise CanonicalizationError("canonical output exceeds MAX_RAW_BYTES")
+    return out_bytes
+
+
+def canonical_sha256_object(obj: Any) -> str:
+    return hashlib.sha256(canonicalize_object(obj)).hexdigest()
+
+
+def _to_python(value: Any) -> Any:
+    if isinstance(value, _NumberToken):
+        canon = _canonical_number_string(value)
+        if "." in canon:
+            # exact decimal as string? but callers expecting numbers may be surprised.
+            # Keep ints as int, decimals as Decimal-like? Better return int or float? No.
+            # For parsed raw config, preserve numeric value via Decimal; but existing code expects int/float.
+            # Use int for integer canonical values; Decimal for fractional.
+            # Instead return a NumberProxy not ideal. Simpler: return int for integer canonical, else Decimal.
+            from decimal import Decimal
+            return Decimal(canon)
+        return int(canon)
+    if isinstance(value, list):
+        return [_to_python(v) for v in value]
+    if isinstance(value, dict):
+        return {k: _to_python(v) for k, v in value.items()}
+    return value
+
+
+def _normalize_py(value: Any, depth: int) -> Any:
+    if depth > MAX_DEPTH:
+        raise CanonicalizationError(f"maximum nesting depth {MAX_DEPTH} exceeded")
+    if value is None or value is True or value is False:
+        return value
+    if isinstance(value, (bytes, bytearray)):
+        raise CanonicalizationError("bytes not supported in canonical object")
+    if isinstance(value, str):
+        _reject_lone_surrogates(value)
+        return value
+    if isinstance(value, int) and not isinstance(value, bool):
+        return _int_to_number_token(value)
+    if isinstance(value, float):
+        if not math.isfinite(value):
+            raise CanonicalizationError("non-finite float")
+        # shortest round-trip decimal representation
+        from decimal import Decimal
+        canon_dec = Decimal(repr(value))
+        return _decimal_to_number_token(canon_dec)
+    try:
+        from decimal import Decimal
+        if isinstance(value, Decimal):
+            if not value.is_finite():
+                raise CanonicalizationError("non-finite decimal")
+            return _decimal_to_number_token(value)
+    except Exception:
+        pass
+    if isinstance(value, (list, tuple)):
+        return [_normalize_py(v, depth + 1) for v in value]
+    if isinstance(value, dict):
+        out = {}
+        for k, v in value.items():
+            if not isinstance(k, str):
+                raise CanonicalizationError("object keys must be strings")
+            if k in out:
+                raise CanonicalizationError(f"duplicate key: {k!r}")
+            out[k] = _normalize_py(v, depth + 1)
+        return out
+    raise CanonicalizationError(f"unsupported type for canonicalization: {type(value)!r}")
+
+
+def _int_to_number_token(value: int) -> _NumberToken:
+    sign = "-" if value < 0 else ""
+    digits = str(abs(value))
+    if digits == "0":
+        return _NumberToken(raw="0", sign="", digits="0", exp10=0, is_zero=True)
+    coeff_digits_count = len(digits.lstrip("0")) or 1
+    if coeff_digits_count > MAX_COEFF_DIGITS:
+        raise CanonicalizationError(f"number coefficient exceeds {MAX_COEFF_DIGITS} digits")
+    tok = _NumberToken(raw=str(value), sign=sign, digits=digits, exp10=0, is_zero=False)
+    _validate_number_token(tok)
+    return tok
+
+
+def _decimal_to_number_token(value) -> _NumberToken:
+    # value is decimal.Decimal finite
+    from decimal import Decimal
+    if value.is_zero():
+        return _NumberToken(raw="0", sign="", digits="0", exp10=0, is_zero=True)
+    sign = "-" if value.is_signed() else ""
+    tup = value.as_tuple()
+    digits = "".join(str(d) for d in tup.digits) or "0"
+    coeff_digits_count = len(digits.lstrip("0")) or 1
+    if coeff_digits_count > MAX_COEFF_DIGITS:
+        raise CanonicalizationError(f"number coefficient exceeds {MAX_COEFF_DIGITS} digits")
+    exp10 = int(tup.exponent)
+    # no explicit exponent in JSON form, but bounds in §4.4 refer to numeric token exponent; for Decimal objects, enforce expanded length/coeff.
+    tok = _NumberToken(raw=str(value), sign=sign, digits=digits, exp10=exp10, is_zero=False)
+    _validate_number_token(tok)
+    return tok
+
+
 class _Parser:
     def __init__(self, text: str):
         self.text = text
