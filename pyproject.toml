@@ -16,7 +16,12 @@ authors = [
 [project.optional-dependencies]
 dev = [
     "pytest>=7.0.0",
+    "ruff>=0.9.0",
+    "mypy>=1.10.0",
 ]
+
+[tool.setuptools.packages.find]
+include = ["scanline*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
