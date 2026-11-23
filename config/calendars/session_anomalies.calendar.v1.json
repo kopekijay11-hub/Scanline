@@ -1,0 +1,185 @@
+{
+  "calendar_version": "1.0.0",
+  "calendar_id": "session_anomalies.calendar.v1",
+  "description": "Versioned holiday/DST attribution calendar for session_anomalies. Additive annotations only; never suppresses or alters detector events.",
+  "rules": [
+    {
+      "rule_id": "US_JUNETEENTH_CME_GRAINS_LIVESTOCK_CLOSED",
+      "label": "Juneteenth - CME grains/livestock closed",
+      "recurrence": {"type": "fixed_date_observed", "month": 6, "day": 19},
+      "venue_scope": ["group:cme_grains_livestock"],
+      "symbol_groups": {
+        "cme_grains_livestock": ["CORN", "FEEDBEEF", "LEANHOGS", "LIVEBEEF", "SOYBEAN", "WHEAT"]
+      },
+      "expected_effect": "missing_session_or_full_closure",
+      "source": [
+        "https://www.cmegroup.com/trading-hours.html (CME Group Holiday and Trading Hours; Juneteenth holiday schedule; accessed 2026-11-22)",
+        "https://support.ninjatrader.com/s/article/2026-Holiday-Trading-Hours (corroborating summary: CME Grains, Livestock, & Dairy no trading on Juneteenth)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "rule_id": "US_JUNETEENTH_CME_EQUITY_ENERGY_METALS_EARLY_CLOSE",
+      "label": "Juneteenth - CME equity/energy/metals early close",
+      "recurrence": {"type": "fixed_date_observed", "month": 6, "day": 19},
+      "venue_scope": ["group:cme_equity_energy_metals"],
+      "symbol_groups": {
+        "cme_equity_energy_metals": ["COPPER", "GASOLINE", "GOLD", "HEATOIL", "NDAQ100", "PALLADIUM", "PLATINUM", "SILVER", "SPX500", "US2000", "US30", "USNATGAS", "USOIL"]
+      },
+      "expected_effect": "stub_session_or_early_close",
+      "source": [
+        "https://www.cmegroup.com/trading-hours.html (CME Group Holiday and Trading Hours; Juneteenth holiday schedule; accessed 2026-11-22)",
+        "https://support.ninjatrader.com/s/article/2026-Holiday-Trading-Hours (corroborating summary: CME Group Equities, Interest Rates, Energy, FX, & Metals Market Closes at 12:00 pm CT on Juneteenth)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "rule_id": "US_JULY4_CME_GRAINS_LIVESTOCK_CLOSED",
+      "label": "US Independence Day observed - CME grains/livestock closed",
+      "recurrence": {"type": "fixed_date_observed", "month": 7, "day": 4},
+      "venue_scope": ["group:cme_grains_livestock"],
+      "symbol_groups": {
+        "cme_grains_livestock": ["CORN", "FEEDBEEF", "LEANHOGS", "LIVEBEEF", "SOYBEAN", "WHEAT"]
+      },
+      "expected_effect": "missing_session_or_full_closure",
+      "source": [
+        "https://www.cmegroup.com/trading-hours.html (CME Group Holiday and Trading Hours; Independence Day holiday schedule; accessed 2026-11-22)",
+        "https://support.ninjatrader.com/s/article/2026-Holiday-Trading-Hours (corroborating summary: CME Grains, Livestock, Dairy & Lumber no trading on observed Independence Day)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "rule_id": "US_JULY4_CME_EQUITY_ENERGY_METALS_EARLY_CLOSE",
+      "label": "US Independence Day observed - CME equity/energy/metals early close",
+      "recurrence": {"type": "fixed_date_observed", "month": 7, "day": 4},
+      "venue_scope": ["group:cme_equity_energy_metals"],
+      "symbol_groups": {
+        "cme_equity_energy_metals": ["COPPER", "GASOLINE", "GOLD", "HEATOIL", "NDAQ100", "PALLADIUM", "PLATINUM", "SILVER", "SPX500", "US2000", "US30", "USNATGAS", "USOIL"]
+      },
+      "expected_effect": "stub_session_or_early_close",
+      "source": [
+        "https://www.cmegroup.com/trading-hours.html (CME Group Holiday and Trading Hours; Independence Day holiday schedule; accessed 2026-11-22)",
+        "https://support.ninjatrader.com/s/article/2026-Holiday-Trading-Hours (corroborating summary: CME Equities/Interest Rates/Energy/FX/Metals early close 12:00 pm CT on observed Independence Day)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "rule_id": "US_THANKSGIVING_CME_GRAINS_LIVESTOCK_CLOSED_OR_EARLY",
+      "label": "US Thanksgiving - CME grains/livestock closed/early",
+      "recurrence": {"type": "nth_weekday", "month": 11, "weekday": 3, "n": 4},
+      "venue_scope": ["group:cme_grains_livestock"],
+      "symbol_groups": {
+        "cme_grains_livestock": ["CORN", "FEEDBEEF", "LEANHOGS", "LIVEBEEF", "SOYBEAN", "WHEAT"]
+      },
+      "expected_effect": "missing_session_or_early_close",
+      "source": [
+        "https://www.cmegroup.com/trading-hours.html (CME Group Holiday and Trading Hours; Thanksgiving holiday schedule; accessed 2026-11-22)",
+        "https://support.ninjatrader.com/s/article/2026-Holiday-Trading-Hours (corroborating summary: Thanksgiving affects CME groups; grains/livestock schedules vary by year/product)"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "rule_id": "US_THANKSGIVING_CME_EQUITY_ENERGY_METALS_EARLY_CLOSE",
+      "label": "US Thanksgiving - CME equity/energy/metals early close",
+      "recurrence": {"type": "nth_weekday", "month": 11, "weekday": 3, "n": 4},
+      "venue_scope": ["group:cme_equity_energy_metals"],
+      "symbol_groups": {
+        "cme_equity_energy_metals": ["COPPER", "GASOLINE", "GOLD", "HEATOIL", "NDAQ100", "PALLADIUM", "PLATINUM", "SILVER", "SPX500", "US2000", "US30", "USNATGAS", "USOIL"]
+      },
+      "expected_effect": "stub_session_or_early_close",
+      "source": [
+        "https://www.cmegroup.com/trading-hours.html (CME Group Holiday and Trading Hours; Thanksgiving holiday schedule; accessed 2026-11-22)",
+        "https://support.ninjatrader.com/s/article/2026-Holiday-Trading-Hours (corroborating summary: Thanksgiving Day trading halt 12:00 pm CT for CME equities)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "rule_id": "US_CHRISTMAS_CME_GRAINS_LIVESTOCK_CLOSED",
+      "label": "Christmas Day - CME grains/livestock closed",
+      "recurrence": {"type": "fixed_date_observed", "month": 12, "day": 25},
+      "venue_scope": ["group:cme_grains_livestock"],
+      "symbol_groups": {
+        "cme_grains_livestock": ["CORN", "FEEDBEEF", "LEANHOGS", "LIVEBEEF", "SOYBEAN", "WHEAT"]
+      },
+      "expected_effect": "missing_session_or_full_closure",
+      "source": [
+        "https://www.cmegroup.com/trading-hours.html (CME Group Holiday and Trading Hours; Christmas holiday schedule; accessed 2026-11-22)",
+        "https://support.ninjatrader.com/s/article/2026-Holiday-Trading-Hours (corroborating summary: Christmas Day all markets closed; grains/livestock no trading on Christmas holiday schedule)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "rule_id": "US_CHRISTMAS_CME_EQUITY_ENERGY_METALS_CLOSED_OR_EARLY",
+      "label": "Christmas Day - CME equity/energy/metals closed or early",
+      "recurrence": {"type": "fixed_date_observed", "month": 12, "day": 25},
+      "venue_scope": ["group:cme_equity_energy_metals"],
+      "symbol_groups": {
+        "cme_equity_energy_metals": ["COPPER", "GASOLINE", "GOLD", "HEATOIL", "NDAQ100", "PALLADIUM", "PLATINUM", "SILVER", "SPX500", "US2000", "US30", "USNATGAS", "USOIL"]
+      },
+      "expected_effect": "missing_session_or_early_close",
+      "source": [
+        "https://www.cmegroup.com/trading-hours.html (CME Group Holiday and Trading Hours; Christmas holiday schedule; accessed 2026-11-22)",
+        "https://support.ninjatrader.com/s/article/2026-Holiday-Trading-Hours (corroborating summary: Christmas Day all markets closed; Christmas Eve early close)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "rule_id": "EU_CHRISTMAS_EUREX_EQUITY_INDEX_CLOSED",
+      "label": "Christmas Day - Eurex equity index closed",
+      "recurrence": {"type": "fixed_date", "month": 12, "day": 25},
+      "venue_scope": ["group:eurex_equity_index"],
+      "symbol_groups": {
+        "eurex_equity_index": ["GER40"]
+      },
+      "expected_effect": "missing_session_or_full_closure",
+      "source": [
+        "https://www.eurex.com/ex-en/trade/trading-calendar/holiday-regulations (Eurex Holiday regulations: 25 December Eurex closed for trading and clearing in all derivatives)",
+        "https://www.eurex.com/resource/blob/4873184/0ca7669a8cb9a2f917d99a801fb3f2de/data/tradingcalendar_2026_en.pdf (Eurex trading calendar 2026)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "rule_id": "UK_CHRISTMAS_LSE_ICE_EQUITY_INDEX_CLOSED",
+      "label": "Christmas Day - UK equity index closed",
+      "recurrence": {"type": "fixed_date", "month": 12, "day": 25},
+      "venue_scope": ["group:uk_equity_index"],
+      "symbol_groups": {
+        "uk_equity_index": ["UK100"]
+      },
+      "expected_effect": "missing_session_or_full_closure",
+      "source": [
+        "https://www.theice.com/holiday-hours (ICE holiday hours hub; UK/ICE market holidays observed on Christmas)",
+        "https://tickerclock.com/holidays (corroborating LSE holiday calendar: Christmas Day closed)"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "rule_id": "US_DST_SPRING_FORWARD_MAINTENANCE_MISMATCH",
+      "label": "US DST spring forward - maintenance window mismatch week",
+      "recurrence": {"type": "nth_weekday", "month": 3, "weekday": 6, "n": 2},
+      "venue_scope": ["group:us_ny_maint_symbols"],
+      "symbol_groups": {
+        "us_ny_maint_symbols": ["COPPER", "GASOLINE", "GER40", "GOLD", "HEATOIL", "JPN225", "NDAQ100", "PALLADIUM", "PLATINUM", "SILVER", "SPX500", "UK100", "US2000", "US30", "USNATGAS", "USOIL"]
+      },
+      "expected_effect": "maintenance_window_mismatch_annotation",
+      "source": [
+        "US DST rule (second Sunday in March) - https://www.timeanddate.com/time/change/usa (general rule; fixture attribution marks transition-week risk, not a closure)"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "rule_id": "US_DST_FALL_BACK_MAINTENANCE_MISMATCH",
+      "label": "US DST fall back - maintenance window mismatch week",
+      "recurrence": {"type": "nth_weekday", "month": 11, "weekday": 6, "n": 1},
+      "venue_scope": ["group:us_ny_maint_symbols"],
+      "symbol_groups": {
+        "us_ny_maint_symbols": ["COPPER", "GASOLINE", "GER40", "GOLD", "HEATOIL", "JPN225", "NDAQ100", "PALLADIUM", "PLATINUM", "SILVER", "SPX500", "UK100", "US2000", "US30", "USNATGAS", "USOIL"]
+      },
+      "expected_effect": "maintenance_window_mismatch_annotation",
+      "source": [
+        "US DST rule (first Sunday in November) - https://www.timeanddate.com/time/change/usa (general rule; fixture attribution marks transition-week risk, not a closure)"
+      ],
+      "confidence": "medium"
+    }
+  ]
+}

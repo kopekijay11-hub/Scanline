@@ -1,0 +1,5157 @@
+{
+  "annotations": [
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 0,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 1,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 2,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 3,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 4,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 5,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 6,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 7,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 8,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 9,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 10,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 11,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 12,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 13,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 14,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 15,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 16,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 17,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0022",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-05-31"
+      ],
+      "cluster_size": 7,
+      "event_index": 18,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0023",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-07"
+      ],
+      "cluster_size": 7,
+      "event_index": 19,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0024",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-14"
+      ],
+      "cluster_size": 7,
+      "event_index": 20,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0019",
+      "cluster_key": [
+        "missing_session",
+        "2026-06-19"
+      ],
+      "cluster_size": 6,
+      "event_index": 21,
+      "venue_concentration": {
+        "top_symbol_share": 0.16666666666666666,
+        "unique_symbols": 6
+      }
+    },
+    {
+      "cluster_id": "C0025",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-21"
+      ],
+      "cluster_size": 7,
+      "event_index": 22,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0020",
+      "cluster_key": [
+        "stub_session",
+        "2026-06-04"
+      ],
+      "cluster_size": 1,
+      "event_index": 23,
+      "venue_concentration": {
+        "top_symbol_share": 1.0,
+        "unique_symbols": 1
+      }
+    },
+    {
+      "cluster_id": "C0019",
+      "cluster_key": [
+        "missing_session",
+        "2026-06-19"
+      ],
+      "cluster_size": 6,
+      "event_index": 24,
+      "venue_concentration": {
+        "top_symbol_share": 0.16666666666666666,
+        "unique_symbols": 6
+      }
+    },
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 25,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 26,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 27,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 28,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 29,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 30,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 31,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 32,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 33,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 34,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 35,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 36,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 37,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 38,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 39,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 40,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 41,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 42,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 43,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 44,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 45,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0022",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-05-31"
+      ],
+      "cluster_size": 7,
+      "event_index": 46,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 47,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 48,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 49,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 50,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0023",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-07"
+      ],
+      "cluster_size": 7,
+      "event_index": 51,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 52,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 53,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 54,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 55,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0024",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-14"
+      ],
+      "cluster_size": 7,
+      "event_index": 56,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 57,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 58,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 59,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 60,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0025",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-21"
+      ],
+      "cluster_size": 7,
+      "event_index": 61,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 62,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 63,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 64,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 65,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 66,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 67,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 68,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 69,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 70,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 71,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 72,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 73,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 74,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 75,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 76,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 77,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 78,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 79,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 80,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 81,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 82,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 83,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 84,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 85,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 86,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 87,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 88,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 89,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 90,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 91,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 92,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 93,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 94,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 95,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 96,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 97,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0021",
+      "cluster_key": [
+        "stub_session",
+        "2026-06-19"
+      ],
+      "cluster_size": 3,
+      "event_index": 98,
+      "venue_concentration": {
+        "top_symbol_share": 0.3333333333333333,
+        "unique_symbols": 3
+      }
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 99,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 100,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 101,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 102,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 103,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 104,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0022",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-05-31"
+      ],
+      "cluster_size": 7,
+      "event_index": 105,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 106,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 107,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 108,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 109,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0023",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-07"
+      ],
+      "cluster_size": 7,
+      "event_index": 110,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 111,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 112,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 113,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 114,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0024",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-14"
+      ],
+      "cluster_size": 7,
+      "event_index": 115,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 116,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 117,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 118,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 119,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0025",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-21"
+      ],
+      "cluster_size": 7,
+      "event_index": 120,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 121,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 122,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 123,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0019",
+      "cluster_key": [
+        "missing_session",
+        "2026-06-19"
+      ],
+      "cluster_size": 6,
+      "event_index": 124,
+      "venue_concentration": {
+        "top_symbol_share": 0.16666666666666666,
+        "unique_symbols": 6
+      }
+    },
+    {
+      "cluster_id": "C0019",
+      "cluster_key": [
+        "missing_session",
+        "2026-06-19"
+      ],
+      "cluster_size": 6,
+      "event_index": 125,
+      "venue_concentration": {
+        "top_symbol_share": 0.16666666666666666,
+        "unique_symbols": 6
+      }
+    },
+    {
+      "cluster_id": "C0021",
+      "cluster_key": [
+        "stub_session",
+        "2026-06-19"
+      ],
+      "cluster_size": 3,
+      "event_index": 126,
+      "venue_concentration": {
+        "top_symbol_share": 0.3333333333333333,
+        "unique_symbols": 3
+      }
+    },
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 127,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 128,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 129,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 130,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 131,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 132,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 133,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 134,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 135,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 136,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 137,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 138,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 139,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 140,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 141,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 142,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 143,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 144,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 145,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 146,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 147,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 148,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 149,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 150,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 151,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 152,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 153,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 154,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 155,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 156,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 157,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 158,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 159,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 160,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 161,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 162,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 163,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 164,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 165,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 166,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 167,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 168,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 169,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 170,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 171,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 172,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 173,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 174,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 175,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 176,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 177,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 178,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 179,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 180,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 181,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 182,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 183,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 184,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 185,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 186,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 187,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 188,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 189,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 190,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 191,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 192,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 193,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 194,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 195,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 196,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 197,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 198,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0022",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-05-31"
+      ],
+      "cluster_size": 7,
+      "event_index": 199,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0023",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-07"
+      ],
+      "cluster_size": 7,
+      "event_index": 200,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0024",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-14"
+      ],
+      "cluster_size": 7,
+      "event_index": 201,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0019",
+      "cluster_key": [
+        "missing_session",
+        "2026-06-19"
+      ],
+      "cluster_size": 6,
+      "event_index": 202,
+      "venue_concentration": {
+        "top_symbol_share": 0.16666666666666666,
+        "unique_symbols": 6
+      }
+    },
+    {
+      "cluster_id": "C0025",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-21"
+      ],
+      "cluster_size": 7,
+      "event_index": 203,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 204,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 205,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 206,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 207,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 208,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 209,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 210,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 211,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 212,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 213,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 214,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 215,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 216,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 217,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 218,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 219,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 220,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 221,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 222,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 223,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 224,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0022",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-05-31"
+      ],
+      "cluster_size": 7,
+      "event_index": 225,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 226,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 227,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 228,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 229,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0023",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-07"
+      ],
+      "cluster_size": 7,
+      "event_index": 230,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 231,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 232,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 233,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 234,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0024",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-14"
+      ],
+      "cluster_size": 7,
+      "event_index": 235,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 236,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 237,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 238,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 239,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0025",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-21"
+      ],
+      "cluster_size": 7,
+      "event_index": 240,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 241,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 242,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 243,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0022",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-05-31"
+      ],
+      "cluster_size": 7,
+      "event_index": 244,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0023",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-07"
+      ],
+      "cluster_size": 7,
+      "event_index": 245,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0024",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-14"
+      ],
+      "cluster_size": 7,
+      "event_index": 246,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0025",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-21"
+      ],
+      "cluster_size": 7,
+      "event_index": 247,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 248,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 249,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 250,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 251,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 252,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 253,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 254,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 255,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 256,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 257,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 258,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 259,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 260,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 261,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 262,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0021",
+      "cluster_key": [
+        "stub_session",
+        "2026-06-19"
+      ],
+      "cluster_size": 3,
+      "event_index": 263,
+      "venue_concentration": {
+        "top_symbol_share": 0.3333333333333333,
+        "unique_symbols": 3
+      }
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 264,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 265,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 266,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 267,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 268,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 269,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 270,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 271,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 272,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 273,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 274,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 275,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 276,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 277,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 278,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 279,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 280,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 281,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 282,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 283,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 284,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 285,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 286,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 287,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 288,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 289,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 290,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 291,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 292,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 293,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 294,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 295,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 296,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 297,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 298,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 299,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 300,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 301,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 302,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 303,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 304,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 305,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 306,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 307,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 308,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 309,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 310,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 311,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 312,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 313,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 314,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 315,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 316,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 317,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 318,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 319,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "event_index": 320,
+      "venue_concentration": {
+        "top_symbol_share": 0.0625,
+        "unique_symbols": 16
+      }
+    },
+    {
+      "cluster_id": "C0022",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-05-31"
+      ],
+      "cluster_size": 7,
+      "event_index": 321,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0023",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-07"
+      ],
+      "cluster_size": 7,
+      "event_index": 322,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0024",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-14"
+      ],
+      "cluster_size": 7,
+      "event_index": 323,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    },
+    {
+      "cluster_id": "C0019",
+      "cluster_key": [
+        "missing_session",
+        "2026-06-19"
+      ],
+      "cluster_size": 6,
+      "event_index": 324,
+      "venue_concentration": {
+        "top_symbol_share": 0.16666666666666666,
+        "unique_symbols": 6
+      }
+    },
+    {
+      "cluster_id": "C0025",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-21"
+      ],
+      "cluster_size": 7,
+      "event_index": 325,
+      "venue_concentration": {
+        "top_symbol_share": 0.14285714285714285,
+        "unique_symbols": 7
+      }
+    }
+  ],
+  "artifact": "cluster_annotations",
+  "cluster_count": 25,
+  "clusters": [
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-26",
+        "2026-05-26T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-27",
+        "2026-05-27T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-05-28",
+        "2026-05-28T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-01",
+        "2026-06-01T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-02",
+        "2026-06-02T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-03",
+        "2026-06-03T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-04",
+        "2026-06-04T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-08",
+        "2026-06-08T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-09",
+        "2026-06-09T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-10",
+        "2026-06-10T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-11",
+        "2026-06-11T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-15",
+        "2026-06-15T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-16",
+        "2026-06-16T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-17",
+        "2026-06-17T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-18",
+        "2026-06-18T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-22",
+        "2026-06-22T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-23",
+        "2026-06-23T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "intra_session_gap",
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-06-24",
+        "2026-06-24T22"
+      ],
+      "cluster_size": 16,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "GER40",
+        "GOLD",
+        "HEATOIL",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "UK100",
+        "US2000",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "anomaly_type": "missing_session",
+      "cluster_id": "C0019",
+      "cluster_key": [
+        "missing_session",
+        "2026-06-19"
+      ],
+      "cluster_size": 6,
+      "symbols": [
+        "CORN",
+        "FEEDBEEF",
+        "LEANHOGS",
+        "LIVEBEEF",
+        "SOYBEAN",
+        "WHEAT"
+      ]
+    },
+    {
+      "anomaly_type": "stub_session",
+      "cluster_id": "C0020",
+      "cluster_key": [
+        "stub_session",
+        "2026-06-04"
+      ],
+      "cluster_size": 1,
+      "symbols": [
+        "FEEDBEEF"
+      ]
+    },
+    {
+      "anomaly_type": "stub_session",
+      "cluster_id": "C0021",
+      "cluster_key": [
+        "stub_session",
+        "2026-06-19"
+      ],
+      "cluster_size": 3,
+      "symbols": [
+        "HEATOIL",
+        "LSGOIL",
+        "US2000"
+      ]
+    },
+    {
+      "anomaly_type": "sunday_anomaly",
+      "cluster_id": "C0022",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-05-31"
+      ],
+      "cluster_size": 7,
+      "symbols": [
+        "CORN",
+        "GER40",
+        "JPN225",
+        "SOYBEAN",
+        "UK100",
+        "UKOIL",
+        "WHEAT"
+      ]
+    },
+    {
+      "anomaly_type": "sunday_anomaly",
+      "cluster_id": "C0023",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-07"
+      ],
+      "cluster_size": 7,
+      "symbols": [
+        "CORN",
+        "GER40",
+        "JPN225",
+        "SOYBEAN",
+        "UK100",
+        "UKOIL",
+        "WHEAT"
+      ]
+    },
+    {
+      "anomaly_type": "sunday_anomaly",
+      "cluster_id": "C0024",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-14"
+      ],
+      "cluster_size": 7,
+      "symbols": [
+        "CORN",
+        "GER40",
+        "JPN225",
+        "SOYBEAN",
+        "UK100",
+        "UKOIL",
+        "WHEAT"
+      ]
+    },
+    {
+      "anomaly_type": "sunday_anomaly",
+      "cluster_id": "C0025",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2026-06-21"
+      ],
+      "cluster_size": 7,
+      "symbols": [
+        "CORN",
+        "GER40",
+        "JPN225",
+        "SOYBEAN",
+        "UK100",
+        "UKOIL",
+        "WHEAT"
+      ]
+    }
+  ],
+  "event_count": 326,
+  "events_sha256": "0da7c17cbb3539c047edc96ec29945690b8dbec1809e12f57fa5f9e5ac40370f",
+  "rule_version": "scan021-cluster-v1",
+  "scan_id": "20261123T021148750070Z_72046b8e81b86046bcef1aa65486ee26"
+}
