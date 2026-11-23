@@ -1,0 +1,441 @@
+{
+  "module": "session_anomalies",
+  "param_version": "1.0.0",
+  "frozen_at": "2026-11-23T02:04:11Z",
+  "universe": [
+    "AUDCAD",
+    "AUDUSD",
+    "CADCHF",
+    "CADJPY",
+    "CADNOK",
+    "CADSEK",
+    "COPPER",
+    "CORN",
+    "EURCAD",
+    "EURUSD",
+    "FEEDBEEF",
+    "GASOLINE",
+    "GBPCAD",
+    "GBPUSD",
+    "GER40",
+    "GOLD",
+    "HEATOIL",
+    "JPN225",
+    "LEANHOGS",
+    "LIVEBEEF",
+    "LSGOIL",
+    "NDAQ100",
+    "NZDCAD",
+    "NZDUSD",
+    "PALLADIUM",
+    "PLATINUM",
+    "SILVER",
+    "SOYBEAN",
+    "SPX500",
+    "UK100",
+    "UKOIL",
+    "US2000",
+    "US30",
+    "USDCAD",
+    "USDCHF",
+    "USDJPY",
+    "USNATGAS",
+    "USOIL",
+    "WHEAT"
+  ],
+  "emission_timeframes": [
+    "H1"
+  ],
+  "clusters": {
+    "AUDCAD": {
+      "symbol": "AUDCAD",
+      "zone": "America/New_York",
+      "expected_bars": 24,
+      "expected_sun_bars": 3,
+      "maintenance_local_start": "04:00",
+      "maintenance_local_end": "06:00",
+      "stub_tolerance": 23,
+      "sun_tolerance": 2
+    },
+    "AUDUSD": {
+      "symbol": "AUDUSD",
+      "zone": "America/New_York",
+      "expected_bars": 24,
+      "expected_sun_bars": 3,
+      "maintenance_local_start": "00:00",
+      "maintenance_local_end": "02:00",
+      "stub_tolerance": 4,
+      "sun_tolerance": 0
+    },
+    "CADCHF": {
+      "symbol": "CADCHF",
+      "zone": "America/New_York",
+      "expected_bars": 24,
+      "expected_sun_bars": 3,
+      "maintenance_local_start": "12:00",
+      "maintenance_local_end": "14:00",
+      "stub_tolerance": 5,
+      "sun_tolerance": 1
+    },
+    "CADJPY": {
+      "symbol": "CADJPY",
+      "zone": "America/New_York",
+      "expected_bars": 24,
+      "expected_sun_bars": 3,
+      "maintenance_local_start": "12:00",
+      "maintenance_local_end": "14:00",
+      "stub_tolerance": 4,
+      "sun_tolerance": 0
+    },
+    "CADNOK": {
+      "symbol": "CADNOK",
+      "zone": "America/New_York",
+      "expected_bars": 24,
+      "expected_sun_bars": 3,
+      "maintenance_local_start": "04:00",
+      "maintenance_local_end": "06:00",
+      "stub_tolerance": 3,
+      "sun_tolerance": 1
+    },
+    "CADSEK": {
+      "symbol": "CADSEK",
+      "zone": "America/New_York",
+      "expected_bars": 24,
+      "expected_sun_bars": 3,
+      "maintenance_local_start": "04:00",
+      "maintenance_local_end": "06:00",
+      "stub_tolerance": 3,
+      "sun_tolerance": 1
+    },
+    "COPPER": {
+      "symbol": "COPPER",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 22,
+      "sun_tolerance": 1
+    },
+    "CORN": {
+      "symbol": "CORN",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "03:00",
+      "maintenance_local_end": "05:00",
+      "stub_tolerance": 18,
+      "sun_tolerance": 0
+    },
+    "EURCAD": {
+      "symbol": "EURCAD",
+      "zone": "America/New_York",
+      "expected_bars": 24,
+      "expected_sun_bars": 3,
+      "maintenance_local_start": "12:00",
+      "maintenance_local_end": "14:00",
+      "stub_tolerance": 5,
+      "sun_tolerance": 1
+    },
+    "EURUSD": {
+      "symbol": "EURUSD",
+      "zone": "America/New_York",
+      "expected_bars": 24,
+      "expected_sun_bars": 3,
+      "maintenance_local_start": "00:00",
+      "maintenance_local_end": "14:00",
+      "stub_tolerance": 4,
+      "sun_tolerance": 0
+    },
+    "FEEDBEEF": {
+      "symbol": "FEEDBEEF",
+      "zone": "America/New_York",
+      "expected_bars": 6,
+      "expected_sun_bars": 0,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 0,
+      "sun_tolerance": 0
+    },
+    "GASOLINE": {
+      "symbol": "GASOLINE",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 22,
+      "sun_tolerance": 1
+    },
+    "GBPCAD": {
+      "symbol": "GBPCAD",
+      "zone": "America/New_York",
+      "expected_bars": 24,
+      "expected_sun_bars": 3,
+      "maintenance_local_start": "12:00",
+      "maintenance_local_end": "14:00",
+      "stub_tolerance": 4,
+      "sun_tolerance": 1
+    },
+    "GBPUSD": {
+      "symbol": "GBPUSD",
+      "zone": "America/New_York",
+      "expected_bars": 24,
+      "expected_sun_bars": 3,
+      "maintenance_local_start": "00:00",
+      "maintenance_local_end": "14:00",
+      "stub_tolerance": 4,
+      "sun_tolerance": 1
+    },
+    "GER40": {
+      "symbol": "GER40",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 22,
+      "sun_tolerance": 0
+    },
+    "GOLD": {
+      "symbol": "GOLD",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 22,
+      "sun_tolerance": 1
+    },
+    "HEATOIL": {
+      "symbol": "HEATOIL",
+      "zone": "America/New_York",
+      "expected_bars": 23,
+      "expected_sun_bars": 2,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 2,
+      "sun_tolerance": 1
+    },
+    "JPN225": {
+      "symbol": "JPN225",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 22,
+      "sun_tolerance": 0
+    },
+    "LEANHOGS": {
+      "symbol": "LEANHOGS",
+      "zone": "America/New_York",
+      "expected_bars": 6,
+      "expected_sun_bars": 0,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 0,
+      "sun_tolerance": 0
+    },
+    "LIVEBEEF": {
+      "symbol": "LIVEBEEF",
+      "zone": "America/New_York",
+      "expected_bars": 6,
+      "expected_sun_bars": 0,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 0,
+      "sun_tolerance": 0
+    },
+    "LSGOIL": {
+      "symbol": "LSGOIL",
+      "zone": "America/New_York",
+      "expected_bars": 21,
+      "expected_sun_bars": 2,
+      "maintenance_local_start": "14:00",
+      "maintenance_local_end": "18:00",
+      "stub_tolerance": 2,
+      "sun_tolerance": 0
+    },
+    "NDAQ100": {
+      "symbol": "NDAQ100",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 22,
+      "sun_tolerance": 1
+    },
+    "NZDCAD": {
+      "symbol": "NZDCAD",
+      "zone": "America/New_York",
+      "expected_bars": 24,
+      "expected_sun_bars": 3,
+      "maintenance_local_start": "04:00",
+      "maintenance_local_end": "06:00",
+      "stub_tolerance": 21,
+      "sun_tolerance": 0
+    },
+    "NZDUSD": {
+      "symbol": "NZDUSD",
+      "zone": "America/New_York",
+      "expected_bars": 24,
+      "expected_sun_bars": 3,
+      "maintenance_local_start": "04:00",
+      "maintenance_local_end": "06:00",
+      "stub_tolerance": 23,
+      "sun_tolerance": 0
+    },
+    "PALLADIUM": {
+      "symbol": "PALLADIUM",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 22,
+      "sun_tolerance": 1
+    },
+    "PLATINUM": {
+      "symbol": "PLATINUM",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 22,
+      "sun_tolerance": 1
+    },
+    "SILVER": {
+      "symbol": "SILVER",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 22,
+      "sun_tolerance": 1
+    },
+    "SOYBEAN": {
+      "symbol": "SOYBEAN",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "12:00",
+      "maintenance_local_end": "18:00",
+      "stub_tolerance": 18,
+      "sun_tolerance": 0
+    },
+    "SPX500": {
+      "symbol": "SPX500",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 22,
+      "sun_tolerance": 1
+    },
+    "UK100": {
+      "symbol": "UK100",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 22,
+      "sun_tolerance": 0
+    },
+    "UKOIL": {
+      "symbol": "UKOIL",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "15:00",
+      "maintenance_local_end": "18:00",
+      "stub_tolerance": 21,
+      "sun_tolerance": 0
+    },
+    "US2000": {
+      "symbol": "US2000",
+      "zone": "America/New_York",
+      "expected_bars": 23,
+      "expected_sun_bars": 2,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 4,
+      "sun_tolerance": 0
+    },
+    "US30": {
+      "symbol": "US30",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 22,
+      "sun_tolerance": 1
+    },
+    "USDCAD": {
+      "symbol": "USDCAD",
+      "zone": "America/New_York",
+      "expected_bars": 24,
+      "expected_sun_bars": 3,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 4,
+      "sun_tolerance": 1
+    },
+    "USDCHF": {
+      "symbol": "USDCHF",
+      "zone": "America/New_York",
+      "expected_bars": 24,
+      "expected_sun_bars": 3,
+      "maintenance_local_start": "00:00",
+      "maintenance_local_end": "18:00",
+      "stub_tolerance": 4,
+      "sun_tolerance": 1
+    },
+    "USDJPY": {
+      "symbol": "USDJPY",
+      "zone": "America/New_York",
+      "expected_bars": 24,
+      "expected_sun_bars": 3,
+      "maintenance_local_start": "00:00",
+      "maintenance_local_end": "02:00",
+      "stub_tolerance": 23,
+      "sun_tolerance": 0
+    },
+    "USNATGAS": {
+      "symbol": "USNATGAS",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 22,
+      "sun_tolerance": 1
+    },
+    "USOIL": {
+      "symbol": "USOIL",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "20:00",
+      "maintenance_local_end": "22:00",
+      "stub_tolerance": 22,
+      "sun_tolerance": 1
+    },
+    "WHEAT": {
+      "symbol": "WHEAT",
+      "zone": "America/New_York",
+      "expected_bars": 1,
+      "expected_sun_bars": 1,
+      "maintenance_local_start": "12:00",
+      "maintenance_local_end": "18:00",
+      "stub_tolerance": 18,
+      "sun_tolerance": 0
+    }
+  }
+}
