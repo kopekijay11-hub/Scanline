@@ -1,0 +1,35 @@
+# Method: calibrate, freeze, confirm
+
+## The loop
+
+Scanline treats a scanner change as a measurement claim that has to survive a fixed procedure.
+
+1. **Survey the data's actual shape.** Inspect the relevant bar history before choosing defaults. For session anomalies, the Step 1a calibration measured full-history weekday/Sunday bar modes and tolerances per symbol (`docs/freezes/session_anomalies-1.0.0.md`, "Template calibration (Step 1a)").
+2. **Calibrate on a spent window.** Tune or derive parameters on a calibration window, then treat that window as spent. The session_anomalies 1.0.0 calibration window was `2026-05-26` to `2026-06-24` with coverage clause v1 recorded in `docs/freezes/session_anomalies-1.0.0.md`.
+3. **Freeze parameters with a timestamped hash.** The frozen param file carries `param_version` and `frozen_at`; scans record the param identity in headers/manifests/snapshots (`config/scanner_params.session_anomalies-1.1.0.json`, `docs/freezes/session_anomalies-1.1.0.md`, `records/scans/*/scanner_data_manifest.json`).
+4. **Pre-register numeric expectations.** Write ceilings/conditions before the confirmatory window is scanned. Session_anomalies 1.1.0 pre-registered cluster ceilings in `reports/scan022/SCAN-022-prereg.md` and `docs/freezes/session_anomalies-1.1.0.md`.
+5. **Run confirmation on a window nobody tuned on.** Execute the confirmatory scan on the held-out window and publish the result whether it passes or fails. The 1.1.0 confirmatory run is recorded in `reports/scan022/SCAN-022-session_anomalies-1.1.0-confirmatory.md`, `records/scans/20261123T081126751440Z_852b86b3fcc1134079fa71923e07d342/`, and `records/ledger/scan-ledger.jsonl`.
+
+## The worked example: session_anomalies 1.0.0 → 1.1.0
+
+The naive session template treated every weekday as a 24-bar session and flagged a large share of ordinary market days. The 1.0.0 calibration made that visible: the published calibration scan `records/scans/20261123T021148750070Z_72046b8e81b86046bcef1aa65486ee26` (326 events, `param_version=1.0.0`, `batch_sha256=0da7c17cbb3539c047edc96ec29945690b8dbec1809e12f57fa5f9e5ac40370f`) breached the pre-registered ceilings for `missing_session` and `stub_session`, while `intra_session_gap` and `sunday_anomaly` were inside ceilings (`docs/freezes/session_anomalies-1.0.0.md`, `records/ledger/scan-ledger.jsonl`).
+
+The Juneteenth falsification was the concrete failure mode. The 2026-06-19 US agricultural/livestock closure appeared as six `missing_session` events with `observed_bars=0` for `CORN, FEEDBEEF, LEANHOGS, LIVEBEEF, SOYBEAN, WHEAT`. Session_anomalies had no holiday calendar, so a legitimate market holiday looked like missing data; the freeze record named this set rather than hiding it (`docs/freezes/session_anomalies-1.0.0.md`, "Known naive..." and "Juneteenth set named").
+
+The 1.0.0 to 1.1.0 review found definition and configuration errors before another confirmatory claim. The unit of analysis for pre-registration was cluster count, not raw event count, following the SCAN-020/021 cluster semantics used by the prereg (`reports/scan022/SCAN-022-prereg.md`, `scanline/prereg.py`, `docs/freezes/session_anomalies-1.1.0.md`). Maintenance windows were also corrected: 1.0.0's America/New_York maintenance representation was replaced with corrected fixed-UTC maintenance derived in SCAN-021; symbols with no systematic hole were encoded as a harmless `00:00-00:01Z` fixed-UTC no-op because the validator requires `start!=end` (`docs/freezes/session_anomalies-1.1.0.md`).
+
+Calendar attribution v2 was added as an additive annotation path, not a detector suppression mechanism. It attributes only `missing_session` and `stub_session` clusters; `intra_session_gap` and `sunday_anomaly` are never attributed (`scanline/calendar_attribution.py`, `reports/scan022/SCAN-022-calendar-fixtures-v2.md`). The Step 1 gate reran the same SCAN-021 fixture rules/dates/universe/control: 214 rule-occurrence dates, 92 clusters on scanned dates, 20 matches, TP=14 FP=0 FN=0, precision=1.0, recall=1.0, Juneteenth 2026 missing/stub attributed, 72 control days with 0 control false attributions (`reports/scan022/SCAN-022-calendar-fixtures-v2.md`).
+
+The 1.1.0 confirmatory scan used window `2025-09-02` to `2026-01-19` (140 days, E_A=4620 symbol-days, n=33), with fit era 365 calendar days before window start per Amendment 1 (`docs/freezes/session_anomalies-1.1.0.md`). The published result was 164 events / 44 clusters, all four types within ceiling: `intra_session_gap` 22<=124, `missing_session` 8<=27, `stub_session` 13<=35, `sunday_anomaly` 1<=48 (`reports/scan022/SCAN-022-session_anomalies-1.1.0-confirmatory.md`, `records/scans/20261123T081126751440Z_852b86b3fcc1134079fa71923e07d342/publication_manifest.json`).
+
+## The validator bug
+
+During the 1.1.0 work, R1 session schedule validation was corrected to use the Sunday schedule for `sunday_anomaly` events. Before the fix, R1 compared `sunday_anomaly` `expected_bars` against the weekday cluster schedule; after the fix, it selects `expected_sun_bars` when `anomaly_type == "sunday_anomaly"` and reports the corresponding schedule label (`scanline/validation/r1.py`, commit `271c811dddfdb4a049eea5ce202ea1aedd93010b` "SCAN-022: session_anomalies 1.1.0 confirmatory scan and publication"). The 1.1.0 confirmatory publication recorded that validation was complete and valid (`reports/scan022/SCAN-022-session_anomalies-1.1.0-confirmatory.md`, `records/scans/20261123T081126751440Z_852b86b3fcc1134079fa71923e07d342/scanner_data_manifest.json`).
+
+The 1.0.0 templates masked this class of mismatch because the frozen 1.0.0 cluster schedule had identical weekday and Sunday expected bars for the symbols carrying Sunday anomalies in that published calibration batch. A check of the 28 `sunday_anomaly` events in `records/scans/20261123T021148750070Z_72046b8e81b86046bcef1aa65486ee26/events.json` against `config/scanner_params.session_anomalies-1.0.0.json` shows `event.expected_bars == cluster.expected_bars == cluster.expected_sun_bars` for every event (all masked). In contrast, the 1.1.0 frozen params have weekday/sun differences for all 39 cluster entries, so the R1 branch is observable under 1.1.0 semantics.
+
+## What "confirmed" means here and what it does not
+
+"Confirmed" in Scanline is an integrity statement about the scanner's own measurements on historical windows. It means the relevant parameters were frozen, expectations were pre-registered where required, the run was executed on the declared window/mode, and the published batch carries hashes/manifests/ledger entries that can be recomputed (`records/ledger/scan-ledger.jsonl`, `records/scans/index.jsonl`, `records/scans/*/publication_manifest.json`).
+
+It is not a trading signal, not investment advice, and not a claim about future data. It also does not erase known limits recorded in freeze docs, such as holiday-calendar absence in 1.0.0, additive-only calendar attribution in 1.1.0, or retrospective untuned-ness being credible but not provable (`docs/freezes/session_anomalies-1.0.0.md`, `docs/freezes/session_anomalies-1.1.0.md`, `docs/freezes/level_proximity-2.1.0.md`).
