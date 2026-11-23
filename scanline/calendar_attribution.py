@@ -14,7 +14,8 @@ from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
 
 from scanline.prereg import cluster_key_for_event
 
-CAL_ATTR_VERSION = "scan021-calendar-v1"
+CAL_ATTR_VERSION = "scan022-calendar-v1"
+ATTRIBUTABLE_ANOMALY_TYPES = frozenset({"missing_session", "stub_session"})
 
 
 def sha256_bytes(data: bytes) -> str:
@@ -192,6 +193,9 @@ def attribute_clusters(events: Sequence[Mapping[str, Any]], calendar: Mapping[st
         date_set = {d.isoformat() for d in dates}
         for k, members in clusters.items():
             # cluster key: (type, session_date, [hour])
+            anomaly_type = k[0] if k else None
+            if anomaly_type not in ATTRIBUTABLE_ANOMALY_TYPES:
+                continue
             session_date = k[1] if len(k) > 1 else None
             if session_date not in date_set:
                 continue
