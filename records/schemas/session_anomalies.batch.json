@@ -1,0 +1,43 @@
+{
+  "schema_id": "scanline.session_anomalies.batch",
+  "schema_version": 1,
+  "contract": "v3",
+  "emitted_module_alias": "session_anomalies",
+  "canonical_module_name": "session_anomalies",
+  "anomaly_type_enum": [
+    "intra_session_gap",
+    "missing_session",
+    "stub_session",
+    "sunday_anomaly"
+  ],
+  "emission_timeframes": [
+    "H1"
+  ],
+  "header_fields_closed": [
+    "batch_end_ts",
+    "batch_start_ts",
+    "definition_timeframe",
+    "emission_timeframes",
+    "evidence_tier",
+    "frozen_at",
+    "module",
+    "param_file",
+    "param_sha256",
+    "param_version",
+    "scan_mode",
+    "universe"
+  ],
+  "event_fields_closed": [
+    "anomaly_type",
+    "defined_at",
+    "event_ts",
+    "expected_bars",
+    "gap_hours",
+    "observed_bars",
+    "param_version",
+    "session_date",
+    "symbol",
+    "timeframe"
+  ],
+  "notes": "Session anomalies batch schema descriptor; field lists mirror scanline/schema.py closed sets exactly."
+}

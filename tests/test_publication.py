@@ -116,3 +116,15 @@ def test_batch_schema_descriptor_matches_code():
     assert desc["definition_timeframe"] == schema.DEFINITION_TIMEFRAME
     assert desc["canonical_module_name"] == "level_proximity"
     assert desc["emitted_module_alias"] == "module_1"
+
+
+def test_session_anomalies_batch_schema_descriptor_matches_code():
+    root = Path(__file__).resolve().parents[1]
+    desc_path = root / "records" / "schemas" / "session_anomalies.batch.json"
+    assert desc_path.exists()
+    desc = json.loads(desc_path.read_text())
+    assert set(desc["header_fields_closed"]) == set(schema.BATCH_HEADER_FIELDS)
+    assert set(desc["event_fields_closed"]) == set(schema.SESSION_EVENT_FIELDS)
+    assert set(desc["anomaly_type_enum"]) == set(schema.ANOMALY_TYPES)
+    assert set(desc["emission_timeframes"]) == set(schema.SESSION_EMISSION_TIMEFRAMES)
+    assert desc["canonical_module_name"] == "session_anomalies"

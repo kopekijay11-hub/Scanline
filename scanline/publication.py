@@ -125,7 +125,8 @@ def build_publication_manifest(
             )
 
     emitted_module = header.get("module")
-    canonical_module = "level_proximity"
+    _canon = {"module_1": "level_proximity", "level_proximity": "level_proximity", "session_anomalies": "session_anomalies"}
+    canonical_module = _canon.get(emitted_module, emitted_module if isinstance(emitted_module, str) else "unknown")
 
     # header_summary
     universe = header.get("universe")

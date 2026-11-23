@@ -1,0 +1,51 @@
+{
+  "manifest_version": "1.0.0-publication",
+  "scan_id": "20261123T021148750070Z_72046b8e81b86046bcef1aa65486ee26",
+  "backfilled_at": "2026-11-23T02:14:38Z",
+  "backfill_of": "scanner_data_manifest.json (legacy, unversioned, preserved unchanged)",
+  "status": "COMPLETE",
+  "completeness_basis": "events.json sha256 equals the scan ledger's confirmatory batch_sha256 for this scan",
+  "outputs": [
+    {
+      "name": "events.json",
+      "sha256": "0da7c17cbb3539c047edc96ec29945690b8dbec1809e12f57fa5f9e5ac40370f",
+      "size": 110364
+    },
+    {
+      "name": "param_snapshot.effective.json",
+      "sha256": "351092787f3db8a481fc6f734af1f9d510b61437cfa46213d444e459dc55b4c0",
+      "size": 7827
+    },
+    {
+      "name": "param_snapshot.raw.json",
+      "sha256": "65e26e645c48c6f8a4f5f6b15be61bd2f8ca998d6ff5193f21fe3c94f7507b26",
+      "size": 11438
+    },
+    {
+      "name": "scanner_data_manifest.json",
+      "sha256": "4816c650bad4f389e5fa2c508eff87143fccb3ff766ca16f0ca4828f3bff95a1",
+      "size": 16890
+    }
+  ],
+  "event_count": 326,
+  "header_summary": {
+    "emitted_module": "session_anomalies",
+    "canonical_module": "session_anomalies",
+    "param_version": "1.0.0",
+    "param_sha256": "65e26e645c48c6f8a4f5f6b15be61bd2f8ca998d6ff5193f21fe3c94f7507b26",
+    "param_file": "scanner_params.session_anomalies-1.0.0.json",
+    "scan_mode": "retrospective",
+    "evidence_tier": "retrospective_membership",
+    "batch_start_ts": "2026-05-26T00:00:00Z",
+    "batch_end_ts": "2026-06-24T23:59:59Z",
+    "universe_size": 39
+  },
+  "ledger_outcome": "calibration; breach: missing_session,stub_session (ceilings operative); inside: intra_session_gap,sunday_anomaly; Juneteenth set named",
+  "ledger_batch_sha256": "0da7c17cbb3539c047edc96ec29945690b8dbec1809e12f57fa5f9e5ac40370f",
+  "ledger_params_version": "1.0.0",
+  "ledger_window": {
+    "start": "2026-05-26",
+    "end": "2026-06-24"
+  },
+  "ledger_code_commit": "806bed1304756b038d16d41251304142b18550e0"
+}
