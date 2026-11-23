@@ -1,0 +1,2849 @@
+{
+  "artifact": "cluster_annotations",
+  "rule_version": "scan021-cluster-v1",
+  "scan_id": "20261123T081126751440Z_852b86b3fcc1134079fa71923e07d342",
+  "events_sha256": "db813c330ca35cb2595ac3eddd8e4691ff182869295b0ddb7cbf76b3787d0499",
+  "event_count": 164,
+  "cluster_count": 44,
+  "clusters": [
+    {
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-09-03",
+        "2025-09-03T04"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-09-12",
+        "2025-09-12T05"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-09-18",
+        "2025-09-18T07"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-09-24",
+        "2025-09-24T05"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-09-29",
+        "2025-09-29T06"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-10-03",
+        "2025-10-03T05"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-10-13",
+        "2025-10-13T06"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-10-28",
+        "2025-10-28T05"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-06",
+        "2025-11-06T05"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T05"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 5,
+      "symbols": [
+        "NDAQ100",
+        "SPX500",
+        "UK100",
+        "US30",
+        "USNATGAS"
+      ]
+    },
+    {
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T12"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 10,
+      "symbols": [
+        "COPPER",
+        "GASOLINE",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SPX500",
+        "US30",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T20"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "GASOLINE"
+      ]
+    },
+    {
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-12-03",
+        "2025-12-03T05"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-12-15",
+        "2025-12-15T04"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-12-22",
+        "2025-12-22T04"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-12-23",
+        "2025-12-23T04"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-12-24",
+        "2025-12-24T04"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-12-31",
+        "2025-12-31T04"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0019",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-12-31",
+        "2025-12-31T06"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0020",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-01-08",
+        "2026-01-08T05"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0021",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-01-12",
+        "2026-01-12T03"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0022",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-01-14",
+        "2026-01-14T02"
+      ],
+      "anomaly_type": "intra_session_gap",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0023",
+      "cluster_key": [
+        "missing_session",
+        "2025-09-08"
+      ],
+      "anomaly_type": "missing_session",
+      "cluster_size": 3,
+      "symbols": [
+        "CORN",
+        "SOYBEAN",
+        "WHEAT"
+      ]
+    },
+    {
+      "cluster_id": "C0024",
+      "cluster_key": [
+        "missing_session",
+        "2025-11-27"
+      ],
+      "anomaly_type": "missing_session",
+      "cluster_size": 3,
+      "symbols": [
+        "CORN",
+        "SOYBEAN",
+        "WHEAT"
+      ]
+    },
+    {
+      "cluster_id": "C0025",
+      "cluster_key": [
+        "missing_session",
+        "2025-12-24"
+      ],
+      "anomaly_type": "missing_session",
+      "cluster_size": 1,
+      "symbols": [
+        "GER40"
+      ]
+    },
+    {
+      "cluster_id": "C0026",
+      "cluster_key": [
+        "missing_session",
+        "2025-12-25"
+      ],
+      "anomaly_type": "missing_session",
+      "cluster_size": 6,
+      "symbols": [
+        "CORN",
+        "GER40",
+        "SOYBEAN",
+        "UK100",
+        "UKOIL",
+        "WHEAT"
+      ]
+    },
+    {
+      "cluster_id": "C0027",
+      "cluster_key": [
+        "missing_session",
+        "2025-12-26"
+      ],
+      "anomaly_type": "missing_session",
+      "cluster_size": 2,
+      "symbols": [
+        "GER40",
+        "UK100"
+      ]
+    },
+    {
+      "cluster_id": "C0028",
+      "cluster_key": [
+        "missing_session",
+        "2025-12-31"
+      ],
+      "anomaly_type": "missing_session",
+      "cluster_size": 1,
+      "symbols": [
+        "GER40"
+      ]
+    },
+    {
+      "cluster_id": "C0029",
+      "cluster_key": [
+        "missing_session",
+        "2026-01-01"
+      ],
+      "anomaly_type": "missing_session",
+      "cluster_size": 6,
+      "symbols": [
+        "CORN",
+        "GER40",
+        "SOYBEAN",
+        "UK100",
+        "UKOIL",
+        "WHEAT"
+      ]
+    },
+    {
+      "cluster_id": "C0030",
+      "cluster_key": [
+        "missing_session",
+        "2026-01-19"
+      ],
+      "anomaly_type": "missing_session",
+      "cluster_size": 3,
+      "symbols": [
+        "CORN",
+        "SOYBEAN",
+        "WHEAT"
+      ]
+    },
+    {
+      "cluster_id": "C0031",
+      "cluster_key": [
+        "stub_session",
+        "2025-09-08"
+      ],
+      "anomaly_type": "stub_session",
+      "cluster_size": 1,
+      "symbols": [
+        "UKOIL"
+      ]
+    },
+    {
+      "cluster_id": "C0032",
+      "cluster_key": [
+        "stub_session",
+        "2025-09-18"
+      ],
+      "anomaly_type": "stub_session",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0033",
+      "cluster_key": [
+        "stub_session",
+        "2025-09-29"
+      ],
+      "anomaly_type": "stub_session",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0034",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-27"
+      ],
+      "anomaly_type": "stub_session",
+      "cluster_size": 1,
+      "symbols": [
+        "UKOIL"
+      ]
+    },
+    {
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "anomaly_type": "stub_session",
+      "cluster_size": 17,
+      "symbols": [
+        "COPPER",
+        "CORN",
+        "GASOLINE",
+        "GOLD",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SOYBEAN",
+        "SPX500",
+        "UK100",
+        "UKOIL",
+        "US30",
+        "USNATGAS",
+        "USOIL",
+        "WHEAT"
+      ]
+    },
+    {
+      "cluster_id": "C0036",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-23"
+      ],
+      "anomaly_type": "stub_session",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "anomaly_type": "stub_session",
+      "cluster_size": 17,
+      "symbols": [
+        "COPPER",
+        "CORN",
+        "GASOLINE",
+        "GOLD",
+        "JPN225",
+        "NDAQ100",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SOYBEAN",
+        "SPX500",
+        "UK100",
+        "UKOIL",
+        "US30",
+        "USNATGAS",
+        "USOIL",
+        "WHEAT"
+      ]
+    },
+    {
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "anomaly_type": "stub_session",
+      "cluster_size": 27,
+      "symbols": [
+        "AUDCAD",
+        "AUDUSD",
+        "CADCHF",
+        "CADJPY",
+        "CADNOK",
+        "CADSEK",
+        "COPPER",
+        "EURCAD",
+        "EURUSD",
+        "GASOLINE",
+        "GBPCAD",
+        "GBPUSD",
+        "GOLD",
+        "JPN225",
+        "NDAQ100",
+        "NZDCAD",
+        "NZDUSD",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "US30",
+        "USDCAD",
+        "USDCHF",
+        "USDJPY",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "cluster_id": "C0039",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-26"
+      ],
+      "anomaly_type": "stub_session",
+      "cluster_size": 3,
+      "symbols": [
+        "CORN",
+        "SOYBEAN",
+        "WHEAT"
+      ]
+    },
+    {
+      "cluster_id": "C0040",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-31"
+      ],
+      "anomaly_type": "stub_session",
+      "cluster_size": 3,
+      "symbols": [
+        "CORN",
+        "UK100",
+        "UKOIL"
+      ]
+    },
+    {
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "anomaly_type": "stub_session",
+      "cluster_size": 27,
+      "symbols": [
+        "AUDCAD",
+        "AUDUSD",
+        "CADCHF",
+        "CADJPY",
+        "CADNOK",
+        "CADSEK",
+        "COPPER",
+        "EURCAD",
+        "EURUSD",
+        "GASOLINE",
+        "GBPCAD",
+        "GBPUSD",
+        "GOLD",
+        "JPN225",
+        "NDAQ100",
+        "NZDCAD",
+        "NZDUSD",
+        "PALLADIUM",
+        "PLATINUM",
+        "SILVER",
+        "SPX500",
+        "US30",
+        "USDCAD",
+        "USDCHF",
+        "USDJPY",
+        "USNATGAS",
+        "USOIL"
+      ]
+    },
+    {
+      "cluster_id": "C0042",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-02"
+      ],
+      "anomaly_type": "stub_session",
+      "cluster_size": 3,
+      "symbols": [
+        "CORN",
+        "SOYBEAN",
+        "WHEAT"
+      ]
+    },
+    {
+      "cluster_id": "C0043",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-08"
+      ],
+      "anomaly_type": "stub_session",
+      "cluster_size": 1,
+      "symbols": [
+        "CORN"
+      ]
+    },
+    {
+      "cluster_id": "C0044",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2025-10-12"
+      ],
+      "anomaly_type": "sunday_anomaly",
+      "cluster_size": 1,
+      "symbols": [
+        "SILVER"
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "event_index": 0,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 1,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 2,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 3,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 4,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 5,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 6,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 7,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 8,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 9,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 10,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 11,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 12,
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T12"
+      ],
+      "cluster_size": 10,
+      "venue_concentration": {
+        "unique_symbols": 10,
+        "top_symbol_share": 0.1
+      }
+    },
+    {
+      "event_index": 13,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 14,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 15,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 16,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 17,
+      "cluster_id": "C0001",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-09-03",
+        "2025-09-03T04"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 18,
+      "cluster_id": "C0023",
+      "cluster_key": [
+        "missing_session",
+        "2025-09-08"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 19,
+      "cluster_id": "C0002",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-09-12",
+        "2025-09-12T05"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 20,
+      "cluster_id": "C0003",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-09-18",
+        "2025-09-18T07"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 21,
+      "cluster_id": "C0032",
+      "cluster_key": [
+        "stub_session",
+        "2025-09-18"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 22,
+      "cluster_id": "C0004",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-09-24",
+        "2025-09-24T05"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 23,
+      "cluster_id": "C0005",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-09-29",
+        "2025-09-29T06"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 24,
+      "cluster_id": "C0033",
+      "cluster_key": [
+        "stub_session",
+        "2025-09-29"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 25,
+      "cluster_id": "C0006",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-10-03",
+        "2025-10-03T05"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 26,
+      "cluster_id": "C0007",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-10-13",
+        "2025-10-13T06"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 27,
+      "cluster_id": "C0008",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-10-28",
+        "2025-10-28T05"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 28,
+      "cluster_id": "C0009",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-06",
+        "2025-11-06T05"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 29,
+      "cluster_id": "C0024",
+      "cluster_key": [
+        "missing_session",
+        "2025-11-27"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 30,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 31,
+      "cluster_id": "C0013",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-12-03",
+        "2025-12-03T05"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 32,
+      "cluster_id": "C0014",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-12-15",
+        "2025-12-15T04"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 33,
+      "cluster_id": "C0015",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-12-22",
+        "2025-12-22T04"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 34,
+      "cluster_id": "C0016",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-12-23",
+        "2025-12-23T04"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 35,
+      "cluster_id": "C0036",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-23"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 36,
+      "cluster_id": "C0017",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-12-24",
+        "2025-12-24T04"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 37,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 38,
+      "cluster_id": "C0026",
+      "cluster_key": [
+        "missing_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 6,
+      "venue_concentration": {
+        "unique_symbols": 6,
+        "top_symbol_share": 0.16666666666666666
+      }
+    },
+    {
+      "event_index": 39,
+      "cluster_id": "C0039",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-26"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 40,
+      "cluster_id": "C0018",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-12-31",
+        "2025-12-31T04"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 41,
+      "cluster_id": "C0019",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-12-31",
+        "2025-12-31T06"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 42,
+      "cluster_id": "C0040",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-31"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 43,
+      "cluster_id": "C0029",
+      "cluster_key": [
+        "missing_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 6,
+      "venue_concentration": {
+        "unique_symbols": 6,
+        "top_symbol_share": 0.16666666666666666
+      }
+    },
+    {
+      "event_index": 44,
+      "cluster_id": "C0042",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-02"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 45,
+      "cluster_id": "C0020",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-01-08",
+        "2026-01-08T05"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 46,
+      "cluster_id": "C0043",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-08"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 47,
+      "cluster_id": "C0021",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-01-12",
+        "2026-01-12T03"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 48,
+      "cluster_id": "C0022",
+      "cluster_key": [
+        "intra_session_gap",
+        "2026-01-14",
+        "2026-01-14T02"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 49,
+      "cluster_id": "C0030",
+      "cluster_key": [
+        "missing_session",
+        "2026-01-19"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 50,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 51,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 52,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 53,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 54,
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T12"
+      ],
+      "cluster_size": 10,
+      "venue_concentration": {
+        "unique_symbols": 10,
+        "top_symbol_share": 0.1
+      }
+    },
+    {
+      "event_index": 55,
+      "cluster_id": "C0012",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T20"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 56,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 57,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 58,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 59,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 60,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 61,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 62,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 63,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 64,
+      "cluster_id": "C0025",
+      "cluster_key": [
+        "missing_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 65,
+      "cluster_id": "C0026",
+      "cluster_key": [
+        "missing_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 6,
+      "venue_concentration": {
+        "unique_symbols": 6,
+        "top_symbol_share": 0.16666666666666666
+      }
+    },
+    {
+      "event_index": 66,
+      "cluster_id": "C0027",
+      "cluster_key": [
+        "missing_session",
+        "2025-12-26"
+      ],
+      "cluster_size": 2,
+      "venue_concentration": {
+        "unique_symbols": 2,
+        "top_symbol_share": 0.5
+      }
+    },
+    {
+      "event_index": 67,
+      "cluster_id": "C0028",
+      "cluster_key": [
+        "missing_session",
+        "2025-12-31"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 68,
+      "cluster_id": "C0029",
+      "cluster_key": [
+        "missing_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 6,
+      "venue_concentration": {
+        "unique_symbols": 6,
+        "top_symbol_share": 0.16666666666666666
+      }
+    },
+    {
+      "event_index": 69,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 70,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 71,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 72,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 73,
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T12"
+      ],
+      "cluster_size": 10,
+      "venue_concentration": {
+        "unique_symbols": 10,
+        "top_symbol_share": 0.1
+      }
+    },
+    {
+      "event_index": 74,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 75,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 76,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 77,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 78,
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T05"
+      ],
+      "cluster_size": 5,
+      "venue_concentration": {
+        "unique_symbols": 5,
+        "top_symbol_share": 0.2
+      }
+    },
+    {
+      "event_index": 79,
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T12"
+      ],
+      "cluster_size": 10,
+      "venue_concentration": {
+        "unique_symbols": 10,
+        "top_symbol_share": 0.1
+      }
+    },
+    {
+      "event_index": 80,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 81,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 82,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 83,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 84,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 85,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 86,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 87,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 88,
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T12"
+      ],
+      "cluster_size": 10,
+      "venue_concentration": {
+        "unique_symbols": 10,
+        "top_symbol_share": 0.1
+      }
+    },
+    {
+      "event_index": 89,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 90,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 91,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 92,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 93,
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T12"
+      ],
+      "cluster_size": 10,
+      "venue_concentration": {
+        "unique_symbols": 10,
+        "top_symbol_share": 0.1
+      }
+    },
+    {
+      "event_index": 94,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 95,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 96,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 97,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 98,
+      "cluster_id": "C0044",
+      "cluster_key": [
+        "sunday_anomaly",
+        "2025-10-12"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 99,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 100,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 101,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 102,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 103,
+      "cluster_id": "C0023",
+      "cluster_key": [
+        "missing_session",
+        "2025-09-08"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 104,
+      "cluster_id": "C0024",
+      "cluster_key": [
+        "missing_session",
+        "2025-11-27"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 105,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 106,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 107,
+      "cluster_id": "C0026",
+      "cluster_key": [
+        "missing_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 6,
+      "venue_concentration": {
+        "unique_symbols": 6,
+        "top_symbol_share": 0.16666666666666666
+      }
+    },
+    {
+      "event_index": 108,
+      "cluster_id": "C0039",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-26"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 109,
+      "cluster_id": "C0029",
+      "cluster_key": [
+        "missing_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 6,
+      "venue_concentration": {
+        "unique_symbols": 6,
+        "top_symbol_share": 0.16666666666666666
+      }
+    },
+    {
+      "event_index": 110,
+      "cluster_id": "C0042",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-02"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 111,
+      "cluster_id": "C0030",
+      "cluster_key": [
+        "missing_session",
+        "2026-01-19"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 112,
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T05"
+      ],
+      "cluster_size": 5,
+      "venue_concentration": {
+        "unique_symbols": 5,
+        "top_symbol_share": 0.2
+      }
+    },
+    {
+      "event_index": 113,
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T12"
+      ],
+      "cluster_size": 10,
+      "venue_concentration": {
+        "unique_symbols": 10,
+        "top_symbol_share": 0.1
+      }
+    },
+    {
+      "event_index": 114,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 115,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 116,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 117,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 118,
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T05"
+      ],
+      "cluster_size": 5,
+      "venue_concentration": {
+        "unique_symbols": 5,
+        "top_symbol_share": 0.2
+      }
+    },
+    {
+      "event_index": 119,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 120,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 121,
+      "cluster_id": "C0026",
+      "cluster_key": [
+        "missing_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 6,
+      "venue_concentration": {
+        "unique_symbols": 6,
+        "top_symbol_share": 0.16666666666666666
+      }
+    },
+    {
+      "event_index": 122,
+      "cluster_id": "C0027",
+      "cluster_key": [
+        "missing_session",
+        "2025-12-26"
+      ],
+      "cluster_size": 2,
+      "venue_concentration": {
+        "unique_symbols": 2,
+        "top_symbol_share": 0.5
+      }
+    },
+    {
+      "event_index": 123,
+      "cluster_id": "C0040",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-31"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 124,
+      "cluster_id": "C0029",
+      "cluster_key": [
+        "missing_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 6,
+      "venue_concentration": {
+        "unique_symbols": 6,
+        "top_symbol_share": 0.16666666666666666
+      }
+    },
+    {
+      "event_index": 125,
+      "cluster_id": "C0031",
+      "cluster_key": [
+        "stub_session",
+        "2025-09-08"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 126,
+      "cluster_id": "C0034",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-27"
+      ],
+      "cluster_size": 1,
+      "venue_concentration": {
+        "unique_symbols": 1,
+        "top_symbol_share": 1.0
+      }
+    },
+    {
+      "event_index": 127,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 128,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 129,
+      "cluster_id": "C0026",
+      "cluster_key": [
+        "missing_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 6,
+      "venue_concentration": {
+        "unique_symbols": 6,
+        "top_symbol_share": 0.16666666666666666
+      }
+    },
+    {
+      "event_index": 130,
+      "cluster_id": "C0040",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-31"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 131,
+      "cluster_id": "C0029",
+      "cluster_key": [
+        "missing_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 6,
+      "venue_concentration": {
+        "unique_symbols": 6,
+        "top_symbol_share": 0.16666666666666666
+      }
+    },
+    {
+      "event_index": 132,
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T05"
+      ],
+      "cluster_size": 5,
+      "venue_concentration": {
+        "unique_symbols": 5,
+        "top_symbol_share": 0.2
+      }
+    },
+    {
+      "event_index": 133,
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T12"
+      ],
+      "cluster_size": 10,
+      "venue_concentration": {
+        "unique_symbols": 10,
+        "top_symbol_share": 0.1
+      }
+    },
+    {
+      "event_index": 134,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 135,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 136,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 137,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 138,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 139,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 140,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 141,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 142,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 143,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 144,
+      "cluster_id": "C0010",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T05"
+      ],
+      "cluster_size": 5,
+      "venue_concentration": {
+        "unique_symbols": 5,
+        "top_symbol_share": 0.2
+      }
+    },
+    {
+      "event_index": 145,
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T12"
+      ],
+      "cluster_size": 10,
+      "venue_concentration": {
+        "unique_symbols": 10,
+        "top_symbol_share": 0.1
+      }
+    },
+    {
+      "event_index": 146,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 147,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 148,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 149,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 150,
+      "cluster_id": "C0011",
+      "cluster_key": [
+        "intra_session_gap",
+        "2025-11-28",
+        "2025-11-28T12"
+      ],
+      "cluster_size": 10,
+      "venue_concentration": {
+        "unique_symbols": 10,
+        "top_symbol_share": 0.1
+      }
+    },
+    {
+      "event_index": 151,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 152,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 153,
+      "cluster_id": "C0038",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 154,
+      "cluster_id": "C0041",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 27,
+      "venue_concentration": {
+        "unique_symbols": 27,
+        "top_symbol_share": 0.037037037037037035
+      }
+    },
+    {
+      "event_index": 155,
+      "cluster_id": "C0023",
+      "cluster_key": [
+        "missing_session",
+        "2025-09-08"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 156,
+      "cluster_id": "C0024",
+      "cluster_key": [
+        "missing_session",
+        "2025-11-27"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 157,
+      "cluster_id": "C0035",
+      "cluster_key": [
+        "stub_session",
+        "2025-11-28"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 158,
+      "cluster_id": "C0037",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-24"
+      ],
+      "cluster_size": 17,
+      "venue_concentration": {
+        "unique_symbols": 17,
+        "top_symbol_share": 0.058823529411764705
+      }
+    },
+    {
+      "event_index": 159,
+      "cluster_id": "C0026",
+      "cluster_key": [
+        "missing_session",
+        "2025-12-25"
+      ],
+      "cluster_size": 6,
+      "venue_concentration": {
+        "unique_symbols": 6,
+        "top_symbol_share": 0.16666666666666666
+      }
+    },
+    {
+      "event_index": 160,
+      "cluster_id": "C0039",
+      "cluster_key": [
+        "stub_session",
+        "2025-12-26"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 161,
+      "cluster_id": "C0029",
+      "cluster_key": [
+        "missing_session",
+        "2026-01-01"
+      ],
+      "cluster_size": 6,
+      "venue_concentration": {
+        "unique_symbols": 6,
+        "top_symbol_share": 0.16666666666666666
+      }
+    },
+    {
+      "event_index": 162,
+      "cluster_id": "C0042",
+      "cluster_key": [
+        "stub_session",
+        "2026-01-02"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    },
+    {
+      "event_index": 163,
+      "cluster_id": "C0030",
+      "cluster_key": [
+        "missing_session",
+        "2026-01-19"
+      ],
+      "cluster_size": 3,
+      "venue_concentration": {
+        "unique_symbols": 3,
+        "top_symbol_share": 0.3333333333333333
+      }
+    }
+  ]
+}

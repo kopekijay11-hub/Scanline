@@ -50,7 +50,13 @@ def validate_r1(ctx: ValidationContext) -> List[Dict[str, Any]]:
                             "detail": f"defined_at ({defined_at}) != frozen_at ({frozen_at_str})",
                         })
                 symbol = event.get("symbol")
-                sched = utils.cluster_expected_bars(param_data, symbol)
+                atype = event.get("anomaly_type")
+                if atype == "sunday_anomaly":
+                    sched = utils.cluster_expected_sun_bars(param_data, symbol)
+                    sched_label = "expected_sun_bars"
+                else:
+                    sched = utils.cluster_expected_bars(param_data, symbol)
+                    sched_label = "expected_bars"
                 if sched is None:
                     violations.append({
                         "rule": "R1",
@@ -63,7 +69,7 @@ def validate_r1(ctx: ValidationContext) -> List[Dict[str, Any]]:
                             violations.append({
                                 "rule": "R1",
                                 "event_index": idx,
-                                "detail": f"expected_bars {event.get('expected_bars')} != frozen schedule {sched} for {symbol}",
+                                "detail": f"expected_bars {event.get('expected_bars')} != frozen {sched_label} {sched} for {symbol}",
                             })
                     except (TypeError, ValueError):
                         violations.append({

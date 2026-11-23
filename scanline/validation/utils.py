@@ -68,6 +68,38 @@ def cluster_expected_bars(param_data: Any, symbol: Any) -> Any:
     return None
 
 
+def cluster_expected_sun_bars(param_data: Any, symbol: Any) -> Any:
+    if not isinstance(param_data, dict):
+        return None
+    for key in ("expected_sun_bars", "sunday_expected_bars", "expected_sunday_bars"):
+        val = param_data.get(key)
+        if isinstance(val, dict):
+            if symbol in val:
+                return val.get(symbol)
+    for key in ("clusters", "cluster_schedule", "clusters_schedule", "session_clusters", "cluster_expected_bars"):
+        val = param_data.get(key)
+        if isinstance(val, dict):
+            c = val.get(symbol)
+            if isinstance(c, dict):
+                for ek in ("expected_sun_bars", "sunday_expected_bars", "expected_sunday_bars"):
+                    if ek in c:
+                        return c.get(ek)
+        if isinstance(val, list):
+            for item in val:
+                if isinstance(item, dict) and item.get("symbol") == symbol:
+                    for ek in ("expected_sun_bars", "sunday_expected_bars", "expected_sunday_bars"):
+                        if ek in item:
+                            return item.get(ek)
+    clusters = param_data.get("clusters")
+    if isinstance(clusters, dict):
+        for cname, cinfo in clusters.items():
+            if isinstance(cinfo, dict) and cinfo.get("symbol") == symbol:
+                for ek in ("expected_sun_bars", "sunday_expected_bars", "expected_sunday_bars"):
+                    if ek in cinfo:
+                        return cinfo.get(ek)
+    return None
+
+
 def normalize_module(raw_module: Any) -> Any:
     return normalize_module_id(raw_module)
 

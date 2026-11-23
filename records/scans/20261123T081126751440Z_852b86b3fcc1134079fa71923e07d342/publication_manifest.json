@@ -1,0 +1,27 @@
+{
+  "publication_manifest_version": "1.0.0",
+  "scan_id": "20261123T081126751440Z_852b86b3fcc1134079fa71923e07d342",
+  "module": "session_anomalies",
+  "param_version": "1.1.0",
+  "batch_sha256": "db813c330ca35cb2595ac3eddd8e4691ff182869295b0ddb7cbf76b3787d0499",
+  "outputs": [
+    {
+      "name": "events.json",
+      "sha256": "db813c330ca35cb2595ac3eddd8e4691ff182869295b0ddb7cbf76b3787d0499"
+    },
+    {
+      "name": "scanner_data_manifest.json",
+      "sha256": "2bedb545a2daa24fd376ac65a480992b2da7a774ffe6166a9beb84518ae82b83"
+    },
+    {
+      "name": "cluster_annotations.json",
+      "sha256": "1d04e1206198c68263d7a1378d44567179d74910cf997e0b9257fdd331e74ee4"
+    },
+    {
+      "name": "calendar_attribution_v2.json",
+      "sha256": "765fa04cf386bad1144561023c6ad6a6a35f11ef1a2933b0e11b9c6eac64b870"
+    }
+  ],
+  "published_at_utc": "2026-11-23T08:12:49Z",
+  "publisher_code_commit": "0c0051d62eb2580d37404540ee45c94eee594fc7"
+}

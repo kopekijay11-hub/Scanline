@@ -591,31 +591,32 @@ def _ensure_default_registry() -> None:
                 description=f"Level proximity schema v1 for param_version {pv}",
             ))
 
-    skey = ("session_anomalies", "1.0.0")
-    if skey not in _REGISTRY:
-        register_schema(SchemaEntry(
-            module="session_anomalies",
-            config_family="session_anomalies",
-            config_schema_version="1",
-            param_version="1.0.0",
-            allowed_fields=(
-                "module","param_version","frozen_at","config_schema_version","config_family","symbols","universe","emission_timeframes",
-            ),
-            allowed_raw_fields=(
-                "module","param_version","frozen_at","universe","emission_timeframes","symbol",
-                "clusters","cluster_schedule","clusters_schedule","session_clusters","cluster_expected_bars",
-                "expected_bars","weekday_expected_bars","expected_weekday_bars","expected",
-                "expected_sun_bars","sunday_expected_bars","expected_sunday_bars","sunday_bars",
-                "zone","timezone","tz","time_zone",
-                "maintenance_local_start","maintenance_start_local","rollover_local_start","maintenance_start",
-                "maintenance_local_end","maintenance_end_local","rollover_local_end","maintenance_end",
-                "maintenance_utc_start","maintenance_start_utc","maintenance_utc_end","maintenance_end_utc",
-                "stub_tolerance","stub_tol","sun_tolerance","sun_tol","sunday_tolerance",
-            ),
-            normalize_effective=lambda p, s: _normalize_session_anomalies(p, s),
-            runtime_projection=lambda e: _runtime_session_anomalies(e),
-            description="Session anomalies schema v1 for param_version 1.0.0",
-        ))
+    for pv in ["1.0.0", "1.1.0"]:
+        skey = ("session_anomalies", pv)
+        if skey not in _REGISTRY:
+            register_schema(SchemaEntry(
+                module="session_anomalies",
+                config_family="session_anomalies",
+                config_schema_version="1",
+                param_version=pv,
+                allowed_fields=(
+                    "module","param_version","frozen_at","config_schema_version","config_family","symbols","universe","emission_timeframes",
+                ),
+                allowed_raw_fields=(
+                    "module","param_version","frozen_at","universe","emission_timeframes","symbol",
+                    "clusters","cluster_schedule","clusters_schedule","session_clusters","cluster_expected_bars",
+                    "expected_bars","weekday_expected_bars","expected_weekday_bars","expected",
+                    "expected_sun_bars","sunday_expected_bars","expected_sunday_bars","sunday_bars",
+                    "zone","timezone","tz","time_zone",
+                    "maintenance_local_start","maintenance_start_local","rollover_local_start","maintenance_start",
+                    "maintenance_local_end","maintenance_end_local","rollover_local_end","maintenance_end",
+                    "maintenance_utc_start","maintenance_start_utc","maintenance_utc_end","maintenance_end_utc",
+                    "stub_tolerance","stub_tol","sun_tolerance","sun_tol","sunday_tolerance",
+                ),
+                normalize_effective=lambda p, s: _normalize_session_anomalies(p, s),
+                runtime_projection=lambda e: _runtime_session_anomalies(e),
+                description=f"Session anomalies schema v1 for param_version {pv}",
+            ))
 
 
 def load_config(param_path: str | Path, *, schema_version: Optional[str] = None) -> LoadedConfig:
